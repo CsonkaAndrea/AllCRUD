@@ -11,12 +11,40 @@ module.exports = class DB {
         pool.getConnection().then(conn => this.conn = conn);
     };
 
-    create() {};
 
-    read() {};
+    /**
+       * readAll and read method, get data from database
+       * @param {string} table table name
+       * @param {number} id 
+       */
 
-    update() {};    
+    async readOne(table, id) {
+        const sql = `
+      SELECT * 
+      FROM ${table}
+      WHERE id=${id}
+      `;
+        const result = await this.conn.query(sql);
+        return result[0];
+    }
 
-    delete() {};
+    async readAll(table) {
+        const sql = `
+             SELECT * 
+             FROM ${table}
+             `;
+        const result = await this.conn.query(sql);
+        return result;
+    };
 
-}
+
+    create() { };
+
+    update() { };
+
+    delete() { };
+
+
+};
+
+
