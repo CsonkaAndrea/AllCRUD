@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-// DB.js modul példányosítása
-const DB = require('../modules/DB');
-const dataBase = new DB();
+const ProductDB = require('../modules/productDB');
+const productDB = new ProductDB();
 
-// Api works
-router.get('/', (req, res, next) => {
-    res.json('/api works');
+
+router.get('/users', async (req, res, next) => {
+    let result = await productDB.getAllProducts();
+    res.json(result);
 });
 
 module.exports = router;
