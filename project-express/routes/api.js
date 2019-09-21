@@ -9,4 +9,10 @@ router.get('/users', async (req, res, next) => {
     res.json(result);
 });
 
+router.get('/users/:id', async (req, res, next) => {
+    let result = await productDB.getOneProduct();
+    res.json(result);
+});
+
+
 module.exports = router;

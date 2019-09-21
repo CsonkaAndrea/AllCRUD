@@ -25,6 +25,7 @@ module.exports = class DB {
       WHERE id=${id}
       `;
         const result = await this.conn.query(sql);
+        console.log(`readAll ${result}`);
         return result[0];
     }
 
@@ -34,7 +35,6 @@ module.exports = class DB {
              FROM ${table}
              `;
         const result = await this.conn.query(sql);
-        console.log(`readAll ${result}`);
         return result;
     };
 

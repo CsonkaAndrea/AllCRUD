@@ -16,8 +16,13 @@ module.exports = class productDB {
     */
     async getAllProducts() {
         const result = await db.readAll('product');
-        console.log(result);
         return result;
     };
+
+    async getOneProduct(id) {
+        const result = await db.readOne('product', id);
+        console.log(result);
+        return result;
+    }
 
 }
