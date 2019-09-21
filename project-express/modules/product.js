@@ -1,4 +1,4 @@
-const DB = require('../modules/db');
+const DB = require('../modules/DB');
 
 const db = new DB();
 
@@ -18,6 +18,6 @@ module.exports = class productDB {
         const result = await db.readAll('product');
         console.log(result);
         return result;
-    }
+    };
 
 }

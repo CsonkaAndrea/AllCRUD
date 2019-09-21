@@ -34,6 +34,7 @@ module.exports = class DB {
              FROM ${table}
              `;
         const result = await this.conn.query(sql);
+        console.log(`readAll ${result}`);
         return result;
     };
 
