@@ -39,7 +39,30 @@ module.exports = class DB {
     };
 
 
-    create() { };
+    async create(object, table) {
+        let columnNames = '';
+        let rowValues = '';
+
+        for (let key in object) {
+            columnNames += `${key}, `;
+            if (typeof object[key] === 'number') {
+                rowValues += `${object[key]}, `;
+            } else {
+                rowValues += `'${object[key]}', `;
+            }
+        }
+        columnNames = columnNames.slice(0, columnNames.length - 2);
+        rowValues = rowValues.slice(0, rowValues.length - 2);
+
+        const sql = `
+INSERT INTO ${table} 
+(${columnNames})
+VALUES
+(${rowValues})
+`
+        const result = await this.conn.query(sql);
+        return result;
+    }
 
     update() { };
 
