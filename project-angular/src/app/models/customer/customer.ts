@@ -1,7 +1,7 @@
 export class Customer {
-    customerId: number = 0;
-    customerFirstName: string = 'proba';
-    customerLastName: string = 'proba';
-    customerPassword: string = 'proba';
-    customerUsername: string = 'proba';
+    id: number = 0;
+    customerFirstName: string = '';
+    customerLastName: string = '';
+    customerPassword: string = '';
+    customerUsername: string = '';
 }
