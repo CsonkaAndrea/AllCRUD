@@ -78,24 +78,22 @@ VALUES
           */
 
     async update(object, table) {
-        let columnNames = '';
-        let rowValues = '';
+        let objectToString = '';
 
         for (let key in object) {
-            columnNames += `${key}, `;
+            objectToString += `${key} = `;
             if (typeof object[key] === 'number') {
-                rowValues += `${object[key]}, `;
+                objectToString += `${object[key]}, `;
             } else {
-                rowValues += `'${object[key]}', `;
+                objectToString += `'${object[key]}', `;
             }
         }
-        columnNames = columnNames.slice(0, columnNames.length - 2);
-        rowValues = rowValues.slice(0, rowValues.length - 2);
+        objectToString = objectToString.slice(0, objectToString.length - 2);
+
         const sql = `
         UPDATE ${table} 
-        (${columnNames})
         SET
-        (${rowValues})
+        (${objectToString})
         WHERE id=${object.id}
         `;
         const result = await this.conn.query(sql);
