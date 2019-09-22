@@ -5,7 +5,7 @@
 
       /**
        * getOneProduct and getAllProducts get data from database through db.js
-       * @param {number} productsId 
+       * @param {number} id 
        */
 
       async getAllProducts() {

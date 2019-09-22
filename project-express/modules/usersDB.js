@@ -13,10 +13,15 @@ module.exports = class usersDB {
         return result;
     };
 
-    async createUser(object) {
-        const result = await db.create('customers', object);
-
+    async deleteUser(id) {
+        const result = await db.delete('customers', id);
         return result;
     };
+
+    async updateUser(object) {
+        const result = await db.update(object, 'customers');
+        return result;
+    }
+
 
 }

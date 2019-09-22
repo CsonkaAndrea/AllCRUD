@@ -25,7 +25,6 @@ module.exports = class DB {
       WHERE id=${id}
       `;
         const result = await this.conn.query(sql);
-
         return result[0];
     }
 
@@ -38,6 +37,12 @@ module.exports = class DB {
         return result;
     };
 
+
+    /**
+     * Create method for database
+     * @param {string}  table table name
+     * @param {object} object object from req.body, keys are the column names of the table, rows are the values
+     */
 
     async create(object, table) {
         let columnNames = '';
@@ -55,18 +60,59 @@ module.exports = class DB {
         rowValues = rowValues.slice(0, rowValues.length - 2);
 
         const sql = `
-INSERT INTO ${table} 
-(${columnNames})
-VALUES
-(${rowValues})
-`
+            INSERT INTO ${table} 
+            (${columnNames})
+            VALUES
+            (${rowValues})
+            `;
         const result = await this.conn.query(sql);
         return result;
     }
 
-    update() {};
 
-    delete() {};
+    /**
+     * update method for database
+     * @param {string}  table table name
+     * @param {object} object req.body, keys are the column names of the table, rows are the values
+     */
 
+    async update(object, table) {
+        let objectToString = '';
+
+        for (let key in object) {
+            objectToString += `${key} = `;
+            if (typeof object[key] === 'number') {
+                objectToString += `${object[key]}, `;
+            } else {
+                objectToString += `'${object[key]}', `;
+            }
+        }
+        objectToString = objectToString.slice(0, objectToString.length - 2);
+
+        const sql = `
+        UPDATE ${table} 
+        SET
+        (${objectToString})
+        WHERE id=${object.id}
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    };
+
+
+    /**
+     * Create method for database
+     * @param {string}  table table name
+     * @param {object} object object from req.body, keys are the column names of the table, rows are the values
+     */
+
+    async delete(table, object) {
+        let sql = `
+        DELETE FROM ${table}
+        WHERE id = ${object.id}
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    };
 
 };
