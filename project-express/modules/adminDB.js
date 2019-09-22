@@ -9,30 +9,30 @@ module.exports = class productDB {
            * @param {number} productId 
            */
 
-    async getAllProducts() {
+    async getAllAdmins() {
         const result = await db.readAll('product');
         return result;
     };
 
-    async getOneProduct(id) {
+    async getOneAdmin(id) {
         const result = await db.readOne('product', id);
         console.log(result);
         return result;
     };
 
-    async createProduct(object) {
+    async createAdmin(object) {
         const result = await db.create('product', object);
         console.log(result);
         return result;
     };
 
-    async updateProduct(object) {
+    async updateAdmin(object) {
         const result = await db.update('product', object);
         console.log(result);
         return result;
     };
 
-    async deleteProduct(object) {
+    async deleteAdmin(object) {
         const result = await db.delete('product', object);
         console.log(result);
         return result;

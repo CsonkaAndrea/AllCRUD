@@ -39,6 +39,12 @@ module.exports = class DB {
     };
 
 
+    /**
+       * Create method for database
+       * @param {string}  table table name
+       * @param {object} object object from req.body, keys are the column names of the table, rows are the values
+       */
+
     async create(object, table) {
         let columnNames = '';
         let rowValues = '';
@@ -59,15 +65,58 @@ INSERT INTO ${table}
 (${columnNames})
 VALUES
 (${rowValues})
-`
+`;
         const result = await this.conn.query(sql);
         return result;
     }
 
-    update() { };
 
-    delete() { };
+    /**
+          * update method for database
+          * @param {string}  table table name
+          * @param {object} object req.body, keys are the column names of the table, rows are the values
+          */
 
+    async update(object, table) {
+        let columnNames = '';
+        let rowValues = '';
+
+        for (let key in object) {
+            columnNames += `${key}, `;
+            if (typeof object[key] === 'number') {
+                rowValues += `${object[key]}, `;
+            } else {
+                rowValues += `'${object[key]}', `;
+            }
+        }
+        columnNames = columnNames.slice(0, columnNames.length - 2);
+        rowValues = rowValues.slice(0, rowValues.length - 2);
+        const sql = `
+        UPDATE ${table} 
+        (${columnNames})
+        SET
+        (${rowValues})
+        WHERE id=${object.id}
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    };
+
+
+    /**
+           * Create method for database
+           * @param {string}  table table name
+           * @param {object} object object from req.body, keys are the column names of the table, rows are the values
+           */
+
+    async delete(table, object) {
+        let sql = `
+        DELETE FROM ${table}
+        WHERE id = ${object.id}
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    };
 
 };
 

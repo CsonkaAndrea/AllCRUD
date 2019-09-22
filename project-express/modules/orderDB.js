@@ -9,31 +9,31 @@ module.exports = class productDB {
            * @param {number} productId 
            */
 
-    async getAllProducts() {
-        const result = await db.readAll('product');
+    async getAllOrders() {
+        const result = await db.readAll('order');
         return result;
     };
 
-    async getOneProduct(id) {
-        const result = await db.readOne('product', id);
+    async getOneOrder(id) {
+        const result = await db.readOne('order', id);
         console.log(result);
         return result;
     };
 
-    async createProduct(object) {
-        const result = await db.create('product', object);
+    async createOrder(object) {
+        const result = await db.create('order', object);
         console.log(result);
         return result;
     };
 
-    async updateProduct(object) {
-        const result = await db.update('product', object);
+    async updateOrder(object) {
+        const result = await db.update('order', object);
         console.log(result);
         return result;
     };
 
-    async deleteProduct(object) {
-        const result = await db.delete('product', object);
+    async deleteOrder(object) {
+        const result = await db.delete('order', object);
         console.log(result);
         return result;
     };
