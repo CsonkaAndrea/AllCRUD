@@ -1,8 +1,45 @@
 body {
-  padding: 50px;
+  background-image: url(/img/vintage-bckgrnd.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  padding-top: 100px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
 }
+
+@font-face {
+  font-family: sixtiesFont;
+  src: url(/fonts/vipnagorgialla.ttf);
+}
+
+@font-face {
+  font-family: footerFont;
+  src: url(/fonts/OpenSans-Light.ttf);
+}
+
+.navbar-nav .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  height: 50px;
+  line-height: 50px;
+  font-family: sixtiesFont, Arial, Helvetica, sans-serif;
+  font-size: 15pt;
+  margin-left:30px;
+  margin-right:30px;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: footerFont, Arial, Helvetica, sans-serif;
+}
+

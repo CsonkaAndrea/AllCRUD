@@ -4,5 +4,75 @@ html
     title= title
     link(rel='stylesheet' href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
   body
     block content
+    nav.navbar.navbar-expand-md.navbar-light.bg-fade
+      a.navbar-brand.d-md-none(href='#')
+      button.navbar-toggler.ml-auto(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      .d-md-flex.d-block.w-100
+        .collapse.navbar-collapse.mx-auto.w-auto.justify-content-center#navbarNavAltMarkup
+          .navbar-nav
+            a.nav-item.nav-link(href='#')
+              | Home 
+              span.sr-only (current)
+            a.nav-item.nav-link(href='#') Features
+            a.navbar-brand.mx-2.d-none.d-md-inline(href='#')
+              img(src='/img/lp.svg', alt='lp-vinyl', height='42', width='42', id='lpsvg')
+            a.nav-item.nav-link(href='#') Pricing
+            a.nav-item.nav-link(href='#') Disabled
+
+    footer.page-footer.font-small.indigo 
+      .container.text-center.text-md-left
+        .row 
+          hr.clearfix.w-100.d-md-none
+          //  Grid column 
+          .col-md-3.mx-auto
+            //  Links 
+            h5.font-weight-bold.text-uppercase.mt-3.mb-4 Oldaltérkép
+            ul.list-unstyled
+              li
+                a(href='#!') Nyitóoldal
+              li
+                a(href='#!') Termékek
+          //  Grid column 
+          hr.clearfix.w-100.d-md-none
+          //  Grid column 
+          .col-md-3.mx-auto
+            //  Links 
+            h5.font-weight-bold.text-uppercase.mt-3.mb-4 Vásárlói fiók
+            ul.list-unstyled
+              li
+                a(href='#!') Link 1
+              li
+                a(href='#!') Link 2
+              li
+                a(href='#!') Link 3
+              li
+                a(href='#!') Link 4
+          //  Grid column 
+          hr.clearfix.w-100.d-md-none
+          //  Grid column 
+          .col-md-3.mx-auto
+            //  Links 
+            h5.font-weight-bold.text-uppercase.mt-3.mb-4 Információ
+            ul.list-unstyled
+              li
+                a(href='#!') Link 1
+              li
+                a(href='#!') Link 2
+              li
+                a(href='#!') Link 3
+              li
+                a(href='#!') Link 4
+          //  Grid column 
+        //  Grid row 
+      //  Footer Links 
+      //  Copyright 
+      .footer-copyright.text-center.py-3
+        | © 2018 Copyright:
+
+        a(href='https://mdbootstrap.com/education/bootstrap/') MDBootstrap.com
+      //  Copyright 
+    //  Footer 
