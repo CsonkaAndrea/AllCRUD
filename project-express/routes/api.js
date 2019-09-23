@@ -4,7 +4,13 @@ const ProductDB = require('../modules/productDB');
 const productDB = new ProductDB();
 const UsersDB = require('../modules/usersDB');
 const usersDB = new UsersDB();
+const OrdersDB = require('../modules/orderDB');
+const ordersDB = new OrdersDB();
 
+// Check API
+router.get('/', (req, res, next) => {
+res.json('API works :)');
+});
 
 router.get('/products', async (req, res, next) => {
     let result = await productDB.getAllProducts();
@@ -44,6 +50,13 @@ router.delete('/users/:id', async (req, res, next) => {
 // Update user
 router.post('/users/:id', async (req, res, next) => {
     let result = await usersDB.updateUser(req.body);
+    res.json(result);
+});
+
+// ORDERS
+// Get all orders
+router.get('/orders', async (req, res, next) => {
+    let result = await ordersDB.getAllOrders();
     res.json(result);
 });
 
