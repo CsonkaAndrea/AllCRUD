@@ -1,1 +1,42 @@
-<p>products works!</p>
+<h1 class="text-center">{{ title }}</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
+    </div>
+    <div class="col-5">
+        <button class="btn btn-primary" routerLink="/admin/new-products">Details</button>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Product name</th>
+      <th>SEO friendly</th>
+      <th>Category</th>
+      <th>Picture Url</th>
+      <th>Publisher</th>
+      <th>Price</th>
+      <th>Stock</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+<tbody>
+  <tr *ngFor="let product of products">
+    <td>{{ product.productId }}</td>
+    <td>{{ product.productName }}</td>
+    <td>{{ product.seoFriendlyProductName }}</td>
+    <td>{{ product.productCategory }}</td>
+    <td>{{ product.pictureUrl }}</td>
+    <td>{{ product.publisher }}</td>
+    <td>{{ product.price }}</td>
+    <td>{{ product.stock }}</td>
+    <td>
+      <button class="btn btn-primary" routerLink="/admin/products/{{ product.productId }}">Details</button>
+    </td>
+  </tr>
+</tbody>
+</table>

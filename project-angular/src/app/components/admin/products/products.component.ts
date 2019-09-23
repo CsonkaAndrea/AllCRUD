@@ -13,6 +13,7 @@ export class ProductsComponent implements OnInit {
   products: Product[];
   updatedProduct: Product = new Product();
   title: 'Available Products';
+  filterPhrase = '';
 
   constructor(
     private productService: ProductService,
