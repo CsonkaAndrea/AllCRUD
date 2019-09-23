@@ -92,7 +92,7 @@ module.exports = class DB {
         const sql = `
         UPDATE ${table} 
         SET
-        (${objectToString})
+        ${objectToString}
         WHERE id=${object.id}
         `;
         const result = await this.conn.query(sql);

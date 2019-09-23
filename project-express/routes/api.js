@@ -1,23 +1,23 @@
   const express = require('express');
   const router = express.Router();
-  const ProductsDB = require('../modules/productsDB');
+  const ProductsDB = require('../modules/productDB');
   const productsDB = new ProductsDB();
   const UsersDB = require('../modules/usersDB');
   const usersDB = new UsersDB();
 
   // PRODUCTS
   router.get('/products', async (req, res, next) => {
-      let result = await productsDB.getAllProducts();
+      let result = await productDB.getAllProducts();
       res.json(result);
   });
 
   router.get('/products/:id', async (req, res, next) => {
-      let result = await productsDB.getOneProduct(req.params.id);
+      let result = await productDB.getOneProduct();
       res.json(result);
   });
 
   router.post('/products/:id', async (req, res, next) => {
-      let result = await productsDB.createProduct(req.body);
+      let result = await productDB.createProduct(req.body);
       res.json(result);
   });
 
