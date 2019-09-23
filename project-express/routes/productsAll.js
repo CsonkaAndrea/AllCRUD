@@ -12,4 +12,12 @@ router.get('/', async (req, res, next) => {
     res.json(productsAll);
 });
 
+router.get('/:id', async (req, res, next) => {
+    const product = await productDB.getOneProduct(req.params.id);
+    res.render('product', {
+        title: `Product ${req.params.id}`,
+        product: product
+    })
+})
+
 module.exports = router;
