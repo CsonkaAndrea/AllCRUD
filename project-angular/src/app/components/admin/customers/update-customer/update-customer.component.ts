@@ -1,5 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomersService } from 'src/app/services/customers.service';
+import { Customer } from 'src/app/models/customer/customer';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-update-customer',
@@ -8,17 +10,30 @@ import { CustomersService } from 'src/app/services/customers.service';
 })
 export class UpdateCustomerComponent implements OnInit {
 
-  @Input() customerForInput;
+  customer: Customer = new Customer();
+  updateUserId: Number;
 
-  constructor(private customersService: CustomersService) { }
+  constructor(
+    private customersService: CustomersService,
+    private router: Router) {
+    // User ID from URL
+    this.updateUserId = parseInt(this.router.url.split('/')[3]);
 
-  ngOnInit() {
-  }
-
-  onSubmit($event: Event) {
-    $event.preventDefault();
-    this.customersService.update(this.customerForInput).subscribe()
+    // Filter user from all users 
+    this.customersService.getAll().subscribe(customers => {
+      this.customer = customers.filter(c => c.id === this.updateUserId)[0],
+        console.log(this.customer);
+    }
+    )
   };
 
+  ngOnInit() {
+  };
 
-}
+  onEdit($event: Event) {
+    $event.preventDefault();
+    this.customersService.update(this.customer).forEach(() => this.router.navigateByUrl('/admin/users'));
+  };
+
+};
+

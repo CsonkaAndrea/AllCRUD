@@ -9,7 +9,7 @@
               <th>Last Name</th>
               <th>Username</th>
               <th>Password</th>
-              <th>Update/Delete</th>
+              <th>Edit/Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -21,7 +21,8 @@
               <td>{{ customer.customerPassword }}</td>
               <td>
                 <div class="btn-group">
-                  <button (click)="onUpdateCustomer(customer)">Update</button>
+                  <button
+                          routerLink="/admin/users/{{customer.id}}">Edit</button>
                   <button (click)="onDeleteCustomer(customer)">Delete</button>
                 </div>
               </td>
@@ -30,5 +31,4 @@
         </table>
       </div>
     </div>
-    <app-update-customer [customerForInput]="updateCustomer"></app-update-customer>
   </div>

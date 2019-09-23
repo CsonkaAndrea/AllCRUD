@@ -16,12 +16,16 @@ export class CustomersService {
     return this.httpClient.get(this.url)
   };
 
+  getOne(id: Number): Observable<any> {
+    return this.httpClient.get(`${this.url}/${id}`)
+  };
+
   remove(customer: Customer): Observable<any> {
     return this.httpClient.delete(`${this.url}/${customer.id}`);
   };
 
   update(customer: Customer): Observable<any> {
     return this.httpClient.post(`${this.url}/${customer.id}`, customer);
-  }; 
+  };
 
 }
