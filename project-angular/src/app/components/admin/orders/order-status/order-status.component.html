@@ -5,9 +5,7 @@
           <thead>
             <tr>
               <th>Customer ID</th>
-              <th>Customer Name(másik táblából)</th>
               <th>Order Date</th>
-              <th>Hány tétel?(másik táblából)</th>
               <th>Value</th>
               <th>Order Status</th>
               <th>Edit</th>
@@ -16,14 +14,19 @@
           <tbody>
             <tr *ngFor="let order of orders">
               <td>{{ order.customerId}}</td>
-              <td>Folyamatban... Customer neve is kell</td>
               <td>{{ order.orderDate }}</td>
-              <td>Folyamatban... (másik táblából)</td>
               <td>{{ order.value }}</td>
-              <td>{{ order.orderStatus }}</td>
+              <td>
+               <select name="orderStatus" id="orderStatus" [(value)]="selected">
+                 <option value="Received" selected>Received</option>
+                 <option value="Processed">Processed</option>
+                 <option value="Shipped">Shipped</option>
+                 <option value="Delivered">Delivered</option>
+               </select>
+              </td>
               <td>
                 <div class="btn-group">
-                  <button routerLink="/admin/orders/{{order.id}}">Edit</button>
+                  <button routerLink="/admin/orders/{{order.id}}">Submit</button>
                 </div>
               </td>
             </tr>
