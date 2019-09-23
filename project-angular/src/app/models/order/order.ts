@@ -1,7 +1,7 @@
 export class Order {
-    orderId: number = 0;
-    orderDate: string = 'proba';
+    id: number = 0;
+    orderDate: string = '';
     customerId: number = 0;
-    orderStatus: string = 'proba';
+    orderStatus: string = '';
     value: number = 0;
 }

@@ -1,1 +1,34 @@
-<p>orders works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Customer Name(másik táblából)</th>
+            <th>Order Date</th>
+            <th>Hány tétel?(másik táblából)</th>
+            <th>Value</th>
+            <th>Order Status</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td>{{ order.customerId}}</td>
+            <td>Folyamatban... Customer neve is kell</td>
+            <td>{{ order.orderDate }}</td>
+            <td>Folyamatban... (másik táblából)</td>
+            <td>{{ order.value }}</td>
+            <td>{{ order.orderStatus }}</td>
+            <td>
+              <div class="btn-group">
+                <button routerLink="/admin/orders/{{order.id}}">Edit</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
