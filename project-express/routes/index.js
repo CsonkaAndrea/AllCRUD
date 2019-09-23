@@ -6,12 +6,12 @@ const productDB = new ProductDB();
 
 /* GET home page. */
 
-router.get('/:id', async (req, res, next) => {
-    const productOne = await productDB.getOneProduct(req.params.id);
+router.get('/', async (req, res, next) => {
+    const productAll = await productDB.getAllProducts();
 
-    console.log(`indexes ${productOne}`)
+    console.log(`indexes ${productAll}`)
 
-    res.json(productOne);
+    res.json(productAll);
 });
 
 module.exports = router;

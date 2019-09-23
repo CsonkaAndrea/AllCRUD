@@ -5,11 +5,14 @@ const productDB = new ProductDB();
 
 
 router.get('/', async (req, res, next) => {
-  const rest = await productDB.restfulEndPoint();
+  const rest = await productDB.createRestful();
 
-  console.log(`indexes ${rest}`)
+  console.log(`useres ${rest}`)
 
   res.json(rest);
 });
+
+
+
 
 module.exports = router;

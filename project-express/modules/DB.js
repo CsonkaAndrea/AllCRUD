@@ -18,6 +18,17 @@ module.exports = class DB {
        * @param {number} id 
        */
 
+
+    async readAll(table) {
+        const sql = `
+             SELECT * 
+             FROM ${table}
+             `;
+        const result = await this.conn.query(sql);
+        return result;
+    };
+
+
     async readOne(table, id) {
         const sql = `
              SELECT * 
@@ -28,15 +39,6 @@ module.exports = class DB {
         console.log(`readAll ${result}`);
         return result[0];
     }
-
-    async readAll(table) {
-        const sql = `
-             SELECT * 
-             FROM ${table}
-             `;
-        const result = await this.conn.query(sql);
-        return result;
-    };
 
 
     /**
@@ -116,6 +118,39 @@ module.exports = class DB {
         return result;
     };
 
+
+    /**
+   * read data from SQL for restful end
+   * @param {string} table name of the table
+   * @param {number} object name of the column
+   */
+
+    async readRestful(table, object) {
+        const sql = `
+        SELECT ${object}
+        FROM ${table}
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    }
+
+
+    /**
+      * write data in SQL for restful end
+      * @param {string} table name of the table
+      * @param {number} object name of the column
+      * UNDER CONSTRUCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      */
+
+    async writeRestful() {
+        const sql = `
+        UPDATE
+        SET
+        WHERE
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    }
 };
 
 

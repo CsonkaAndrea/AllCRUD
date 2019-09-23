@@ -48,14 +48,12 @@ module.exports = class productDB {
         return result;
     };
 
-    async restfulEndPoint() {
-        const sql = `
-        SELECT productName
-        FROM product
-        `;
-        const result = await this.conn.query(sql);
-        console.log(result);
-        return result;
 
+    async createRestful() {
+        const getAllProductNames = await db.readRestful('product', 'productName');
+        console.log(`createRest ${getAllProductNames}`);
+        const result = getAllProductNames.map(p => p.productName = (p.productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g, '-').replace(/---|--/g, '-')));
+
+        return result;
     }
 }
