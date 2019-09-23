@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
+const ProductDB = require('../modules/productDB');
+const productDB = new ProductDB();
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+
+router.get('/', async (req, res, next) => {
+  const rest = await productDB.restfulEndPoint();
+
+  console.log(`indexes ${rest}`)
+
+  res.json(rest);
 });
 
 module.exports = router;

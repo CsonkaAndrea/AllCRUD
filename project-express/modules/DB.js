@@ -20,9 +20,9 @@ module.exports = class DB {
 
     async readOne(table, id) {
         const sql = `
-      SELECT * 
-      FROM ${table}
-      WHERE id=${id}
+             SELECT * 
+             FROM ${table}
+             WHERE id=${id}
       `;
         const result = await this.conn.query(sql);
         console.log(`readAll ${result}`);
@@ -61,10 +61,10 @@ module.exports = class DB {
         rowValues = rowValues.slice(0, rowValues.length - 2);
 
         const sql = `
-INSERT INTO ${table} 
-(${columnNames})
-VALUES
-(${rowValues})
+            INSERT INTO ${table} 
+            (${columnNames})
+            VALUES
+            (${rowValues})
 `;
         const result = await this.conn.query(sql);
         return result;
@@ -91,10 +91,10 @@ VALUES
         objectToString = objectToString.slice(0, objectToString.length - 2);
 
         const sql = `
-        UPDATE ${table} 
-        SET
-        (${objectToString})
-        WHERE id=${object.id}
+            UPDATE ${table} 
+            SET
+            ${objectToString}
+            WHERE id=${object.id}
         `;
         const result = await this.conn.query(sql);
         return result;
@@ -109,8 +109,8 @@ VALUES
 
     async delete(table, object) {
         let sql = `
-        DELETE FROM ${table}
-        WHERE id = ${object.id}
+            DELETE FROM ${table}
+            WHERE id = ${object.id}
         `;
         const result = await this.conn.query(sql);
         return result;
