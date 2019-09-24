@@ -11,7 +11,6 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:address', async (req, res, next) => {
     const product = await productDB.getOneProductSeo(req.params.address);
-
     if (product === undefined) {
         res.render('error', {
             massage: 'Product not exist.'
@@ -23,5 +22,7 @@ router.get('/:address', async (req, res, next) => {
         });
     };
 })
+
+
 
 module.exports = router;
