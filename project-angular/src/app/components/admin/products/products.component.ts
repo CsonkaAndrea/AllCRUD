@@ -18,15 +18,15 @@ export class ProductsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private router: Router
-  ) { };
+  ) { }
 
   ngOnInit() {
     this.productService.getAll().subscribe(product => {
       this.products = product;
     });
-  };
+  }
 
-onDelete(product: Product){
+onDelete(product: Product) {
   this.products  = this.products.filter(c => c.productId !== product.productId);
 }
 
