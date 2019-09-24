@@ -28,7 +28,6 @@ module.exports = class DB {
         return result;
     };
 
-
     async readOne(table, id) {
         const sql = `
              SELECT * 
@@ -37,7 +36,17 @@ module.exports = class DB {
       `;
         const result = await this.conn.query(sql);
         return result[0];
-    }
+    };
+
+    async readOneSeo(table, seoFriendlyName) {
+        const sql = `
+             SELECT * 
+             FROM ${table}
+             WHERE seoFriendlyProductName='${seoFriendlyName}'
+      `;
+        const result = await this.conn.query(sql);
+        return result[0];
+    };
 
 
     /**
