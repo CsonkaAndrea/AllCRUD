@@ -5,11 +5,9 @@ const productDB = new ProductDB();
 
 
 router.get('/', async (req, res, next) => {
-  const rest = await productDB.createRestful();
 
-  console.log(`useres ${rest}`)
 
-  res.json(rest);
+  res.json('alma');
 });
 
 

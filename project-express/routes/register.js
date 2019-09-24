@@ -10,9 +10,9 @@ router.get('/', function (req, res, next) {
 
 // Create user
 router.post('/users', async (req, res, next) => {
-    console.log(req.body.customerFirstName);
-    /* let result = await usersDB.createUser(req.body);
-    res.json(result); */
+    let result = await usersDB.createUser(req.body);
+    res.render('success', { title: 'Registration successful' });
+    // res.redirect('/');
 });
 
 module.exports = router;
