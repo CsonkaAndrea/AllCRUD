@@ -25,7 +25,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.productsService.getAll().subscribe(products => {
       this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0],
-      console.log(this.oneProduct);
+        console.log(this.oneProduct);
     });
 
   }
@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
 
   onUpdate($event: Event) {
     $event.preventDefault();
-    this.productsService.update(this.oneProduct).forEach(() => this.router.navigateByUrl('/admin/product'));
+    this.productsService.update(this.oneProduct).forEach(() => this.router.navigateByUrl('/admin/products'));
   }
 
   onCancel() {

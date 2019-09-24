@@ -9,7 +9,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { IndexComponent } from './components/admin/index/index.component';
-import { NewProductComponent } from './components/products/new-product/new-product/new-product.component';
+import { NewProductComponent } from './components/admin/products/new-product/new-product.component';
 import { ProductDetailComponent } from './components/admin/products/product-detail/product-detail.component';
 
 @NgModule({
