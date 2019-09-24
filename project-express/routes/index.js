@@ -9,9 +9,7 @@ const productDB = new ProductDB();
 router.get('/', async (req, res, next) => {
     const productAll = await productDB.getAllProducts();
 
-    console.log(`indexes ${productAll}`)
-
-    res.json(productAll);
+    res.render('index');
 });
 
 module.exports = router;

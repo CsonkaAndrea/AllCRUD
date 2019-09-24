@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .container
+    .row
+      each product in products
+        .col-4
+          .card(style='width:250px;margin-bottom:40px')
+            img.card-img-top(src='/product-img/400002.jpg', alt='Card image')
+            .card-body
+              h4.card-title #{product.productName}
+              p.card-text #{product.productCategory}
+              a.btn.btn-primary(href='#' class='mr-2') Add to cart
+              a.btn.btn-warning(href='#') More info
