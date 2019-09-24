@@ -11,6 +11,7 @@ import { OrdersComponent } from './components/admin/orders/orders.component';
 import { IndexComponent } from './components/admin/index/index.component';
 import { NewProductComponent } from './components/products/new-product/new-product/new-product.component';
 import { ProductDetailComponent } from './components/admin/products/product-detail/product-detail.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProductDetailComponent } from './components/admin/products/product-deta
     OrdersComponent,
     IndexComponent,
     NewProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

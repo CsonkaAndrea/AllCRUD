@@ -5,7 +5,7 @@
       <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
     </div>
     <div class="col-5">
-        <button class="btn btn-primary" routerLink="/admin/new-products">Details</button>
+        <button class="btn btn-primary" routerLink="/admin/new-product">Details</button>
     </div>
   </div>
 </div>
@@ -25,7 +25,7 @@
     </tr>
   </thead>
 <tbody>
-  <tr *ngFor="let product of products">
+  <tr *ngFor="let product of products|search:filterPhrase:changeCounter">
     <td>{{ product.productId }}</td>
     <td>{{ product.productName }}</td>
     <td>{{ product.seoFriendlyProductName }}</td>
