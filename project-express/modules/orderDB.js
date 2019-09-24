@@ -2,7 +2,7 @@ const DB = require('./DB');
 
 const db = new DB();
 
-module.exports = class productDB {
+module.exports = class orderDB {
 
 
     async getAllOrders() {
