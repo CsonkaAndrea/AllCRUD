@@ -21,7 +21,12 @@ module.exports = class usersDB {
     async updateUser(object) {
         const result = await db.update(object, 'customers');
         return result;
-    }
+    };
+
+    async createUser(object) {
+        const result = await db.create(object, 'customers');
+        return result;
+    };
 
 
 }
