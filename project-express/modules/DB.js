@@ -40,6 +40,15 @@ module.exports = class DB {
         return result[0];
     }
 
+    async readOneSeo(table, seoFriendlyName) {
+        const sql = `
+             SELECT * 
+             FROM ${table}
+             WHERE seoFriendlyProductName='${seoFriendlyName}'
+      `;
+        const result = await this.conn.query(sql);
+        return result[0];
+    };
 
     /**
        * Create method for database

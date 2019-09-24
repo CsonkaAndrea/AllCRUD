@@ -9,7 +9,10 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { IndexComponent } from './components/admin/index/index.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { UpdateOrdersComponent } from './components/admin/orders/update-orders/update-orders.component';
+import { OrderStatusComponent } from './components/admin/orders/order-status/order-status.component';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { UpdateOrdersComponent } from './components/admin/orders/update-orders/u
     ProductsComponent,
     OrdersComponent,
     IndexComponent,
-    UpdateOrdersComponent
+    DashboardComponent,
+    UpdateOrdersComponent,
+    OrderStatusComponent
   ],
   imports: [
     BrowserModule,
