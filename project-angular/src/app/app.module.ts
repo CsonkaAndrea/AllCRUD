@@ -9,9 +9,15 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { ProductsComponent } from './components/admin/products/products.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { IndexComponent } from './components/admin/index/index.component';
+<<<<<<< HEAD
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 import { CustomersComponent } from './components/admin/customers/customers.component';
 import { UpdateCustomerComponent } from './components/admin/customers/update-customer/update-customer.component';
+=======
+import { NewProductComponent } from './components/admin/products/new-product/new-product.component';
+import { ProductDetailComponent } from './components/admin/products/product-detail/product-detail.component';
+import { SearchPipe } from './pipes/search.pipe';
+>>>>>>> card03
 
 @NgModule({
   declarations: [
@@ -20,9 +26,15 @@ import { UpdateCustomerComponent } from './components/admin/customers/update-cus
     ProductsComponent,
     OrdersComponent,
     IndexComponent,
+<<<<<<< HEAD
     DashboardComponent,
     CustomersComponent,
     UpdateCustomerComponent
+=======
+    NewProductComponent,
+    ProductDetailComponent,
+    SearchPipe
+>>>>>>> card03
   ],
   imports: [
     BrowserModule,

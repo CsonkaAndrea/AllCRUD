@@ -7,10 +7,13 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
+<<<<<<< HEAD
 const productsAllRouter = require('./routes/productsAll');
 const basketRouter = require('./routes/basket');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login');
+=======
+>>>>>>> card03
 
 var app = express();
 

@@ -20,6 +20,7 @@ module.exports = class productDB {
         return result;
     };
 
+<<<<<<< HEAD
     async getOneProduct(id) {
         const result = await db.readOne('products', id);
         return result;
@@ -27,6 +28,12 @@ module.exports = class productDB {
 
     async getOneProductSeo(seoFriendlyName) {
         const result = await db.readOneSeo('products', seoFriendlyName);
+=======
+
+    async getOneProduct(id) {
+        const result = await db.readOne('products', id);
+        console.log(result);
+>>>>>>> card03
         return result;
     };
 
@@ -56,6 +63,7 @@ module.exports = class productDB {
         const getAllProductNames = await db.readRestful('products', 'productName');
         console.log(`createRest ${getAllProductNames}`);
         const result = getAllProductNames.map(p => p.productName = (p.productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g, '-').replace(/---|--/g, '-')));
+<<<<<<< HEAD
         return result;
     };
 
@@ -68,5 +76,9 @@ module.exports = class productDB {
         console.log(result);
         return result;
 
+=======
+
+        return result;
+>>>>>>> card03
     }
 }
