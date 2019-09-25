@@ -18,5 +18,62 @@ html
     link(rel="stylesheet" type="text/css" href="/login folder temp/Login_v16/css/util.css")
     link(rel="stylesheet" type="text/css" href="/login folder temp/Login_v16/css/main.css")
   body
-    block content
-    script(src='/javascript/basketHandler.js')
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent
+      a.navbar-brand(href='/') Music On Vinyl
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarColor02' aria-controls='navbarColor02' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarColor01.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/')
+              | Home 
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link.active(href='/products') Our products
+          li.nav-item
+            a.nav-link.active(href='#') Pricing
+          li.nav-item
+            a.nav-link.active(href='#') About
+        ul.navbar-nav
+          button.glow-on-hover(type='sumbit') LOGIN
+
+    .container
+      block content
+
+    footer.page-footer.font-small.indigo 
+          .container.text-center.text-md-left
+            .row 
+              hr.clearfix.w-100.d-md-none 
+              .col-md-3.mx-auto 
+                h5.font-weight-bold.text-uppercase.mt-3.mb-4 Sitemap
+                ul.list-unstyled
+                  li
+                    a(href='/') Homepage
+                  li
+                    a(href='/products') Products
+              hr.clearfix.w-100.d-md-none 
+              .col-md-3.mx-auto 
+                h5.font-weight-bold.text-uppercase.mt-3.mb-4 Costumer account
+                ul.list-unstyled
+                  li
+                    a(href='/login') Sign in
+                  li
+                    a(href='/register') Registration
+                  li
+                    a(href='#!') My profile
+                  li
+                    a(href='#!') Cart
+              hr.clearfix.w-100.d-md-none
+              .col-md-3.mx-auto 
+                h5.font-weight-bold.text-uppercase.mt-3.mb-4 Information
+                ul.list-unstyled
+                  li
+                    a(href='#!') Payment methods
+                  li
+                    a(href='#!') Shipping information
+                  li
+                    a(href='#!') Contact us 
+          .footer-copyright.text-center.py-3
+            | © 2019 Copyright:&nbsp;
+            
+            a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ') AllCRUDteam
