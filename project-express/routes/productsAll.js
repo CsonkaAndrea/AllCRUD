@@ -5,8 +5,13 @@ const productDB = new ProductDB();
 
 
 router.get('/', async (req, res, next) => {
-    const productsAll = await productDB.getAllProducts();
-    res.json(productsAll);
+    const productAll = await productDB.getAllProducts();
+    console.log(productAll[0]);
+
+    res.render('productsAll', {
+        title: 'Products',
+        products: productAll
+    });
 });
 
 router.get('/:address', async (req, res, next) => {
