@@ -1,0 +1,34 @@
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Password</th>
+              <th>Edit/Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{ customer.id }}</td>
+              <td>{{ customer.customerFirstName }}</td>
+              <td>{{ customer.customerLastName }}</td>
+              <td>{{ customer.customerUsername }}</td>
+              <td>{{ customer.customerPassword }}</td>
+              <td>
+                <div class="btn-group">
+                  <button
+                          routerLink="/admin/users/{{customer.id}}">Edit</button>
+                  <button (click)="onDeleteCustomer(customer)">Delete</button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

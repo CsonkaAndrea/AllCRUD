@@ -1,5 +1,5 @@
 export class Order {
-    orderId: number = 0;
+    id: number = 0;
     orderDate: string = 'proba';
     customerId: number = 0;
     orderStatus: string = 'proba';
