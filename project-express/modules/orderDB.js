@@ -24,7 +24,7 @@ module.exports = class orderDB {
 
 
     async updateOrder(object) {
-        const result = await db.update('orders', object);
+        const result = await db.update(object, 'orders');
         return result;
     };
 
