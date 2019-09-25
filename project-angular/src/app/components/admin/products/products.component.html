@@ -5,11 +5,7 @@
       <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
     </div>
     <div class="col-5">
-<<<<<<< HEAD
-      <button class="btn btn-primary" routerLink="/admin/new-product">New product</button>
-=======
         <button class="btn btn-primary" routerLink="/admin/new-product">Details</button>
->>>>>>> fd7caa8f9194abe404b9a3fd4e1a6c2ee5707f53
     </div>
   </div>
 </div>
@@ -28,23 +24,6 @@
       <th>Options</th>
     </tr>
   </thead>
-<<<<<<< HEAD
-  <tbody>
-    <tr *ngFor="let product of products">
-      <td>{{ product.id }}</td>
-      <td>{{ product.productName }}</td>
-      <td>{{ product.seoFriendlyProductName }}</td>
-      <td>{{ product.productCategory }}</td>
-      <td>{{ product.pictureUrl }}</td>
-      <td>{{ product.publisher }}</td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.stock }}</td>
-      <td>
-        <button class="btn btn-primary" routerLink="/admin/products/{{ product.id }}">Details</button>
-      </td>
-    </tr>
-  </tbody>
-=======
 <tbody>
   <tr *ngFor="let product of products|search:filterPhrase:changeCounter">
     <td>{{ product.productId }}</td>
@@ -60,5 +39,4 @@
     </td>
   </tr>
 </tbody>
->>>>>>> fd7caa8f9194abe404b9a3fd4e1a6c2ee5707f53
 </table>

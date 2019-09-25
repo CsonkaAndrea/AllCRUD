@@ -5,7 +5,6 @@ const productDB = new ProductDB();
 
 
 router.get('/', async (req, res, next) => {
-<<<<<<< HEAD
     const productAll = await productDB.getAllProducts();
     console.log(productAll[0]);
 
@@ -30,13 +29,5 @@ router.get('/:address', async (req, res, next) => {
 })
 
 
-=======
-    const productsAll = await productDB.getAllProducts();
-
-    console.log(`indexes ${productDB}`)
-
-    res.json(productsAll);
-});
->>>>>>> card03
 
 module.exports = router;
