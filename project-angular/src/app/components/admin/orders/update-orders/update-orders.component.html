@@ -1,27 +1,46 @@
+<h1>{{ title }}</h1>
 <div class="container-fluid">
-  <h1>{{ title }}</h1>
   <div class="row">
     <div class="col-12">
       <form (submit)="onUpdate($event)">
         <div class="form-group row">
-          <label for="orderId" class="col-sm-2 col-form-label">Order Id</label>
+          <label for="orderId" class="col-sm-2 col-form-label">Order ID</label>
           <div class="col-sm-10">
-              <input type="text" readonly="" class="form-control-plaintext" id="orderId" (value)="order.orderId">
-            </div>
-            <div class="form-group">
+              <input type="text" disabled class="form-control-plaintext" name="orderId" [(ngModel)]="oneOrder.id">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="orderDate" class="col-sm-2 col-form-label">Order date</label>
+          <div class="col-sm-10">
+              <input type="text" disabled class="form-control-plaintext" name="orderDate" [(ngModel)]="oneOrder.orderDate">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
+          <div class="col-sm-10">
+              <input type="text" disabled class="form-control-plaintext" name="customerId" [(ngModel)]="oneOrder.customerId">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="value" class="col-sm-2 col-form-label">Order value</label>
+          <div class="col-sm-10">
+              <input type="text" disabled class="form-control-plaintext" name="value" [(ngModel)]="oneOrder.value">
+          </div>
+        </div>
+            <div class="form-group row">
                 <label for="orderStatus">Order status</label>
-                <select class="form-control" id="orderStatus">
-                  <option>received</option>
-                  <option>processed</option>
-                  <option>shipped</option>
-                  <option>delivered</option>
+                <select class="form-control" id="orderStatus" name="orderStatus" [(ngModel)]="oneOrder.orderStatus">
+                  <option [value]="1">received</option>
+                  <option [value]="2">processed</option>
+                  <option [value]="3">shipped</option>
+                  <option [value]="4">delivered</option>
+                  <option [value]="5">deleted</option>
                 </select>
-              </div>
+            </div>
           <div class="col-12 d-flex justify-content-around">
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
           </div>
-        </div>
       </form>
     </div>
   </div>
