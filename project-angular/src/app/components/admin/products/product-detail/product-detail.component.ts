@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -11,13 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  oneProduct: Product;
+  oneProduct: Product = new Product();
   title: 'Product detail';
   selectedProductId: number;
 
   constructor(
     private productsService: ProductService,
-    private ar: ActivatedRoute,
     private router: Router,
   ) {
 
@@ -39,7 +38,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigateByUrl("/admin/products")
+    this.router.navigateByUrl('/admin/products');
   }
 
 }

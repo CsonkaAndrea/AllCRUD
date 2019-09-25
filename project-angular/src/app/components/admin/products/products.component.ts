@@ -12,7 +12,6 @@ export class ProductsComponent implements OnInit {
 
   products: Product[];
   updatedProduct: Product = new Product();
-  title: 'Available Products';
   filterPhrase = '';
 
   constructor(
@@ -21,13 +20,13 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.productService.getAll().subscribe(product => {
-      this.products = product;
+    this.productService.getAll().subscribe(products => {
+      this.products = products;
     });
   }
 
 onDelete(product: Product) {
-  this.products  = this.products.filter(c => c.productId !== product.productId);
+  this.products  = this.products.filter(c => c.id !== product.id);
 }
 
 }

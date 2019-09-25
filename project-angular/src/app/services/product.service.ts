@@ -16,8 +16,8 @@ export class ProductService {
     return this.httpClient.get(this.url);
   }
 
-  getOne(productId: Number): Observable<any> {
-    return this.httpClient.get(`${this.url}/${productId}`);
+  getOne(id: Number): Observable<any> {
+    return this.httpClient.get(`${this.url}/${id}`);
   }
 
   createNew(product: Product): Observable<any> {
@@ -25,7 +25,7 @@ export class ProductService {
   }
 
   update(product:Product): Observable<any> {
-    return this.httpClient.post(`${this.url}/${product.productId}`, product);
+    return this.httpClient.post(`${this.url}/${product.id}`, product);
   }
 
 }
