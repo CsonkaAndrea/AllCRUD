@@ -6,35 +6,31 @@ module.exports = class orderDB {
 
 
     async getAllOrders() {
-        const result = await db.readAll('order');
+        const result = await db.readAll('orders');
         return result;
     };
 
 
     async getOneOrder(id) {
         const result = await db.readOne('order', id);
-        console.log(result);
         return result;
     };
 
 
     async createOrder(object) {
         const result = await db.create('order', object);
-        console.log(result);
         return result;
     };
 
 
     async updateOrder(object) {
         const result = await db.update('order', object);
-        console.log(result);
         return result;
     };
 
 
     async deleteOrder(object) {
         const result = await db.delete('order', object);
-        console.log(result);
         return result;
     };
 }

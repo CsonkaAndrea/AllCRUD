@@ -7,7 +7,6 @@ const pool = mariadb.createPool({
 });
 
 const DB = require('./DB');
-
 const db = new DB();
 
 module.exports = class productDB {

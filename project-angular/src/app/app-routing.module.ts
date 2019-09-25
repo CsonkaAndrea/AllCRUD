@@ -13,9 +13,10 @@ import { UpdateCustomerComponent } from './components/admin/customers/update-cus
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: 'admin/products', component: ProductsComponent },
-  { path: 'admin/new-product', component: NewProductComponent },
   { path: 'admin/products/:id', component: ProductDetailComponent },
+  { path: 'admin/new-product', component: NewProductComponent },
   { path: 'admin/orders', component: OrdersComponent },
+  { path: 'admin/orders/:id', component: UpdateOrdersComponent },
   { path: 'admin/users', component: CustomersComponent },
   { path: 'admin/users/:id', component: UpdateCustomerComponent },
   { path: '**', component: IndexComponent }
