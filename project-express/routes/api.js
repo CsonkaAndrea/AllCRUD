@@ -60,4 +60,9 @@ router.get('/orders', async (req, res, next) => {
     res.json(result);
 });
 
+router.post('/orders/:id', async (req, res, next) => {
+    let result = await ordersDB.updateOrder(req.body);
+    res.json(result);
+});
+
 module.exports = router;
