@@ -7,6 +7,7 @@ import { ProductDetailComponent } from './components/admin/products/product-deta
 import { IndexComponent } from './components/admin/index/index.component';
 import { CustomersComponent } from './components/admin/customers/customers.component';
 import { UpdateCustomerComponent } from './components/admin/customers/update-customer/update-customer.component';
+import { UpdateOrdersComponent } from './components/admin/orders/update-orders/update-orders.component';
 
 
 

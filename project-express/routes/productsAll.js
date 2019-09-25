@@ -7,7 +7,6 @@ const productDB = new ProductDB();
 router.get('/', async (req, res, next) => {
     const productAll = await productDB.getAllProducts();
     console.log(productAll[0]);
-
     res.render('productsAll', {
         title: 'Products',
         products: productAll
@@ -16,6 +15,7 @@ router.get('/', async (req, res, next) => {
 
 router.get('/:address', async (req, res, next) => {
     const product = await productDB.getOneProductSeo(req.params.address);
+
     if (product === undefined) {
         res.render('error', {
             massage: 'Product not exist.'
