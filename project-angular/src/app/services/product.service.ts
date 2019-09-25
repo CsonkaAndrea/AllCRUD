@@ -16,7 +16,7 @@ export class ProductService {
     return this.httpClient.get(this.url);
   }
 
-  getOne(id: Number): Observable<any> {
+  getOne(id: number): Observable<any> {
     return this.httpClient.get(`${this.url}/${id}`);
   }
 
