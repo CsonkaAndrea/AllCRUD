@@ -16,27 +16,27 @@ module.exports = class productDB {
     };
 
     async getAllProducts() {
-        const result = await db.readAll('product');
+        const result = await db.readAll('products');
         return result;
     };
 
 
     async getOneProduct(id) {
-        const result = await db.readOne('product', id);
+        const result = await db.readOne('products', id);
         console.log(result);
         return result;
     };
 
 
     async createProduct(object) {
-        const result = await db.create('product', object);
+        const result = await db.create('products', object);
         console.log(result);
         return result;
     };
 
 
     async updateProduct(object) {
-        const result = await db.update('product', object);
+        const result = await db.update('products', object);
         console.log(result);
         return result;
     };
