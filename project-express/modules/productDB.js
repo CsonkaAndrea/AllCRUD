@@ -67,5 +67,17 @@ module.exports = class productDB {
         console.log(result);
         return result;
 
-    }
+    };
+
+    async showAscProduct() {
+        const result = await db.showAsc('product', 'productName');
+        console.log(result);
+        return result;
+    };
+
+    async showDescProduct() {
+        const result = await db.showDesc('product', 'productName');
+        console.log(result);
+        return result;
+    };
 }
