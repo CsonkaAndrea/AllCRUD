@@ -13,10 +13,10 @@ module.exports = class DB {
 
 
     /**
-       * readAll and read method, get data from database
-       * @param {string} table table name
-       * @param {number} id 
-       */
+     * readAll and read method, get data from database
+     * @param {string} table table name
+     * @param {number} id 
+     */
 
 
     async readAll(table) {
@@ -28,7 +28,6 @@ module.exports = class DB {
         return result;
     };
 
-
     async readOne(table, id) {
         const sql = `
              SELECT * 
@@ -36,16 +35,25 @@ module.exports = class DB {
              WHERE id=${id}
       `;
         const result = await this.conn.query(sql);
-        console.log(`readAll ${result}`);
         return result[0];
-    }
+    };
+
+    async readOneSeo(table, seoFriendlyName) {
+        const sql = `
+             SELECT * 
+             FROM ${table}
+             WHERE seoFriendlyProductName='${seoFriendlyName}'
+      `;
+        const result = await this.conn.query(sql);
+        return result[0];
+    };
 
 
     /**
-       * Create method for database
-       * @param {string}  table table name
-       * @param {object} object object from req.body, keys are the column names of the table, rows are the values
-       */
+     * Create method for database
+     * @param {string}  table table name
+     * @param {object} object object from req.body, keys are the column names of the table, rows are the values
+     */
 
     async create(object, table) {
         let columnNames = '';
@@ -74,10 +82,10 @@ module.exports = class DB {
 
 
     /**
-          * update method for database
-          * @param {string}  table table name
-          * @param {object} object req.body, keys are the column names of the table, rows are the values
-          */
+     * update method for database
+     * @param {string}  table table name
+     * @param {object} object req.body, keys are the column names of the table, rows are the values
+     */
 
     async update(object, table) {
         let objectToString = '';
@@ -104,10 +112,10 @@ module.exports = class DB {
 
 
     /**
-           * Create method for database
-           * @param {string}  table table name
-           * @param {object} object object from req.body, keys are the column names of the table, rows are the values
-           */
+     * Create method for database
+     * @param {string}  table table name
+     * @param {object} object object from req.body, keys are the column names of the table, rows are the values
+     */
 
     async delete(table, object) {
         let sql = `
@@ -120,10 +128,10 @@ module.exports = class DB {
 
 
     /**
-   * read data from SQL for restful end
-   * @param {string} table name of the table
-   * @param {number} object name of the column
-   */
+     * read data from SQL for restful end
+     * @param {string} table name of the table
+     * @param {number} object name of the column
+     */
 
     async readRestful(table, object) {
         const sql = `
@@ -136,11 +144,11 @@ module.exports = class DB {
 
 
     /**
-      * write data in SQL for restful end
-      * @param {string} table name of the table
-      * @param {number} object name of the column
-      * UNDER CONSTRUCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-      */
+     * write data in SQL for restful end
+     * @param {string} table name of the table
+     * @param {number} object name of the column
+     * UNDER CONSTRUCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+     */
 
     async writeRestful() {
         const sql = `
@@ -152,5 +160,3 @@ module.exports = class DB {
         return result;
     }
 };
-
-

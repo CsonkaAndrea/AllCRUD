@@ -20,10 +20,13 @@ module.exports = class productDB {
         return result;
     };
 
-
     async getOneProduct(id) {
         const result = await db.readOne('products', id);
-        console.log(result);
+        return result;
+    };
+
+    async getOneProductSeo(seoFriendlyName) {
+        const result = await db.readOneSeo('products', seoFriendlyName);
         return result;
     };
 
@@ -43,14 +46,14 @@ module.exports = class productDB {
 
 
     async deleteProduct(object) {
-        const result = await db.delete('product', object);
+        const result = await db.delete('products', object);
         console.log(result);
         return result;
     };
 
 
     async createRestful() {
-        const getAllProductNames = await db.readRestful('product', 'productName');
+        const getAllProductNames = await db.readRestful('products', 'productName');
         console.log(`createRest ${getAllProductNames}`);
         const result = getAllProductNames.map(p => p.productName = (p.productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g, '-').replace(/---|--/g, '-')));
 

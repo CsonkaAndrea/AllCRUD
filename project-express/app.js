@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const productsAllRouter = require('./routes/productsAll');
+const basketRouter = require('./routes/basket');
 
 var app = express();
 
@@ -23,10 +24,11 @@ app.use((req, res, next) => {
   next();
 });
 
-
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // Bootstrap
@@ -36,6 +38,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);
+app.use('/basket', basketRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
