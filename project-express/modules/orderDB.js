@@ -12,25 +12,25 @@ module.exports = class orderDB {
 
 
     async getOneOrder(id) {
-        const result = await db.readOne('order', id);
+        const result = await db.readOne('orders', id);
         return result;
     };
 
 
     async createOrder(object) {
-        const result = await db.create('order', object);
+        const result = await db.create('orders', object);
         return result;
     };
 
 
     async updateOrder(object) {
-        const result = await db.update('order', object);
+        const result = await db.update('orders', object);
         return result;
     };
 
 
     async deleteOrder(object) {
-        const result = await db.delete('order', object);
+        const result = await db.delete('orders', object);
         return result;
     };
 }

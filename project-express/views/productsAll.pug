@@ -14,7 +14,8 @@ block content
               .card-footer
                 .btn-group.mt-auto
                   a.btn.btn-primary(href='#' class='mr-2') Add to cart
-                  a.btn.btn-warning(href='#') More info
+                  - var urlToProd = product.seoFriendlyProductName
+                  a.btn.btn-warning(href='products/'+urlToProd) More info
 
   div
   ul.pagination.pagination-lg
