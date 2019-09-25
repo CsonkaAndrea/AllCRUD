@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const UsersDB = require('./../modules/usersDB');
 const usersDB = new UsersDB();
+const AdminDB = require('./../modules/adminDB');
+const adminDB = new AdminDB();
 
 const getToken = (l = 20) => {
     let result = '';

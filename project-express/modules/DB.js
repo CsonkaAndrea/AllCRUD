@@ -37,7 +37,7 @@ module.exports = class DB {
         const result = await this.conn.query(sql);
         console.log(`readAll ${result}`);
         return result[0];
-    }
+    };
 
     async readOneSeo(table, seoFriendlyName) {
         const sql = `
@@ -78,7 +78,7 @@ module.exports = class DB {
 `;
         const result = await this.conn.query(sql);
         return result;
-    }
+    };
 
 
     /**
@@ -140,7 +140,7 @@ module.exports = class DB {
         `;
         const result = await this.conn.query(sql);
         return result;
-    }
+    };
 
 
     /**
@@ -158,5 +158,42 @@ module.exports = class DB {
         `;
         const result = await this.conn.query(sql);
         return result;
+    };
+
+    async login(table, object, ) {
+        let sql = `
+            SELECT * 
+            FROM ${table} 
+            WHERE username = '${object.username}' 
+                AND password = SHA1('${object.password}')
+        `;
+        let result = await this.conn.query(sql);
+        return result;
+    };
+
+    async setToken(table, object) {
+        let sql = `
+            UPDATE ${table}
+            SET token = '${object.token}' 
+            WHERE id = ${object.id}
+        `;
+        let result = await this.conn.query(sql);
+        return true;
+    };
+
+    //nincs megcsinálva
+
+    async checkLogin(req) {
+        if (!req.cookies.uuid) {
+            return false;
+        }
+
+        let sql = `
+            SELECT * FROM users WHERE token = '${req.cookies.uuid}'
+        `;
+        let result = await this.conn.query(sql);
+        return result[0];
     }
+
+
 };

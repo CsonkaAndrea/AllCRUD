@@ -67,5 +67,5 @@ module.exports = class productDB {
         console.log(result);
         return result;
 
-    }
+    };
 }
