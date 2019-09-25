@@ -22,7 +22,9 @@ html
           li.nav-item
             a.nav-link.active(href='#') About
         ul.navbar-nav
-          button.glow-on-hover(type='sumbit') LOGIN
+          a.glow-on-hover(type='button' href='/login') LOGIN
+        ul.navbar-nav
+          a.glow-on-hover(type='sumbit' href='/register') REGISTER
 
     .container
       block content

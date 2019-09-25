@@ -14,7 +14,7 @@ const getToken = (l = 20) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('login', { title: 'Express' });
+    res.render('login2', { title: 'Login' });
 });
 
 router.post('/', async (req, res, next) => {
@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
         await usersDB.setUserToken(result[0].id, token);
         return res.redirect('/');
     }
-    res.render('login', { title: 'alma' });
+    res.render('login2', { title: 'alma' });
 });
 
 module.exports = router;
