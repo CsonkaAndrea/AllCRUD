@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -12,7 +12,6 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductDetailComponent implements OnInit {
 
   oneProduct: Product = new Product();
-  title: 'Product detail';
   selectedProductId: number;
 
   constructor(

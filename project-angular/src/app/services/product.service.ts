@@ -24,7 +24,7 @@ export class ProductService {
     return this.httpClient.post(`${this.url}`, product);
   }
 
-  update(product:Product): Observable<any> {
+  update(product: Product): Observable<any> {
     return this.httpClient.post(`${this.url}/${product.id}`, product);
   }
 

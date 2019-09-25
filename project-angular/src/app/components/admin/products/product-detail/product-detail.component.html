@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="text-center">{{ title }}</h1>
+  <h1 class="text-center">Product details</h1>
   <div class="row">
     <div class="col-12">
       <form (submit)="onUpdate($event)">
@@ -11,7 +11,7 @@
           <label for="category">Product category</label>
           <input type="text" id="category" name="category" [(ngModel)]="oneProduct.productCategory" class="form-control">
           <label for="url">Picture Url</label>
-          <input type="text" id="url" name="url" [(ngModel)]="oneProduct.pictureUrl" class="form-control">
+          <input type="text" id="url" name="url" [(ngModel)]="oneProduct.pictureURL" class="form-control">
           <label for="publisher">Publisher</label>
           <input type="text" id="publisher" name="publisher" [(ngModel)]="oneProduct.publisher" class="form-control">
           <label for="price">Price</label>
