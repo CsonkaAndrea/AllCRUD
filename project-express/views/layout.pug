@@ -4,64 +4,63 @@ html
     title= title
     link(rel='stylesheet' href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
   body
-    nav.navbar.navbar-expand-md.navbar-light.bg-fade
-      a.navbar-brand.d-md-none(href='#')
-      button.navbar-toggler.ml-auto(type='button', data-toggle='collapse', data-target='#navbarNavAltMarkup', aria-controls='navbarNavAltMarkup', aria-expanded='false', aria-label='Toggle navigation')
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-transparent
+      a.navbar-brand(href='/') Music On Vinyl
+      button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarColor02' aria-controls='navbarColor02' aria-expanded='false' aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      .d-md-flex.d-block.w-100
-        .collapse.navbar-collapse.mx-auto.w-auto.justify-content-center#navbarNavAltMarkup
-          .navbar-nav
-            a.nav-item.nav-link(href='/')
+      #navbarColor01.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/')
               | Home 
               span.sr-only (current)
-            a.nav-item.nav-link(href='/products') Our products
-            a.navbar-brand.mx-2.d-none.d-md-inline(href='#')
-              img(src='/img/lp.svg', alt='lp-vinyl', height='42', width='42', id='lpsvg')
-            a.nav-item.nav-link(href='#') Pricing
-            a.nav-item.nav-link(href='#') Disabled
-    block content
+          li.nav-item
+            a.nav-link.active(href='/products') Our products
+          li.nav-item
+            a.nav-link.active(href='#') Pricing
+          li.nav-item
+            a.nav-link.active(href='#') About
+        ul.navbar-nav
+          button.glow-on-hover(type='sumbit') LOGIN
+
+    .container
+      block content
 
     footer.page-footer.font-small.indigo 
-      .container.text-center.text-md-left
-        .row 
-          hr.clearfix.w-100.d-md-none
-          //  Grid column 
-          .col-md-3.mx-auto
-            //  Links 
-            h5.font-weight-bold.text-uppercase.mt-3.mb-4 Sitemap
-            ul.list-unstyled
-              li
-                a(href='#!') Homepage
-              li
-                a(href='#!') Products
-          //  Grid column 
-          hr.clearfix.w-100.d-md-none
-          //  Grid column 
-          .col-md-3.mx-auto
-            //  Links 
-            h5.font-weight-bold.text-uppercase.mt-3.mb-4 Costumer account
-            ul.list-unstyled
-              li
-                a(href='#!') Sign in
-              li
-                a(href='#!') Registration
-              li
-                a(href='#!') My profile
-              li
-                a(href='#!') Cart
-          hr.clearfix.w-100.d-md-none
-          .col-md-3.mx-auto 
-            h5.font-weight-bold.text-uppercase.mt-3.mb-4 Information
-            ul.list-unstyled
-              li
-                a(href='#!') Payment methods
-              li
-                a(href='#!') Shipping information
-              li
-                a(href='#!') Contact us 
-      .footer-copyright.text-center.py-3
-        | © 2019 Copyright:&nbsp;
-        
-        a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ') AllCRUDteam 
+          .container.text-center.text-md-left
+            .row 
+              hr.clearfix.w-100.d-md-none 
+              .col-md-3.mx-auto 
+                h5.font-weight-bold.text-uppercase.mt-3.mb-4 Sitemap
+                ul.list-unstyled
+                  li
+                    a(href='/') Homepage
+                  li
+                    a(href='/products') Products
+              hr.clearfix.w-100.d-md-none 
+              .col-md-3.mx-auto 
+                h5.font-weight-bold.text-uppercase.mt-3.mb-4 Costumer account
+                ul.list-unstyled
+                  li
+                    a(href='/login') Sign in
+                  li
+                    a(href='/register') Registration
+                  li
+                    a(href='#!') My profile
+                  li
+                    a(href='#!') Cart
+              hr.clearfix.w-100.d-md-none
+              .col-md-3.mx-auto 
+                h5.font-weight-bold.text-uppercase.mt-3.mb-4 Information
+                ul.list-unstyled
+                  li
+                    a(href='#!') Payment methods
+                  li
+                    a(href='#!') Shipping information
+                  li
+                    a(href='#!') Contact us 
+          .footer-copyright.text-center.py-3
+            | © 2019 Copyright:&nbsp;
+            
+            a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ') AllCRUDteam

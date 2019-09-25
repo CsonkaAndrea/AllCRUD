@@ -2,13 +2,33 @@ extends layout
 
 block content
   .container
-    .row
-      each product in products
-        .col-4
-          .card(style='width:250px;margin-bottom:40px')
-            img.card-img-top(src='/product-img/400002.jpg', alt='Card image')
-            .card-body
-              h4.card-title #{product.productName}
-              p.card-text #{product.productCategory}
-              a.btn.btn-primary(href='#' class='mr-2') Add to cart
-              a.btn.btn-warning(href='#') More info
+      .row
+        each product in products
+          .col-4.d-flex.align-items-stretch
+            .card.mx-auto(style='width:300px;margin-bottom:40px')
+              - var url = product.pictureURL
+              img.card-img-top.mx-auto(src='./product-img'+url alt='album_cover')
+              .card-body
+                h4.card-title #{product.productName}
+                p.card-text #{product.productCategory}
+              .card-footer
+                .btn-group.mt-auto
+                  a.btn.btn-primary(href='#' class='mr-2') Add to cart
+                  a.btn.btn-warning(href='#') More info
+
+  div
+  ul.pagination.pagination-lg
+    li.page-item.disabled
+      a.page-link(href='#') &laquo;
+    li.page-item.active
+      a.page-link(href='#') 1
+    li.page-item
+      a.page-link(href='#') 2
+    li.page-item
+      a.page-link(href='#') 3
+    li.page-item
+      a.page-link(href='#') 4
+    li.page-item
+      a.page-link(href='#') 5
+    li.page-item
+      a.page-link(href='#') &raquo;
