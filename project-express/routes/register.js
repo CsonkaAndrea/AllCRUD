@@ -11,7 +11,10 @@ router.get('/', function (req, res, next) {
 // Create user
 router.post('/users', async (req, res, next) => {
     let result = await usersDB.createUser(req.body);
-    res.render('success', { title: 'Registration successful' });
+    res.render('success', {
+        title: 'Registration successful',
+        user: req.body
+    });
     // res.redirect('/');
 });
 

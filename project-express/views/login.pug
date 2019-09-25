@@ -1,15 +1,48 @@
 extends layout
 
 block content
-  .main.container
-    .row
-      .col-md-6.col-md-offset-3
-        h1 #{title}
-        form(method='POST' action='/products')
-          div.form-group
-            label(for='customerUsername') Username
-            input.form-control(type='text' id='customerUsername' placeholder='email@email.com' name='customerUsername')
-          div.form-group
-            label(for='customerPassword') Password
-            input.form-control(type='password' id='customerPassword' placeholder='password' name='customerPassword')
-          button.btn.btn-primary(type='submit') Log in 
+  .limiter
+      .container-login100
+        .wrap-login100.p-t-30.p-b-50
+          span.login100-form-title.p-b-41
+            | Account Login
+          form.login100-form.validate-form.p-b-33.p-t-5
+            .wrap-input100.validate-input(data-validate="Enter username")
+              input.input100(type="text" name="username" placeholder="User name")
+              span.focus-input100(data-placeholder="")
+            .wrap-input100.validate-input(data-validate="Enter password")
+              input.input100(type="password" name="pass" placeholder="Password")
+              span.focus-input100(data-placeholder="")
+            .container-login100-form-btn.m-t-32
+              button.login100-form-btn
+                | Login
+      #dropDownSelect1
+  script(src="/login folder temp/Login_v16/vendor/jquery/jquery-3.2.1.min.js")
+  script(src="/login folder temp/Login_v16/vendor/animsition/js/animsition.min.js")
+  script(src="/login folder temp/Login_v16/vendor/bootstrap/js/popper.js")
+  script(src="/login folder temp/Login_v16/vendor/select2/select2.min.js")
+  script(src="/login folder temp/Login_v16/vendor/daterangepicker/moment.min.js")
+  script(src="/login folder temp/Login_v16/vendor/daterangepicker/daterangepicker.js")
+  script(src="/login folder temp/Login_v16/vendor/countdowntime/countdowntime.js")
+  script(src="/login folder temp/Login_v16/js/main.js")
+  video#loginBackgroundVideo(src="Login folder temp/Login_v16/videos/Pexels Videos 1580455.mp4" autoplay="true" loop="true" muted="muted" type="video/mp4")
+
+
+
+
+
+
+
+
+  //- .main.container
+  //-   .row
+  //-     .col-md-6.col-md-offset-3
+  //-       h1 #{title}
+  //-       form(method='POST' action='/products')
+  //-         div.form-group
+  //-           label(for='customerUsername') Username
+  //-           input.form-control(type='text' id='customerUsername' placeholder='username' name='customerUsername')
+  //-         div.form-group
+  //-           label(for='customerPassword') Password
+  //-           input.form-control(type='password' id='customerPassword' placeholder='password' name='customerPassword')
+  //-         button.btn.btn-primary(type='submit') Log in 
