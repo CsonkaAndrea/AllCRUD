@@ -11,7 +11,7 @@ import { OrdersService } from 'src/app/services/orders.service';
 })
 export class UpdateOrdersComponent implements OnInit {
 
-  oneOrder: Order;
+  oneOrder: Order = new Order();
   title: 'Order detail';
   selectedOrderID: number;
 
@@ -30,6 +30,8 @@ export class UpdateOrdersComponent implements OnInit {
 
 onUpdate($event: Event) {
   $event.preventDefault();
+  this.oneOrder.orderStatus = parseInt(this.oneOrder.orderStatus);
+  delete this.oneOrder.orderDate;
   this.ordersService.update(this.oneOrder).forEach(() => this.router.navigateByUrl('/admin/orders'));
 }
 
@@ -38,4 +40,3 @@ onCancel() {
 }
 
 }
-
