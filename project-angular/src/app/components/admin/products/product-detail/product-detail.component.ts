@@ -22,7 +22,7 @@ export class ProductDetailComponent implements OnInit {
     this.selectedProductId = parseInt(this.router.url.split('/')[3]);
 
     this.productsService.getAll().subscribe(products => {
-      this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0]
+      this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0];
       });
 
   }

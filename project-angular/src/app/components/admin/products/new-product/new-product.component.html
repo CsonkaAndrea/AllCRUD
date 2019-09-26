@@ -15,12 +15,36 @@
           <label for="publisher">Publisher</label>
           <input type="text" required id="publisher" name="publisher" [(ngModel)]="newProduct.publisher" class="form-control">
           <label for="price">Price</label>
-          <input type="text" required id="price" name="price" [(ngModel)]="newProduct.price" class="form-control">
+          <input type="number" required id="price" name="price" [(ngModel)]="newProduct.price" class="form-control">
           <label for="stock">Stock</label>
-          <input type="text" required id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control">
+          <input type="number" required id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control">
           <div class="col-12 d-flex justify-content-around">
-            <button type="submit" class="btn btn-primary">Ok</button>
+            <button type="submit" class="btn btn-primary" ng-click="submitted=true">Ok</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+
+        <div class="alert alert-danger">
+          <div *ngIf="!form[0]">
+            Product name is required!
+          </div>
+          <div *ngIf="!form[1]">
+            SEO friendly product name is required!
+          </div>
+          <div *ngIf="!form[2]">
+            Product category is required!
+          </div>
+          <div *ngIf="!form[3]">
+            Picture Url is required!
+          </div>
+          <div *ngIf="!form[4]">
+            Publisher is required!
+          </div>
+          <div *ngIf="!form[5]">
+            Price is required!
+          </div>
+          <div *ngIf="!form[6]">
+            Stock is required!
           </div>
         </div>
       </form>
