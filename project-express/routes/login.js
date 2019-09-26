@@ -2,17 +2,9 @@ var express = require('express');
 var router = express.Router();
 const UsersDB = require('./../modules/usersDB');
 const usersDB = new UsersDB();
-const AdminDB = require('./../modules/adminDB');
-const adminDB = new AdminDB();
+const RegisterDB = require('./../modules/registerDB');
+const registerDB = new RegisterDB();
 
-const getToken = (l = 20) => {
-    let result = '';
-    for (let i = 0; i < l; i++) {
-        let index = Math.round(Math.random() * 50 + 65);
-        result += String.fromCharCode(index);
-    }
-    return result;
-};
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

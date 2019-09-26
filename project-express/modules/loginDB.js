@@ -11,7 +11,7 @@ module.exports = class adminDB {
     };
 
     async getLoginDataUser() {
-        const result = await db.login('customers', object);
+        const result = await db.readLogin('customers', object);
         console.log(result);
         return result;
     };
@@ -26,6 +26,21 @@ module.exports = class adminDB {
         const result = await db.setToken('customers', object);
         console.log(result);
         return result;
+    };
+
+    //nem jó!!!!
+
+    async createTokenAdmin() {
+        let result = '';
+        for (let i = 0; i < 20; i++) {
+            let index = Math.round(Math.random() * 50 + 65);
+            result += String.fromCharCode(index);
+        }
+        const admin = await this.getOneAdmin(id);
+        admin.token = result;
+        await this.updateAdmin(object);
+        console.log(token);
+        return token;
     };
 
 }

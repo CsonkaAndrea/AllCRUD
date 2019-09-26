@@ -9,7 +9,7 @@ var usersRouter = require('./routes/users');
 const apiRouter = require('./routes/api');
 const productsAllRouter = require('./routes/productsAll');
 const basketRouter = require('./routes/basket');
-const registerRouter = require('./routes/register');
+const usersRegisterRouter = require('./routes/usersRegister');
 const loginRouter = require('./routes/login');
 
 
@@ -42,7 +42,7 @@ app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);
 app.use('/basket', basketRouter);
-app.use('/register', registerRouter);
+app.use('/register', usersRegisterRouter);
 app.use('/login', loginRouter);
 
 // catch 404 and forward to error handler

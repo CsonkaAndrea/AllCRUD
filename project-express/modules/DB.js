@@ -160,7 +160,7 @@ module.exports = class DB {
         return result;
     };
 
-    async login(table, object, ) {
+    async readLogin(table, object, ) {
         let sql = `
             SELECT * 
             FROM ${table} 
