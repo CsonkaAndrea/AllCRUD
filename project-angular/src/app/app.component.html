@@ -2,5 +2,9 @@
   <!-- Ez a navbar és itt található components/layout/header -->
   <app-header></app-header>
   <!-- Ez meg a navbar-ban kattintott elemekre visz -->
-  <router-outlet></router-outlet>
+  <div id="main">
+    <span style="font-size:30px;cursor:pointer"
+          onclick="openNav()">&#9776;</span>
+    <router-outlet></router-outlet>
+  </div>
 </div>
