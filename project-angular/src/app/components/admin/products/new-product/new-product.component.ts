@@ -33,6 +33,7 @@ export class NewProductComponent implements OnInit {
           this.router.navigateByUrl('/admin/products');
       }
     );
+   
   }
 
   onCancel() {
