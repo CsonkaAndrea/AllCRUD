@@ -5,7 +5,7 @@
       <form (submit)="onUpdate($event)">
         <div class="form-group">
           <label for="name">Product name</label>
-          <input type="text" id="name" name="name" [(ngModel)]="oneProduct.productName" class="form-control">
+          <input type="text" disabled id="name" name="name" [(ngModel)]="oneProduct.productName" class="form-control">
           <label for="seo">SEO friendly product name</label>
           <input type="text" id="seo" name="seo" [(ngModel)]="oneProduct.seoFriendlyProductName" class="form-control">
           <label for="category">Product category</label>
