@@ -1,14 +1,20 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}  
-
-  p ID: #{product.id}
-  p Product Name: #{product.productName}
-  p SEO Friendly Name: #{product.seoFriendlyProductName}
-  p Publisher: #{product.publisher}
-  p Price: #{product.price}
-
-  button(id='basketButton')  Kosárba
+  .container-fluid
+    .row
+      .col-lg-6#container-img
+        - var picUrl = product.pictureURL
+        img(src='/product-img'+picUrl alt='album_cover')
+      .col-lg-6#container-proddata
+        h1 #{product.productName}  
+        br
+        // p ID: #{product.id}
+        p Category: #{product.productCategory}
+        // p SEO Friendly Name: #{product.seoFriendlyProductName}
+        p Publisher: #{product.publisher}
+        p Price: #{product.price} HUF
+        br
+        br
+        button(id='basketButton')  Add to cart
 

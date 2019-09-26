@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  select.custom-select
+    option(value='1' selected) A -> Z - Artist
+    option(value='2') Z -> A - Artist
+
   .container
       .row
         each product in products
@@ -12,9 +16,9 @@ block content
                 h4.card-title #{product.productName}
                 p.card-text #{product.productCategory}
               .card-footer
-                .btn-group.mt-auto
-                  a.btn.btn-primary(href='#' class='mr-2') Add to cart
-                  a.btn.btn-warning(href='#') More info
+                a.btn.btn-primary(href='#' class='mr-2') Add to cart
+                - var urlToProd = product.seoFriendlyProductName
+                a.btn.btn-warning(href='products/'+urlToProd) More info
 
   div
   ul.pagination.pagination-lg

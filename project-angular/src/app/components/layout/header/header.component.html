@@ -1,13 +1,11 @@
 <!-- Valami tisztességes nav-bar ide mehetne, ezt csak mintának csináltam -->
-<nav>
-  <div>
-    <a class="btn btn-primary"
-       routerLink="/">Index</a>
-    <a class="btn btn-primary"
-       routerLink="/admin/products">Products</a>
-    <a class="btn btn-primary"
-       routerLink="/admin/orders">Orders</a>
-    <a class="btn btn-primary"
-       routerLink="/admin/users">Customers</a>
-  </div>
-</nav>
+<div id="mySidenav"
+     class="sidenav">
+  <a href="javascript:void(0)"
+     class="closebtn"
+     onclick="closeNav()">&times;</a>
+  <a routerLink="/">Index</a>
+  <a routerLink="/admin/products">Products</a>
+  <a routerLink="/admin/orders">Orders</a>
+  <a routerLink="/admin/users">Customers</a>
+</div>

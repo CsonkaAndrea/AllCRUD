@@ -40,7 +40,7 @@ body {
 .navbar-nav .nav-link {
   font-family: linkFont;
   font-size: 13pt;
-  margin-left: 10px;  
+  margin-left: 10px;
   margin-right: 10px;
 }
 
@@ -74,6 +74,15 @@ body {
   border-radius: 10px;
   text-align: center;
 }
+
+.card-footer {
+  background-color: lightgrey;
+}
+
+/* .card-img-top:hover {
+  opacity: 0.8;
+  cursor: pointer;
+} */
 
 .container {
   padding-top: 50px;
@@ -154,15 +163,226 @@ button:focus {
 .jumbotron {
   background: none;
   color: whitesmoke;
-  text-shadow: 2px 2px 2px #000;
+  text-shadow: 3px 3px 3px #000;
 }
 
 .display-3 {
   font-family: linkFont;
+  font-size: 50pt;
+}
+
+.lead {
+  font-weight: 600;
 }
 
 footer {
   font-family: cardTitleFont;
   color: whitesmoke;
-  text-shadow: 2px 2px 2px #000;
+  text-shadow: 3px 3px 3px #000;
+}
+
+a {
+  color: whitesmoke;
+}
+
+a:hover {
+  color: wheat;
+  text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  width: 120px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-primary:before {
+  content: '';
+  background: linear-gradient(60deg, #00ffd5, #002bff, #7a00ff, #002bff, #00ffd5);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.btn-primary:active {
+  color: #000
+}
+
+.btn-primary:active:after {
+  background: transparent;
+}
+
+.btn-primary:hover:before {
+  opacity: 1;
+}
+
+.btn-primary:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn-warning {
+  width: 120px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-warning:before {
+  content: '';
+  background: linear-gradient(60deg, #fbff01, #ffd900, #e9a40f, #ffd900, #fbff01);
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(3px);
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.btn-warning:active {
+  color: #000
+}
+
+.btn-warning:active:after {
+  background: transparent;
+}
+
+.btn-warning:hover:before {
+  opacity: 1;
+}
+
+.btn-warning:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+.custom-select {
+  width: 20%;
+}
+
+#container-proddata {
+  font-family: cardTitleFont;
+  color: whitesmoke;
+  text-shadow: 3px 3px 3px #000;
+}
+
+#container-img>img {
+  height: 300px;
+  width: 300px;
+  transition: 1s;
+  transition-timing-function: linear;
+}
+
+#container-img>img:hover {
+  height: 450px;
+  width: 450px;
+  transition: 1s;
+  transition-timing-function: linear;
+}
+
+#basketButton {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 120px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  z-index: 0;
+  border-radius: 10px;
+  text-align: center;
+  margin-left: 10px;
+}
+
+#basketButton:before {
+  content: '';
+  background: linear-gradient(60deg, #00FF00, #32CD32, #008000, #32CD32, #00FF00);
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(3px);
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+#basketButton:active {
+  color: #000
+}
+
+#basketButton:active:after {
+  background: transparent;
+}
+
+#basketButton:hover:before {
+  opacity: 1;
+}
+
+#basketButton:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
