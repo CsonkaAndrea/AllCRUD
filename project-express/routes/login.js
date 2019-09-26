@@ -12,14 +12,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', async (req, res, next) => {
-    let result = await usersDB.login(req.body);
-    if (result.length === 1) {
-        let token = getToken();
-        res.cookie('uuid', token);
-        await usersDB.setUserToken(result[0].id, token);
-        return res.redirect('/');
-    }
-    res.render('login', { title: 'alma' });
+    let result = await usersDB.loginUser(req.body);
+
+    res.render('index', { title: 'alma' });
 });
 
 module.exports = router;

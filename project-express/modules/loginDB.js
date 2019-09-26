@@ -2,7 +2,7 @@ const DB = require('./DB');
 
 const db = new DB();
 
-module.exports = class adminDB {
+module.exports = class loginDB {
 
     async getLoginDataAdmin() {
         const result = await db.login('admin', object);
@@ -10,10 +10,18 @@ module.exports = class adminDB {
         return result;
     };
 
-    async getLoginDataUser() {
-        const result = await db.readLogin('customers', object);
-        console.log(result);
-        return result;
+    async loginUser(object) {
+        const customers = await db.readLogin('customers', object);
+        const registered = { reg: false, id: 'invalid!' };
+        for (let i = 0; i < users.length; i++) {
+            if (customers[i].email === object.email
+                && customers[i].password === sha1(object.password)) {
+                registered.reg = true;
+                registered.id = customers[i].id;
+                break;
+            }
+        }
+        return registered;
     };
 
     async setAdminToken() {
