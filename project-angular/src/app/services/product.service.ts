@@ -21,7 +21,7 @@ export class ProductService {
   }
 
   createNew(product: Product): Observable<any> {
-    return this.httpClient.post(`${this.url}`, product);
+    return this.httpClient.put(`${this.url}`, product);
   }
 
   update(product: Product): Observable<any> {

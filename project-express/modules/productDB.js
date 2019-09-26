@@ -31,14 +31,14 @@ module.exports = class productDB {
 
 
     async createProduct(object) {
-        const result = await db.create('products', object);
+        const result = await db.create(object, 'products');
         console.log(result);
         return result;
     };
 
 
     async updateProduct(object) {
-        const result = await db.update('products', object);
+        const result = await db.update(object, 'products');
         console.log(result);
         return result;
     };

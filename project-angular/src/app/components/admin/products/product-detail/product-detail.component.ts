@@ -22,9 +22,8 @@ export class ProductDetailComponent implements OnInit {
     this.selectedProductId = parseInt(this.router.url.split('/')[3]);
 
     this.productsService.getAll().subscribe(products => {
-      this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0],
-        console.log(this.oneProduct);
-    });
+      this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0]
+      });
 
   }
 
