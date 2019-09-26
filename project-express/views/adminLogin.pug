@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .main.container
+    .row
+      .col-6.offset-3
+        h1.text-light #{title}
+
+        form.form-signin(action="/admin" method="post")
+          div.form-group
+            label(for='adminUsername').sr-only Username
+            input#adminUsername.form-control(type='text' name='adminUsername' placeholder="Username")
+          div.form-group
+            label(for='adminPassword').sr-only Password
+            input#adminPassword.form-control(type='password' name='adminPassword' placeholder="Password")
+        button.btn.btn-primary.btn-block(type="submit") Login
