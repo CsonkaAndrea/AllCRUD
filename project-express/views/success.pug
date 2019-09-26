@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  .container
-    .row
-      .col-md-6.col-md-offset-3.col-lg-12.text-center.text-success
-        h1 #{title}
-      .col-md-6.col-md-offset-3.col-lg-12.text-center
-        h2 Welcome, #{user.customerFirstName}!
-        a.btn.btn-primary(type='submit' href='http://localhost:3000/login') Continue to site
+  .main.container
+    .row.text-center
+      .col-6.offset-3
+        h1.text-light #{title}
+      .col-6.offset-3
+        h2.text-light Welcome, #{user.customerFirstName}!
+        //- a.btn.btn-primary(type='submit' href='http://localhost:3000/login') Go to login page

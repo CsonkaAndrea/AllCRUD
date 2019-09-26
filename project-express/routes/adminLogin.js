@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const UsersDB = require('./../modules/usersDB');
+const UsersDB = require('../modules/usersDB');
 const usersDB = new UsersDB();
 
 const getToken = (l = 20) => {
@@ -14,7 +14,7 @@ const getToken = (l = 20) => {
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('login2', { title: 'Login' });
+    res.render('adminLogin', { title: 'Welcome to the admin page' });
 });
 
 router.post('/', async (req, res, next) => {
@@ -25,7 +25,7 @@ router.post('/', async (req, res, next) => {
         await usersDB.setUserToken(result[0].id, token);
         return res.redirect('/');
     }
-    res.render('login2', { title: 'alma' });
+    res.render('adminLogin', { title: 'alma' });
 });
 
 module.exports = router;
