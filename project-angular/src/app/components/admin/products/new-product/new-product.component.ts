@@ -22,19 +22,22 @@ export class NewProductComponent implements OnInit {
   }
 
   onSubmit(ev: Event): void {
-    ev.preventDefault()
+    ev.preventDefault();
+    delete this.newProduct.id;
     this.productService.createNew(this.newProduct).subscribe(
       response => {
         console.log('sikeres');
       },
       err => {
         console.error(err),
-          this.router.navigateByUrl("/admin/products")
+          this.router.navigateByUrl('/admin/products');
       }
-    )
+    );
+   
   }
+
   onCancel() {
-    this.router.navigateByUrl("/admin/products")
+    this.router.navigateByUrl('/admin/products');
   }
 
 }

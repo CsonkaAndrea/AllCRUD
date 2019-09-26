@@ -16,16 +16,16 @@ export class ProductService {
     return this.httpClient.get(this.url);
   }
 
-  getOne(productId: Number): Observable<any> {
-    return this.httpClient.get(`${this.url}/${productId}`);
+  getOne(id: number): Observable<any> {
+    return this.httpClient.get(`${this.url}/${id}`);
   }
 
   createNew(product: Product): Observable<any> {
-    return this.httpClient.post(`${this.url}`, product);
+    return this.httpClient.put(`${this.url}`, product);
   }
 
-  update(product:Product): Observable<any> {
-    return this.httpClient.post(`${this.url}/${product.productId}`, product);
+  update(product: Product): Observable<any> {
+    return this.httpClient.post(`${this.url}/${product.id}`, product);
   }
 
 }

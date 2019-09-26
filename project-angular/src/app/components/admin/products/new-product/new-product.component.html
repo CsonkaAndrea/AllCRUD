@@ -5,19 +5,19 @@
       <form (submit)="onSubmit($event)">
         <div class="form-group">
           <label for="name">Product name</label>
-          <input type="text" id="name" name="name" [(ngModel)]="newProduct.productName" class="form-control">
+          <input type="text" required id="name" name="name" [(ngModel)]="newProduct.productName" class="form-control">
           <label for="seo">SEO friendly product name</label>
-          <input type="text" id="seo" name="seo" [(ngModel)]="newProduct.seoFriendlyProductName" class="form-control">
+          <input type="text" required id="seo" name="seo" [(ngModel)]="newProduct.seoFriendlyProductName" class="form-control">
           <label for="category">Product category</label>
-          <input type="text" id="category" name="category" [(ngModel)]="newProduct.productCategory" class="form-control">
+          <input type="text" required id="category" name="category" [(ngModel)]="newProduct.productCategory" class="form-control">
           <label for="url">Picture Url</label>
-          <input type="text" id="url" name="url" [(ngModel)]="newProduct.pictureUrl" class="form-control">
+          <input type="text" required id="url" name="url" [(ngModel)]="newProduct.pictureURL" class="form-control">
           <label for="publisher">Publisher</label>
-          <input type="text" id="publisher" name="publisher" [(ngModel)]="newProduct.publisher" class="form-control">
+          <input type="text" required id="publisher" name="publisher" [(ngModel)]="newProduct.publisher" class="form-control">
           <label for="price">Price</label>
-          <input type="text" id="price" name="price" [(ngModel)]="newProduct.price" class="form-control">
+          <input type="text" required id="price" name="price" [(ngModel)]="newProduct.price" class="form-control">
           <label for="stock">Stock</label>
-          <input type="text" id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control">
+          <input type="text" required id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control">
           <div class="col-12 d-flex justify-content-around">
             <button type="submit" class="btn btn-primary">Ok</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>

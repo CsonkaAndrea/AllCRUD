@@ -12,19 +12,28 @@ router.get('/', (req, res, next) => {
 res.json('API works :)');
 });
 
+// Get all products
 router.get('/products', async (req, res, next) => {
     let result = await productDB.getAllProducts();
     res.json(result);
 });
 
+// Get one product
 router.get('/products/:id', async (req, res, next) => {
     let result = await productDB.getOneProduct();
     res.json(result);
 });
 
+// Update product
 router.post('/products/:id', async (req, res, next) => {
-    let result = await productDB.createProduct(req.body);
-    res.json(result);
+    let result = await productDB.updateProduct(req.body);
+    res.json(result); 
+});
+
+// Create new product
+router.put('/products', async (req, res, next)=>{
+let result = await productDB.createProduct(req.body);
+    res.json(result); 
 });
 
 // USERS

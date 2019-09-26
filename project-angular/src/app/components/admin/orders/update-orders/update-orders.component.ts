@@ -30,7 +30,7 @@ export class UpdateOrdersComponent implements OnInit {
 
 onUpdate($event: Event) {
   $event.preventDefault();
-  this.oneOrder.orderStatus = parseInt(this.oneOrder.orderStatus);
+  // this.oneOrder.orderStatus = parseInt(this.oneOrder.orderStatus);
   delete this.oneOrder.orderDate;
   this.ordersService.update(this.oneOrder).forEach(() => this.router.navigateByUrl('/admin/orders'));
 }
@@ -38,5 +38,8 @@ onUpdate($event: Event) {
 onCancel() {
   this.router.navigateByUrl('/admin/orders');
 }
+
+// még meg kell írni hozzá az onModify()-t!!!!!
+// oneOrderDetail táblát létrehozni és bekötni!!!
 
 }

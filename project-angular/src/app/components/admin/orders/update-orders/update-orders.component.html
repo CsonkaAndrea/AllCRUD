@@ -1,47 +1,68 @@
-<h1>{{ title }}</h1>
+<br>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-12">
+<div class="row">
+  <div class="card border-primary col-4">
       <form (submit)="onUpdate($event)">
-        <div class="form-group row">
-          <label for="orderId" class="col-sm-2 col-form-label">Order ID</label>
-          <div class="col-sm-10">
-              <input type="text" disabled class="form-control-plaintext" name="orderId" [(ngModel)]="oneOrder.id">
+        <h4 class="card-header">Order details</h4>
+        <div class="card-body">
+          <div class="form-group row">
+            <label for="orderId" class="col-form-label col-sm-4">Order ID</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="orderId" [(ngModel)]="oneOrder.id">
           </div>
+          <div class="form-group row">
+            <label for="orderDate" class="col-form-label col-sm-4">Order date</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="orderDate" [(ngModel)]="oneOrder.orderDate">
+          </div>
+          <div class="form-group row">
+            <label for="customerId" class="col-form-label col-sm-4">Customer ID</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="customerId" [(ngModel)]="oneOrder.customerId">
+          </div>
+          <div class="form-group">
+            <label for="orderStatus">Order status</label>
+            <select class="form-control" id="orderStatus" name="orderStatus" [(ngModel)]="oneOrder.orderStatus">
+              <option [value]="1">received</option>
+              <option [value]="2">processed</option>
+              <option [value]="3">shipped</option>
+              <option [value]="4">delivered</option>
+              <option [value]="5">deleted</option>
+            </select>
         </div>
-        <div class="form-group row">
-          <label for="orderDate" class="col-sm-2 col-form-label">Order date</label>
-          <div class="col-sm-10">
-              <input type="text" disabled class="form-control-plaintext" name="orderDate" [(ngModel)]="oneOrder.orderDate">
-          </div>
         </div>
-        <div class="form-group row">
-          <label for="customerId" class="col-sm-2 col-form-label">Customer ID</label>
-          <div class="col-sm-10">
-              <input type="text" disabled class="form-control-plaintext" name="customerId" [(ngModel)]="oneOrder.customerId">
-          </div>
+        <div class="card-footer d-flex justify-content-around">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
         </div>
-        <div class="form-group row">
-          <label for="value" class="col-sm-2 col-form-label">Order value</label>
-          <div class="col-sm-10">
-              <input type="text" disabled class="form-control-plaintext" name="value" [(ngModel)]="oneOrder.value">
-          </div>
-        </div>
-            <div class="form-group row">
-                <label for="orderStatus">Order status</label>
-                <select class="form-control" id="orderStatus" name="orderStatus" [(ngModel)]="oneOrder.orderStatus">
-                  <option [value]="1">received</option>
-                  <option [value]="2">processed</option>
-                  <option [value]="3">shipped</option>
-                  <option [value]="4">delivered</option>
-                  <option [value]="5">deleted</option>
-                </select>
-            </div>
-          <div class="col-12 d-flex justify-content-around">
-            <button type="submit" class="btn btn-primary">Update</button>
-            <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
-          </div>
       </form>
     </div>
+
+ 
+  <div class="card border-primary col-6">
+      <form (submit)="onModify($event)">
+        <h4 class="card-header">Order details</h4>
+        <div class="card-body">
+          <div class="form-group row">
+            <label for="productId" class="col-form-label col-sm-4">Product ID</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="productId" [(ngModel)]="oneOrderDetail.productId">
+          </div>
+          <div class="form-group row">
+            <label for="netPrice" class="col-form-label col-sm-4">Net price</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="netPrice" [(ngModel)]="oneOrderDetail.netPrice">
+          </div>
+          <div class="form-group row">
+            <label for="orderQuantity" class="col-form-label col-sm-4">Order quantity</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="orderQuantity" [(ngModel)]="oneOrderDetail.orderQuantity">
+          </div>
+          <div class="form-group row">
+            <label for="orderDetailId" class="col-form-label col-sm-4">Order line nr</label>
+            <input type="text" disabled class="form-control-plaintext col-sm-6" name="orderDetailId" [(ngModel)]="oneOrderDetail.orderDetailId">
+          </div>
+        </div>
+        <div class="card-footer d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary">Modify</button>
+            <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
   </div>
+  
+</div>
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router'
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -11,22 +11,19 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
-  oneProduct: Product;
-  title: 'Product detail';
+  oneProduct: Product = new Product();
   selectedProductId: number;
 
   constructor(
     private productsService: ProductService,
-    private ar: ActivatedRoute,
     private router: Router,
   ) {
 
     this.selectedProductId = parseInt(this.router.url.split('/')[3]);
 
     this.productsService.getAll().subscribe(products => {
-      this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0],
-        console.log(this.oneProduct);
-    });
+      this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0]
+      });
 
   }
 
@@ -39,7 +36,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigateByUrl("/admin/products")
+    this.router.navigateByUrl('/admin/products');
   }
 
 }

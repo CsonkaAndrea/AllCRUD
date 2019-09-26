@@ -1,15 +1,15 @@
-<h1 class="text-center">{{ title }}</h1>
+<h1 class="text-center">Available Products</h1>
 <div class="container">
   <div class="row">
     <div class="col-5">
       <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
     </div>
     <div class="col-5">
-        <button class="btn btn-primary" routerLink="/admin/new-product">Details</button>
+        <!-- <button class="btn btn-primary" routerLink="/admin/new-product">New product</button> -->
     </div>
   </div>
 </div>
-
+<br>
 <table class="table table-striped">
   <thead>
     <tr>
@@ -26,16 +26,16 @@
   </thead>
 <tbody>
   <tr *ngFor="let product of products|search:filterPhrase:changeCounter">
-    <td>{{ product.productId }}</td>
+    <td>{{ product.id }}</td>
     <td>{{ product.productName }}</td>
     <td>{{ product.seoFriendlyProductName }}</td>
     <td>{{ product.productCategory }}</td>
-    <td>{{ product.pictureUrl }}</td>
+    <td>{{ product.pictureURL }}</td>
     <td>{{ product.publisher }}</td>
     <td>{{ product.price }}</td>
     <td>{{ product.stock }}</td>
     <td>
-      <button class="btn btn-primary" routerLink="/admin/products/{{ product.productId }}">Details</button>
+      <button class="btn btn-primary" routerLink="/admin/products/{{ product.id }}">Details</button>
     </td>
   </tr>
 </tbody>
