@@ -118,10 +118,20 @@ module.exports = class DB {
      */
 
     async delete(table, object) {
-        let sql = `
-            DELETE FROM ${table}
-            WHERE id = ${object.id}
-        `;
+        let sql = '';
+        console.log(sql);
+        if (object.id) {
+            sql = `
+                DELETE FROM ${table}
+                WHERE id = ${object.id}
+            `;
+        } else {
+            sql = `
+                DELETE FROM ${table}
+                WHERE productID = ${object.productID}
+            `;
+        };
+        console.log(sql);
         const result = await this.conn.query(sql);
         return result;
     };
@@ -158,5 +168,10 @@ module.exports = class DB {
         `;
         const result = await this.conn.query(sql);
         return result;
-    }
+    };
+
+    async getDataFromSql(sql) {
+        const result = await this.conn.query(sql);
+        return result;
+    };
 };

@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .container-fluid
+    .row
+      .col
+        h1 This is your BASKET (BasketID: #{basket[0].basketID}).
+        table.table
+          thead
+            tr
+              th Name
+              th Category
+              th Publisher
+              th Price
+              th Quantity
+              th Delete Basket Item
+          tbody
+            each item in basket
+              tr
+                td #{item.productName}
+                td #{item.productCategory}
+                td #{item.publisher}
+                td #{item.price}                
+                td #{item.basketQuantity}                
+                td 
+                  button(onclick='removeItem(' + item.prodID + ')' id="button"+item.prodID) Remove Item
+    .row              
+      .col
+        h1 Your basket value: #{sumOfBasketPrice} 
+      
