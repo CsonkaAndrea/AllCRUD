@@ -33,6 +33,4 @@ export class CustomersComponent implements OnInit {
     // Remove from SERVER
     this.customersService.remove(customer).subscribe();
   };
-
-
 }

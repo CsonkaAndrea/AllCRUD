@@ -14,7 +14,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let order of orders">
+          <tr *ngFor="let order of orders | orderByDate:orderKey">
             <td>{{ order.customerId}}</td>
             <td>Folyamatban... Customer neve is kell</td>
             <td>{{ order.orderDate }}</td>

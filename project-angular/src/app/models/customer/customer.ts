@@ -1,7 +1,8 @@
 export class Customer {
     id: number = 0;
-    customerFirstName: string = '';
-    customerLastName: string = '';
-    customerPassword: string = '';
-    customerUsername: string = '';
+    firstName: string = '';
+    lastName: string = '';
+    password: string = '';
+    username: string = '';
+    token: string = '';
 }

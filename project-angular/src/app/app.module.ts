@@ -16,6 +16,11 @@ import { ProductDetailComponent } from './components/admin/products/product-deta
 import { UpdateOrdersComponent } from './components/admin/orders/update-orders/update-orders.component';
 import { SearchPipe } from './pipes/search.pipe';
 import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
+import { AdminsComponent } from './components/admin/admins/admins.component';
+import { UpdateAdminComponent } from './components/admin/admins/update-admin/update-admin.component';
+import { CreateAdminComponent } from './components/admin/admins/create-admin/create-admin.component';
+import { OrderByDatePipe } from './pipes/order-by-date.pipe';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +35,11 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
     NewProductComponent,
     ProductDetailComponent,
     SearchPipe,
-    UpdateOrdersComponent
+    UpdateOrdersComponent,
+    AdminsComponent,
+    UpdateAdminComponent,
+    CreateAdminComponent,
+    OrderByDatePipe,
   ],
   imports: [
     BrowserModule,

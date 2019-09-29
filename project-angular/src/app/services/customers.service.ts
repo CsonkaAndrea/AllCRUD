@@ -27,5 +27,4 @@ export class CustomersService {
   update(customer: Customer): Observable<any> {
     return this.httpClient.post(`${this.url}/${customer.id}`, customer);
   };
-
 }

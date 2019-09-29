@@ -9,17 +9,19 @@ import { Order } from 'src/app/models/order/order';
 })
 export class OrdersComponent implements OnInit {
 
+
   constructor(
     private ordersService: OrdersService) {
   };
 
+  orderKey: string = 'orderDate';
   orders: Order[];
   updateCustomer: Order = new Order();
 
   // Read all orders onInit
   ngOnInit() {
     this.ordersService.getAll().subscribe(orders => {
-      this.orders = orders
+      this.orders = orders;
     });
   };
 
