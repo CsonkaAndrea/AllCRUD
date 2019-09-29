@@ -13,8 +13,9 @@ module.exports = class adminDB {
 
     async registerUsers(object) {
         object.password = sha1(object.password);
-        console.log(object);
         const result = await db.create(object, 'customers');
+        // ide jön majd a kosárkreáló meghívása
+        console.log(`registerdbs: ${result}`);
         return result;
     };
 

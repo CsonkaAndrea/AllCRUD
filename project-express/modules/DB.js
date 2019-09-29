@@ -76,7 +76,8 @@ module.exports = class DB {
             (${rowValues})
 `;
         const result = await this.conn.query(sql);
-        return result;
+        console.log(`insertid: ${result.insertId}`);
+        return result.insertId;
     };
 
 
@@ -169,8 +170,8 @@ module.exports = class DB {
         let result = await this.conn.query(sql);
         return result;
     };
-    async readLogin(table, object) {
-        let registered = { reg: false, id: '' };
+
+    async createBasket(table, object) {
         let sql = `
             SELECT * 
             FROM ${table} 
@@ -180,7 +181,6 @@ module.exports = class DB {
         let result = await this.conn.query(sql);
         return result;
     };
-
 
     async setToken(table, object) {
         let sql = `
