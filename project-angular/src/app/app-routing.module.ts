@@ -8,6 +8,7 @@ import { IndexComponent } from './components/admin/index/index.component';
 import { CustomersComponent } from './components/admin/customers/customers.component';
 import { UpdateCustomerComponent } from './components/admin/customers/update-customer/update-customer.component';
 import { UpdateOrdersComponent } from './components/admin/orders/update-orders/update-orders.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'admin/orders/:id', component: UpdateOrdersComponent },
   { path: 'admin/users', component: CustomersComponent },
   { path: 'admin/users/:id', component: UpdateCustomerComponent },
+  { path: 'admin/dashboard', component: DashboardComponent },
   { path: '**', component: IndexComponent }
 ];
 
