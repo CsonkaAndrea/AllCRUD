@@ -3,7 +3,6 @@ const pool = mariadb.createPool({
     user: 'root',
     password: 'root',
     database: 'webshop', // Ez az adatbázisunk neve
-    connectionLimit: 5
 });
 
 module.exports = class DB {
@@ -160,7 +159,7 @@ module.exports = class DB {
         return result;
     };
 
-    async readLogin(table, object, ) {
+    async readLogin(table, object) {
         let sql = `
             SELECT * 
             FROM ${table} 
@@ -170,6 +169,18 @@ module.exports = class DB {
         let result = await this.conn.query(sql);
         return result;
     };
+    async readLogin(table, object) {
+        let registered = { reg: false, id: '' };
+        let sql = `
+            SELECT * 
+            FROM ${table} 
+            WHERE username = '${object.username}' 
+                AND password = SHA1('${object.password}')
+        `;
+        let result = await this.conn.query(sql);
+        return result;
+    };
+
 
     async setToken(table, object) {
         let sql = `
