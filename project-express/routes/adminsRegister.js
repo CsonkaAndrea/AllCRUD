@@ -4,7 +4,7 @@ const RegisterDB = require('../modules/registerDB');
 const registerDB = new RegisterDB();
 
 
-router.get('/, function (req, res, next) {
+router.get('/', (req, res, next) => {
     res.render('admin');
 });
 

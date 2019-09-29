@@ -1,13 +1,14 @@
 extends layout
 
 block content
+  
   .main.container
     .row
       .col-md-6.col-md-offset-3
-        h1 #{title}
+        h1 Login
 
         // register form
-        form(method='POST' action='./register/users')
+        form(method='POST' action='./')
           div.form-group
             label(for='username') Username
             input#username.form-control(type='text' name='username')
