@@ -11,6 +11,7 @@ import { UpdateOrdersComponent } from './components/admin/orders/update-orders/u
 import { AdminsComponent } from './components/admin/admins/admins.component';
 import { UpdateAdminComponent } from './components/admin/admins/update-admin/update-admin.component';
 import { CreateAdminComponent } from './components/admin/admins/create-admin/create-admin.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'admin/admins', component: AdminsComponent },
   { path: 'admin/admins/:id', component: UpdateAdminComponent },
   { path: 'admin/new-admin', component: CreateAdminComponent },
+  { path: 'admin/dashboard', component: DashboardComponent },
   { path: '**', component: IndexComponent }
 ];
 
