@@ -14,13 +14,14 @@ module.exports = class adminDB {
     async registerUsers(object) {
         object.password = sha1(object.password);
         console.log(`pw: ${object.password}`);
+
         const customerId = await db.create(object, 'customers');
         console.log(`custormerID: ${customerId}`);
-        const tableId = await db.createTable('baskets');
-        console.log(`tableId: ${createTable}`);
-        const createBasket = await db.writeTable('baskets', customerId, tableId);
-        console.log(`registerdbs: ${result}`);
-        return result;
+
+        const tableId = await db.createTable(customerId, 'baskets');
+        console.log(`tableId: ${tableId}`);
+
+        return tableId;
     };
 
 }

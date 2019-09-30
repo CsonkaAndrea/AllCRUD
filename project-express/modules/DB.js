@@ -171,27 +171,23 @@ module.exports = class DB {
         return result;
     };
 
-    async createTable(table) {
+    async createTable(customerId, table) {
         let sql = `
-        CREATE TABLE ${table}
-            id INT NOT NULL AUTO_INCREMENT,
-            customerId INT NOT NULL,
-            PRIMARY KEY (id)
-        `;
+            INSERT INTO ${table}
+            (customerID)
+            VALUE
+            (${customerId})
+            `;
         let result = await this.conn.query(sql);
         return result;
     };
 
-    async writeTable() {
-
-    };
-
     async setToken(table, object) {
         let sql = `
-            UPDATE ${table}
-            SET token = '${object.token}' 
-            WHERE id = ${object.id}
-        `;
+                UPDATE ${table}
+                SET token = '${object.token}' 
+                WHERE id = ${object.id}
+            `;
         let result = await this.conn.query(sql);
         return true;
     };
@@ -204,11 +200,13 @@ module.exports = class DB {
         }
 
         let sql = `
-            SELECT * FROM users WHERE token = '${req.cookies.uuid}'
-        `;
+                SELECT * FROM users WHERE token = '${req.cookies.uuid}'
+            `;
         let result = await this.conn.query(sql);
         return result[0];
-    }
+    };
 
 
 };
+
+
