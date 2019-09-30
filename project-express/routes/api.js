@@ -6,7 +6,7 @@ const UsersDB = require('../modules/usersDB');
 const usersDB = new UsersDB();
 const OrdersDB = require('../modules/orderDB');
 const ordersDB = new OrdersDB();
-const AdminsDB = require('../modules/adminDB');
+const AdminsDB = require('../modules/adminsDB');
 const adminsDB = new AdminsDB();
 
 // Check API

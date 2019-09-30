@@ -28,5 +28,4 @@ module.exports = class usersDB {
         return result;
     };
 
-
 }

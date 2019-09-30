@@ -1,19 +1,7 @@
-const mariadb = require('mariadb');
-const pool = mariadb.createPool({
-    user: 'root',
-    password: 'root',
-    database: 'webshop', // Ez az adatbázisunk neve
-    connectionLimit: 5
-});
-
 const DB = require('./DB');
 const db = new DB();
 
 module.exports = class productDB {
-    constructor() {
-        pool.getConnection().then(conn => this.conn = conn);
-    };
-
     async getAllProducts() {
         const result = await db.readAll('products');
         return result;

@@ -1,5 +1,7 @@
 const DB = require('./DB');
 const db = new DB();
+const sh1 = require('js-sha1');
+
 module.exports = class adminsDB {
     get tableName() {
         return 'admins';
@@ -16,17 +18,21 @@ module.exports = class adminsDB {
     };
 
     async createAdmin(object) {
+        object.password = sha1(object.password);
         const result = await db.create(object, this.tableName);
         return result;
     };
 
     async updateAdmin(object) {
+        object.password = sha1(object.password);
         const result = await db.update(object, this.tableName);
         return result;
     };
 
     async deleteAdmin(object) {
         const result = await db.delete(this.tableName, object);
+        const result = await db.readOne(this.tableName, id);
+        console.log(result);
         return result;
     };
 }
