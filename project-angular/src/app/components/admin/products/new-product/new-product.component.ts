@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product/product';
 import { ProductService } from 'src/app/services/product.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { RxwebValidators, RxFormBuilder } from '@rxweb/reactive-form-validators';
 
 @Component({
   selector: 'app-new-product',
@@ -9,12 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-product.component.css']
 })
 export class NewProductComponent implements OnInit {
-
+  productFormGroup: FormGroup;
   newProduct: Product = new Product();
 
   constructor(
     private productService: ProductService,
     private router: Router,
+    private formBuilder: RxFormBuilder,
   ) { }
 
   // form: boolean[] = [
@@ -31,6 +34,15 @@ export class NewProductComponent implements OnInit {
 
 
   ngOnInit() {
+    this.productFormGroup = this.formBuilder.group({
+    productName: ['', RxwebValidators.required()],
+    seoFriendlyProductName: ['', RxwebValidators.required()],
+    productCategory: ['', RxwebValidators.required()],
+    pictureURL: ['', RxwebValidators.required()],
+    publisher: ['', RxwebValidators.required()],
+    price: ['', RxwebValidators.required()],
+    stock: ['', RxwebValidators.required()]
+    });
   }
 
   onSubmit(ev: Event): void {

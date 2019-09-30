@@ -2,64 +2,31 @@
   <h1 class="text-center">{{ title }}</h1>
   <div class="row">
     <div class="col-12">
-      <form (submit)="onSubmit($event)">
+      <form (submit)="onSubmit($event)" [formGroup]="productFormGroup">
         <div class="form-group">
           <label for="name">Product name</label>
-          <input type="text" required minlength="3" id="name" name="name" [(ngModel)]="newProduct.productName" class="form-control" #name="ngModel">
+          <input type="text" formControlName="productName" id="name" name="name" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.productName["errorMessage"]}}<br/></small>
           <label for="seo">SEO friendly product name</label>
-          <input type="text" required minlength="3" id="seo" name="seo" [(ngModel)]="newProduct.seoFriendlyProductName" class="form-control" #seo="ngModel">
+          <input type="text" formControlName="seoFriendlyProductName" id="seo" name="seo" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.seoFriendlyProductName["errorMessage"]}}<br/></small>
           <label for="category">Product category</label>
-          <input type="text" required minlength="3" id="category" name="category" [(ngModel)]="newProduct.productCategory" class="form-control" #category="ngModel">
+          <input type="text" formControlName="productCategory" id="category" name="category" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.productCategory["errorMessage"]}}<br/></small>
           <label for="url">Picture Url</label>
-          <input type="text" required minlength="3" id="url" name="url" [(ngModel)]="newProduct.pictureURL" class="form-control" #url="ngModel">
+          <input type="text" formControlName="pictureURL" id="url" name="url" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.pictureURL["errorMessage"]}}<br/></small>
           <label for="publisher">Publisher</label>
-          <input type="text" required minlength="3" id="publisher" name="publisher" [(ngModel)]="newProduct.publisher" class="form-control" #publisher="ngModel">
+          <input type="text" formControlName="publisher" id="publisher" name="publisher" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.publisher["errorMessage"]}}<br/></small>
           <label for="price">Price</label>
-          <input type="number" required minlength="1" id="price" name="price" [(ngModel)]="newProduct.price" class="form-control" #price="ngModel">
+          <input type="number" formControlName="price" id="price" name="price" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.price["errorMessage"]}}<br/></small>
           <label for="stock">Stock</label>
-          <input type="number" required minlength="1" id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control" #stock="ngModel">
+          <input type="number" formControlName="stock" id="stock" name="stock" class="form-control">
+          <small class="form-text text-danger">{{productFormGroup.controls.stock["errorMessage"]}}<br/></small>
           <div class="col-12 d-flex justify-content-around">
-            <button type="submit" class="btn btn-primary" ng-click="submitted=true">Ok</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!productFormGroup.valid">Ok</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
           </div>
         </div>
-
-        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-          <div *ngIf="name.errors.required">
-            Product name is required!
-          </div>
-        </div>
-        <div *ngIf="seo.invalid && (seo.dirty || seo.touched)" class="alert alert-danger">
-            <div *ngIf="seo.errors.required">
-              SEO friendly product name is required!
-            </div>
-        </div>
-        <div *ngIf="category.invalid && (category.dirty || category.touched)" class="alert alert-danger">
-            <div *ngIf="category.errors.required">
-              Product category is required!
-            </div>
-        </div>
-        <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
-            <div *ngIf="url.errors.required">
-              Picture Url is required!
-            </div>
-        </div>
-        <div *ngIf="publisher.invalid && (publisher.dirty || publisher.touched)" class="alert alert-danger">
-            <div *ngIf="publisher.errors.required">
-              Publisher is required!
-            </div>
-        </div>
-        <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
-            <div *ngIf="price.errors.required">
-              Price is required!
-            </div>
-        </div>
-        <div *ngIf="stock.invalid && (stock.dirty || stock.touched)" class="alert alert-danger">
-            <div *ngIf="stock.errors.required">
-              Stock is required!
-            </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
