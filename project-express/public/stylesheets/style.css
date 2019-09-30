@@ -396,3 +396,8 @@ a:hover {
   top: 0;
   border-radius: 10px;
 }
+
+.form-control {
+  width: 20%;
+  margin-top: 5px;
+}
