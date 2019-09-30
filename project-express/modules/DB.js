@@ -3,7 +3,7 @@ const pool = mariadb.createPool({
     user: 'root',
     password: 'root',
     database: 'webshop', // Ez az adatbázisunk neve
-    connectionLimit: 5
+    connectionLimit: 100
 });
 
 module.exports = class DB {
