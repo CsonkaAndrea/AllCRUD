@@ -13,8 +13,12 @@ module.exports = class adminDB {
 
     async registerUsers(object) {
         object.password = sha1(object.password);
-        const result = await db.create(object, 'customers');
-        // ide jön majd a kosárkreáló meghívása
+        console.log(`pw: ${object.password}`);
+        const customerId = await db.create(object, 'customers');
+        console.log(`custormerID: ${customerId}`);
+        const tableId = await db.createTable('baskets');
+        console.log(`tableId: ${createTable}`);
+        const createBasket = await db.writeTable('baskets', customerId, tableId);
         console.log(`registerdbs: ${result}`);
         return result;
     };

@@ -2,7 +2,7 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
     user: 'root',
     password: 'root',
-    database: 'webshop', // Ez az adatbázisunk neve
+    database: 'webshop' // Ez az adatbázisunk neve
 });
 
 module.exports = class DB {
@@ -171,15 +171,19 @@ module.exports = class DB {
         return result;
     };
 
-    async createBasket(table, object) {
+    async createTable(table) {
         let sql = `
-            SELECT * 
-            FROM ${table} 
-            WHERE username = '${object.username}' 
-                AND password = SHA1('${object.password}')
+        CREATE TABLE ${table}
+            id INT NOT NULL AUTO_INCREMENT,
+            customerId INT NOT NULL,
+            PRIMARY KEY (id)
         `;
         let result = await this.conn.query(sql);
         return result;
+    };
+
+    async writeTable() {
+
     };
 
     async setToken(table, object) {
