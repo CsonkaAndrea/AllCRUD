@@ -18,11 +18,11 @@ export class DashboardComponent implements OnInit {
   productNumber: number = 0
 
   allOrders: any
-  allOrders$: Observable<any> = this.orders.getAll()
+  allOrders$: Observable<any> = this.orders.getAll() // Ez ide nem kell
   ordersNumber: number = 0
 
   allProduct: any
-  allProducts$: Observable<any> = this.product.getAll()
+  allProducts$: Observable<any> = this.product.getAll() // Ez ide nem kell
   productNumber: number = 0
 
 
