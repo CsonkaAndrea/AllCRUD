@@ -17,6 +17,14 @@ export class DashboardComponent implements OnInit {
   ordersNumber: number = 0
   productNumber: number = 0
 
+  allOrders: any
+  allOrders$: Observable<any> = this.orders.getAll()
+  ordersNumber: number = 0
+
+  allProduct: any
+  allProducts$: Observable<any> = this.product.getAll()
+  productNumber: number = 0
+
 
   ngOnInit() {
     this.customers.getAll().subscribe(
@@ -42,7 +50,6 @@ export class DashboardComponent implements OnInit {
         }
       }
     )
-
   }
 
 }
