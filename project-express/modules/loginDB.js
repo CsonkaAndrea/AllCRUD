@@ -13,43 +13,26 @@ module.exports = class loginDB {
 
     async loginUser(object) {
         let users = await db.readLogin('customers', object);
-        let decideIfAlreadyRegistered = -1;
+        let userId = -1;
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === object.email && users[i].password === sha1(object.password)) {
-                decideIfAlreadyRegistered = users[i].id;
+                userId = users[i].id;
                 break;
             }
         }
-        console.log(decideIfAlreadyRegistered);
-        return decideIfAlreadyRegistered;
+        if (userId > 0) {
+            object.token = await this.createToken();
+            return object.token;
+        }
     };
 
-
-    async setAdminToken() {
-        const result = await db.setToken('admin', object);
-        console.log(result);
-        return result;
-    };
-
-    async setUserToken() {
-        const result = await db.setToken('customers', object);
-        console.log(result);
-        return result;
-    };
-
-    //nem jó!!!!
-
-    async createTokenAdmin() {
-        let result = '';
-        for (let i = 0; i < 20; i++) {
+    async createToken() {
+        let result = ''
+        for (let i = 0; i < l; i++) {
             let index = Math.round(Math.random() * 50 + 65);
             result += String.fromCharCode(index);
         }
-        const admin = await this.getOneAdmin(id);
-        admin.token = result;
-        await this.updateAdmin(object);
-        console.log(token);
-        return token;
+        return result;
     };
 
 }

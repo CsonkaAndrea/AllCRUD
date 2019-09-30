@@ -180,16 +180,18 @@ module.exports = class DB {
         return result;
     };
 
-    async createTable(table) {
+
+    async createTable(customerId, table) {
         let sql = `
-        CREATE TABLE ${table}
-            id INT NOT NULL AUTO_INCREMENT,
-            customerId INT NOT NULL,
-            PRIMARY KEY (id)
-        `;
+            INSERT INTO ${table}
+            (customerID)
+            VALUE
+            (${customerId})
+            `;
         let result = await this.conn.query(sql);
         return result;
     };
+
 
     async setToken(table, object) {
         let sql = `
