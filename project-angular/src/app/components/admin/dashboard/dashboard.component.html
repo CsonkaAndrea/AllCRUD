@@ -1,14 +1,40 @@
-<div class="card"
-     style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title">Users</h5>
-        <p class="card-text">{{customersNumber}}</p>
-        <a href="#"
-           class="btn btn-primary">View users</a>
-    </div>
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-3 mx-auto">
+            <div class="card"
+                 style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Products</h5>
+                    <p class="card-text">Total number: {{productNumber}}</p>
+                    <a href="#"
+                       class="btn btn-primary btn-block">View products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 mx-auto">
+            <div class="card"
+                 style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Orders</h5>
+                    <p class="card-text">Total number: {{ordersNumber}}</p>
+                    <a href="#"
+                       class="btn btn-primary btn-block">View orders</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 mx-auto">
+            <div class="card"
+                 style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">Customers</h5>
+                    <p class="card-text">Total number: {{customersNumber}}</p>
+                    <a href="#"
+                       class="btn btn-primary btn-block">View customers</a>
+                </div>
+            </div>
+        </div>
 
-<h1>Customers</h1>
+        <!-- <h1>Customers</h1>
 <table class="table">
     <thead>
         <tr>
@@ -30,4 +56,4 @@
             <td>{{customer.token}}</td>
         </tr>
     </tbody>
-</table>
+</table> -->
