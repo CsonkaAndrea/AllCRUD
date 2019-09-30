@@ -16,7 +16,7 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: DashboardComponent },
   { path: 'admin/products', component: ProductsComponent },
   { path: 'admin/products/:id', component: ProductDetailComponent },
   { path: 'admin/new-product', component: NewProductComponent },
@@ -28,6 +28,7 @@ const routes: Routes = [
   { path: 'admin/admins/:id', component: UpdateAdminComponent },
   { path: 'admin/new-admin', component: CreateAdminComponent },
   { path: 'admin/dashboard', component: DashboardComponent },
+  // { path: 'admin/dashboard', component: DashboardComponent },
   { path: '**', component: IndexComponent }
 ];
 
