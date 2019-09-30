@@ -45,7 +45,6 @@ export class NewProductComponent implements OnInit {
         console.error(err);
       }
     );
-    this.router.navigateByUrl('/admin/products');
   }
 
   onCancel() {
