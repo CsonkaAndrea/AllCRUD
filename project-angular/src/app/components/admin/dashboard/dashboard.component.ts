@@ -17,17 +17,43 @@ export class DashboardComponent implements OnInit {
   allCustomer$: Observable<any> = this.customers.getAll()
   customersNumber: number = 0
 
+  allOrders: any
+  allOrders$: Observable<any> = this.orders.getAll()
+  ordersNumber: number = 0
+
+  allProduct: any
+  allProducts$: Observable<any> = this.product.getAll()
+  productNumber: number = 0
+
 
   ngOnInit() {
     this.customers.getAll().subscribe(
       sajt => this.allCustomer = sajt
     )
-    console.log('All Customer', this.allCustomer)
+
+    this.orders.getAll().subscribe(
+      bogyo => this.allOrders = bogyo
+    )
+
+    this.product.getAll().subscribe(
+      bubi => this.allProduct = bubi
+    )
 
     //Count customers
     for (let i = 0; i < this.allCustomer.length; i++) {
       this.customersNumber++
     }
+
+    //Count orders
+    for (let i = 0; i < this.allOrders.length; i++) {
+      this.ordersNumber++
+    }
+
+    //Count product
+    for (let i = 0; i < this.allProduct.length; i++) {
+      this.productNumber++
+    }
+
   }
 
 }
