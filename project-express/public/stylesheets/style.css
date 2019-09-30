@@ -392,3 +392,7 @@ a:hover {
   top: 0;
   border-radius: 10px;
 }
+
+.form-control#quantity {
+  width: 20%;
+}

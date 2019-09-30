@@ -14,6 +14,8 @@ block content
         // p SEO Friendly Name: #{product.seoFriendlyProductName}
         p Publisher: #{product.publisher}
         p Price: #{product.price} HUF
+        p Quantity:
+        input.form-control#quantity(type='number' name='quantity' value='1' data-type='number' step='1' min='1')
         br
         br
         button(onclick='postHandler()')  Add to cart
