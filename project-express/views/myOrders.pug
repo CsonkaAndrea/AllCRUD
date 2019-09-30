@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .row
+    .col-10
+      table.table.table-striped
+        thead
+          tr
+            th ID
+            th Order date
+            th Order status
+            th Product name
+            th Ordered quantity
+        tbody
+          each order in orders
+           tr
+             td #{myOrders.id}
+             td #{myOrders.orderDate}
+             td #{myOrders.orderStatus}
+             td #{Products.productName}
+             td #{myOrderDetails.orderQuantity}
