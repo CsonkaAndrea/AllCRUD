@@ -1,20 +1,30 @@
-const express = require('express');
-const router = express.Router();
-const BasketLogic = require('./../modules/basketLogic');
-const basketLogic = new BasketLogic;
+var express = require('express');
+var router = express.Router();
+const OrderDB = require('../modules/orderDB');
+const orderDB = new OrderDB;
 
-router.get('/', (req, res, next) => {
-    res.json('myorders works!')
+router.get('/', async (req, res, next) => {
+  const myOrders = await orderDB.getAllOrders();
+  console.log(myOrders[0]);
+  res.render('myOrders', {
+      title: 'Orders',
+      orders: myOrders
+  });
 });
 
-router.post('/', (req, res, next) => {
-    console.log(JSON.parse(req.body.basketID));
-    res.end()
-});
+router.get('/:address', async (req, res, next) => {
+  const order = await orderDB.getOneOrder(req.params.address);
 
-
-
-
-
+  if (order === undefined) {
+      res.render('error', {
+          message: 'Order does not exist.'
+      });
+  } else {
+      res.render('order', {
+          title: `order ${req.params.address}`,
+          order: order
+      });
+  };
+})
 
 module.exports = router;
