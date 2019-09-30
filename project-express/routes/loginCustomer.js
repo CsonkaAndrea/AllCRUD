@@ -14,11 +14,8 @@ router.get('/', function (req, res, next) {
 
 router.post('/', async (req, res, next) => {
     let userId = await loginDB.loginUser(req.body);
-    if (userId > 0) {
-        res.redirect('products');
-    } else {
-        res.send(`most mi van?`);
-    }
+    res.redirect('/product');
+
 });
 
 

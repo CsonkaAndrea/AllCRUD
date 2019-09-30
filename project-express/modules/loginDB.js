@@ -22,13 +22,16 @@ module.exports = class loginDB {
         }
         if (userId > 0) {
             object.token = await this.createToken();
+            console.log(`ifes object.token: ${object.token}`);
+            const tableId = await db.updateTable(userId, object.token, 'customers', 'token');
             return object.token;
         }
+
     };
 
     async createToken() {
         let result = ''
-        for (let i = 0; i < l; i++) {
+        for (let i = 0; i < 50; i++) {
             let index = Math.round(Math.random() * 50 + 65);
             result += String.fromCharCode(index);
         }

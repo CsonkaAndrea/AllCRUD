@@ -181,16 +181,27 @@ module.exports = class DB {
     };
 
 
-    async createTable(customerId, table) {
+    async createTable(value, table, columnName) {
+        console.log(`dbs  value: ${value}`);
         let sql = `
-            INSERT INTO ${table}
-            (customerID)
-            VALUE
-            (${customerId})
-            `;
+              INSERT INTO ${table}
+              (${columnName})
+              VALUE
+              (${value})
+              `;
         let result = await this.conn.query(sql);
         return result;
     };
+
+    async updateTable(number, value, table, column) {
+        let sql = `
+        UPDATE ${table}
+        SET ${column} = '${value}'
+        WHERE id = ${number}
+        `;
+        let result = await this.conn.query(sql);
+        return result;
+    }
 
 
     async setToken(table, object) {
