@@ -26,5 +26,10 @@ block content
                   button(onclick='removeItem(' + item.prodID + ')' id="button"+item.prodID) Remove Item
     .row              
       .col
-        h1 Your basket value: #{sumOfBasketPrice} 
+        h1 Your basket value:  
+        h2(id='sumOfBasket') #{sumOfBasketPrice}
+    .row              
+      .col
+        button(onclick='onOrderBasket()') Order
+          
       

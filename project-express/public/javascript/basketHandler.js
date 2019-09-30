@@ -24,11 +24,21 @@ function removeItem(productID) {
         if (this.status == 200) {
             // Delete product from UI
             document.querySelector(`#button${productID}`).parentElement.parentElement.remove();
-            // A sum összeg nem változik, csak frissítésre, ide kéne írni vmi megoldást...
+            // Modify the id="sumOfBasket" html element
+            let response = JSON.parse(xhr.responseText);
+            document.querySelector('#sumOfBasket').textContent = response.sum;
         }
     };
 
     // Send productID to server
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(`prodID=${productID}`);
+};
+
+
+// Order the basket, sends a post request to http://localhost:3000/myorders
+function onOrderBasket() {
+    let url = 'http://localhost:3000/myorders';
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
 };

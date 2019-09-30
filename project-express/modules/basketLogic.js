@@ -1,7 +1,7 @@
 const DB = require('./DB');
 const db = new DB();
 
-module.exports = class basketDB {
+module.exports = class basketLogic {
     async getData(basketID) {
         let sql = `
             SELECT 

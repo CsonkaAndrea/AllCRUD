@@ -2,7 +2,7 @@ const sha1 = require('js-sha1');
 const DB = require('./DB');
 const db = new DB();
 
-module.exports = class adminDB {
+module.exports = class registerDB {
 
     async registerAdmins(object) {
         object.password = sha1(object.password);
