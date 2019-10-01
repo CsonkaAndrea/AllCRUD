@@ -201,7 +201,7 @@ module.exports = class DB {
         `;
         let result = await this.conn.query(sql);
         return result;
-    }
+    };
 
 
     async setToken(table, object) {
@@ -220,7 +220,7 @@ module.exports = class DB {
         let sql = `
     SELECT *
     FROM ${table}
-    WHERE ${clumn} = ${value}
+    WHERE ${column} = '${value}'
     `;
         let result = await this.conn.query(sql);
         return result[0];

@@ -11,6 +11,8 @@ const productsAllRouter = require('./routes/productsAll');
 const basketRouter = require('./routes/basket');
 const registerCustomerRouter = require('./routes/registerCustomer');
 const loginCustomerRouter = require('./routes/loginCustomer');
+const LoginDB = require('./modules/loginDB');
+const loginDB = new LoginDB();
 
 
 var app = express();
@@ -37,6 +39,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
+app.use(async (req, res, next) => {
+  const user = await loginDB.checkLogin(req);
+  console.log(`appban user:: ${user}`);
+  if (user) {
+    req.user = user;
+  }
+  next();
+});
 
 
 app.use('/', indexRouter);

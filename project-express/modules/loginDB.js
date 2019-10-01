@@ -20,30 +20,29 @@ module.exports = class loginDB {
                 break;
             }
         }
-        if (userId > 0) {
-            object.token = await this.createToken();
-            console.log(`ifes object.token: ${object.token}`);
-            const tableId = await db.updateTable(userId, object.token, 'customers', 'token');
-            return object.token;
-        }
-
+        console.log(`ez elvileg biztos, hogy az id: ${userId}`);
+        return userId;
     };
 
-    async createToken() {
-        let result = ''
+    async createToken(userId) {
+        let token = '';
         for (let i = 0; i < 50; i++) {
             let index = Math.round(Math.random() * 50 + 65);
-            result += String.fromCharCode(index);
+            token += String.fromCharCode(index);
         }
-        return result;
+        const tableId = await db.updateTable(userId, token, 'customers', 'token');
+        return token;
     };
 
     async checkLogin(req) {
-        if (!req.cookies.uuid) {
+        if (!req.cookies.customerCookie) {
             return false;
         }
-        result = await db.read('customers', 'token', req.cookies.uuid);
-        return result;
+
+        const loggedInUser = await db.read('customers', 'token', req.cookies.customerCookie);
+        console.log(`checkloginban loggedinuser: ${loggedInUser.id}`);
+        return loggedInUser;
+
     }
 
 }
