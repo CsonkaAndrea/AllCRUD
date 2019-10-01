@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const BasketLogic = require('./../modules/basketLogic');
-const basketLogic = new BasketLogic();
+const basketLogic = new BasketLogic;
 
-router.post('/', async (req, res, next) => {
-    let basketID = 1;
-    let basketData = await basketLogic.getData(basketID);
-    console.log(basketData);
-
+router.get('/', (req, res, next) => {
+    res.json('myorders works!')
 });
+
+router.post('/', (req, res, next) => {
+    console.log(req.body.basketID);
+    res.end()
+});
+
+
+
 
 module.exports = router;

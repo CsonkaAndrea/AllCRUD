@@ -1,5 +1,5 @@
 // Sends a post request to http://localhost:3000/basket
-function postHandler() {
+function onAddToBasketHandler() {
     let url = 'http://localhost:3000/basket';
     let xhr = new XMLHttpRequest();
 
@@ -12,9 +12,8 @@ function postHandler() {
     xhr.send();
 };
 
-
 // Delete item from basket
-function removeItem(productID) {
+function onRemoveItemFromBasketHandler(productID) {
     let url = 'http://localhost:3000/basket';
     let xhr = new XMLHttpRequest();
     // Send delete request to server
@@ -33,12 +32,4 @@ function removeItem(productID) {
     // Send productID to server
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(`prodID=${productID}`);
-};
-
-
-// Order the basket, sends a post request to http://localhost:3000/myorders
-function onOrderBasket() {
-    let url = 'http://localhost:3000/myorders';
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
 };

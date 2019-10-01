@@ -7,16 +7,23 @@ const basketLogic = new BasketLogic();
 router.get('/', async (req, res, next) => {
     let basketID = 1;
     let basket = await basketLogic.getData(basketID);
-    //  Sum basket value
-    let sumOfBasketPrice = 0;
-    for (let i = 0; i < basket.length; i++) {
-        sumOfBasketPrice += parseInt(basket[i].price);
-    };
 
-    res.render('basket', {
-        basket: basket,
-        sumOfBasketPrice: sumOfBasketPrice
-    });
+    if (basket.length == 0) {
+        res.render('basket', {
+            basket: undefined,
+        });
+    } else {
+        //  Sum basket value
+        let sumOfBasketPrice = 0;
+        for (let i = 0; i < basket.length; i++) {
+            sumOfBasketPrice += parseInt(basket[i].price);
+        };
+
+        res.render('basket', {
+            basket: basket,
+            sumOfBasketPrice: sumOfBasketPrice
+        });
+    };
 });
 
 // Add data to basketdetails

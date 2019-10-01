@@ -37,7 +37,9 @@ module.exports = class basketLogic {
     // Remove from basket
     async removeFromBasket(prodID) {
         console.log(prodID);
-        let result = await db.delete('basketdetails', {productID: prodID} );
+        let result = await db.delete('basketdetails', {
+            productID: prodID
+        });
         return result;
     };
 }
