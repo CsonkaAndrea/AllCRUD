@@ -3,11 +3,18 @@ var router = express.Router();
 const OrderDB = require('../modules/orderDB');
 const orderDB = new OrderDB;
 
+router.post('/', async (req, res, next) => {
+    let basketID = 1;
+    let basketData = await basketLogic.getData(basketID);
+    console.log(basketData);
+
+});
+
 router.get('/', async (req, res, next) => {
   const myOrders = await orderDB.getAllOrders();
   console.log(myOrders[0]);
   res.render('myOrders', {
-      title: 'Orders',
+      title: 'My orders',
       orders: myOrders
   });
 });
