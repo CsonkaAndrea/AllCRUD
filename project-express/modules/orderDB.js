@@ -24,7 +24,9 @@ module.exports = class orderDB {
         return result;
     };
 
-    async creatSqlData(orders, orderdetails) {
+    async createSqlData(orders, orderdetails) {
+        // első sql a select a basket táblákból, kezelni kell valahogy, ha több termék van a basketben
+
         let sql = `
         BEGIN;
         INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
