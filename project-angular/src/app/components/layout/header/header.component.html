@@ -1,12 +1,64 @@
-<!-- Valami tisztességes nav-bar ide mehetne, ezt csak mintának csináltam -->
-<div id="mySidenav"
-     class="sidenav">
-  <a href="javascript:void(0)"
-     class="closebtn"
-     onclick="closeNav()">&times;</a>
-  <a routerLink="/">Index</a>
-  <a routerLink="/admin/products">Products</a>
-  <a routerLink="/admin/orders">Orders</a>
-  <a routerLink="/admin/users">Customers</a>
-  <a routerLink="/admin/admins">Admins</a>
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+    <div id="dismiss">
+      <i class="fas fa-arrow-left"></i>
+    </div>
+
+    <div class="sidebar-header">
+      <h3>MoV Admin</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Welcome to the admin site!</p>
+      <li>
+        <a href="/admin/products">Products</a>
+      </li>
+      <li>
+        <a href="/admin/orders">Orders</a>
+      </li>
+      <li>
+        <a href="/admin/users">Customers</a>
+      </li>
+      <li>
+        <a href="/admin/admins">Admins</a>
+      </li>
+    </ul>
+
+    <ul class="list-unstyled CTAs">
+      <li>
+        <a href="/admin/dashboard"
+           class="download">Dashboard</a>
+      </li>
+      <li>
+        <a href="https://bootstrapious.com/p/bootstrap-sidebar"
+           class="article">Back to article</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+
+
+    <div class="container-fluid">
+      <button type="button"
+              id="sidebarCollapse"
+              class="btn btn-info">
+        <i class="fas fa-align-left"></i>
+        <span>&nbsp;Admin menu</span>
+      </button>
+      <button class="btn btn-dark d-inline-block d-lg-none ml-auto"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <i class="fas fa-align-justify"></i>
+      </button>
+    </div>
+  </div>
 </div>
+
+<div class="overlay"></div>

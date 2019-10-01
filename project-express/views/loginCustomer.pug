@@ -1,27 +1,34 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet' href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/login.css')
+    link(href='/img/favicon.ico' rel='icon' type='image/x-icon')
+  body
+    .main.container
+      .row
+        .col-6.offset-3
+          h1#logRegLogo Music On Vinyl
 
-block content
-  
-  .main.container
-    .row
-      .col-md-6.col-md-offset-3
-        h1 Login
-
-        // register form
-        form(method='POST' action='./loginCustomer')
-          div.form-group
-            label(for='username') Username
-            input#username.form-control(type='text' name='username')
-          div.form-group
-            label(for='name') First Name
-            input#customerFirstName.form-control(type='text' name='firstName')
-          div.form-group
-            label(for='name') Last Name
-            input#customerLastName.form-control(type='text' name='lastName')
-          div.form-group
-            label(for='pw') Password
-            input#customerPassword.form-control(type='password' placeholder='password' name='password')
-          //- div.form-group
-          //-   label(for='pw2') Confirm Password
-          //-   input#pw2.form-control(type='password' placeholder='*********' name='confirmPassword')
-          button.btn.btn-primary(type='submit') Register now
+          // register form
+          form#form-box(method='POST' action='./loginCustomer')
+            div.form-group
+              h1.text-light #{title}
+            div.form-group
+              label(for='username') Username
+              input#username.form-control(type='text' name='username')
+            div.form-group
+              label(for='name') First Name
+              input#customerFirstName.form-control(type='text' name='firstName')
+            div.form-group
+              label(for='name') Last Name
+              input#customerLastName.form-control(type='text' name='lastName')
+            div.form-group
+              label(for='pw') Password
+              input#customerPassword.form-control(type='password' name='password')
+            //- div.form-group
+            //-   label(for='pw2') Confirm Password
+            //-   input#pw2.form-control(type='password' placeholder='*********' name='confirmPassword')
+            button.btn.btn-primary#form-button(type='submit') Login
+    video#bckgroundVid(src='/img/logreg.mp4' autoplay='true' loop='true' muted='muted' type='video/mp4')
