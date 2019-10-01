@@ -397,3 +397,30 @@ a:hover {
   width: 20%;
   margin-bottom: 30px;
 }
+
+#shoppingCart {
+  height: 45px;
+  width: 45px;
+}
+
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 50%;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+#lblCartCount {
+  font-size: 12px;
+  background: #ff0000;
+  color: #fff;
+  padding: 5 10px;
+  vertical-align: top;
+  margin-left: -10px;
+}

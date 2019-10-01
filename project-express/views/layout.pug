@@ -20,9 +20,11 @@ html
           li.nav-item
             a.nav-link.active(href='/products') Our products
           li.nav-item
-            a.nav-link.active(href='#') The Team
+            a.nav-link.active(href='/theTeam') The Team
         ul.navbar-nav
-          a.glow-on-hover(type='sumbit' href='/basket') BASKET
+          a(href='/basket')
+            img#shoppingCart(src='/img/shopping-cart.png')
+            <span class='badge badge-warning' id='lblCartCount'> 0 </span>
           a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
           a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
 
