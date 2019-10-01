@@ -180,29 +180,16 @@ module.exports = class DB {
         return result;
     };
 
-
-    async createTable(value, table, columnName) {
-        console.log(`dbs  value: ${value}`);
+    async createTable(table) {
         let sql = `
-              INSERT INTO ${table}
-              (${columnName})
-              VALUE
-              (${value})
-              `;
-        let result = await this.conn.query(sql);
-        return result;
-    };
-
-    async updateTable(number, value, table, column) {
-        let sql = `
-        UPDATE ${table}
-        SET ${column} = '${value}'
-        WHERE id = ${number}
+        CREATE TABLE ${table}
+            id INT NOT NULL AUTO_INCREMENT,
+            customerId INT NOT NULL,
+            PRIMARY KEY (id)
         `;
         let result = await this.conn.query(sql);
         return result;
-    }
-
+    };
 
     async setToken(table, object) {
         let sql = `

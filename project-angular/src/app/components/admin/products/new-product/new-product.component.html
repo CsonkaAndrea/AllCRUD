@@ -15,9 +15,9 @@
           <label for="publisher">Publisher</label>
           <input type="text" required minlength="3" id="publisher" name="publisher" [(ngModel)]="newProduct.publisher" class="form-control" #publisher="ngModel">
           <label for="price">Price</label>
-          <input type="number" required minlength="1" id="price" name="price" [(ngModel)]="newProduct.price" class="form-control" #price="ngModel">
+          <input type="number" required id="price" name="price" [(ngModel)]="newProduct.price" class="form-control" #price="ngModel">
           <label for="stock">Stock</label>
-          <input type="number" required minlength="1" id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control" #stock="ngModel">
+          <input type="number" required id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control" #stock="ngModel">
           <div class="col-12 d-flex justify-content-around">
             <button type="submit" class="btn btn-primary" ng-click="submitted=true">Ok</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
@@ -28,25 +28,40 @@
           <div *ngIf="name.errors.required">
             Product name is required!
           </div>
+          <div *ngIf="name.errors.minlength">
+            Product name must be at least 3 characters!
+          </div>
         </div>
         <div *ngIf="seo.invalid && (seo.dirty || seo.touched)" class="alert alert-danger">
             <div *ngIf="seo.errors.required">
               SEO friendly product name is required!
+            </div>
+            <div *ngIf="seo.errors.minlength">
+              SEO friendly product name must be at least 3 characters!
             </div>
         </div>
         <div *ngIf="category.invalid && (category.dirty || category.touched)" class="alert alert-danger">
             <div *ngIf="category.errors.required">
               Product category is required!
             </div>
+            <div *ngIf="category.errors.minlength">
+              Product category must be at least 3 characters!
+            </div>
         </div>
         <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
             <div *ngIf="url.errors.required">
               Picture Url is required!
             </div>
+            <div *ngIf="url.errors.minlength">
+              Picture Url must be at least 3 characters!
+            </div>
         </div>
         <div *ngIf="publisher.invalid && (publisher.dirty || publisher.touched)" class="alert alert-danger">
             <div *ngIf="publisher.errors.required">
               Publisher is required!
+            </div>
+            <div *ngIf="publisher.errors.minlength">
+              Publisher must be at least 3 characters!
             </div>
         </div>
         <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert alert-danger">
