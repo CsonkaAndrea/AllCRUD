@@ -2,6 +2,7 @@ doctype html
 html
   head
     title= title
+    meta(name='viewport' content='width=device-width, initial-scale=1')
     link(rel='stylesheet' href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(href='/img/favicon.ico' rel='icon' type='image/x-icon')
@@ -19,13 +20,11 @@ html
           li.nav-item
             a.nav-link.active(href='/products') Our products
           li.nav-item
-            a.nav-link.active(href='#') Pricing
-          li.nav-item
             a.nav-link.active(href='#') The Team
         ul.navbar-nav
           a.glow-on-hover(type='sumbit' href='/basket') BASKET
-          button.glow-on-hover(type='sumbit') LOGIN
-          a.glow-on-hover(type='sumbit' href='/register') REGISTER
+          a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
+          a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
 
     .container
       block content
@@ -46,9 +45,9 @@ html
                 h5.font-weight-bold.text-uppercase.mt-3.mb-4 Costumer account
                 ul.list-unstyled
                   li
-                    a(href='/login') Sign in
+                    a(href='/loginCustomer') Sign in
                   li
-                    a(href='/register') Registration
+                    a(href='/registerCustomer') Registration
                   li
                     a(href='#!') My profile
                   li
@@ -67,4 +66,8 @@ html
             | © 2019 Copyright:&nbsp;
             
             a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ') AllCRUDteam
+  script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
   script(src='/javascript/basketHandler.js')
+  
