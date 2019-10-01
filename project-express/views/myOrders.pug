@@ -12,10 +12,10 @@ block content
             th Product name
             th Ordered quantity
         tbody
-          each order in orders
+          each item in orders
            tr
-             td #{myOrders.id}
-             td #{myOrders.orderDate}
-             td #{myOrders.orderStatus}
-             td #{Products.productName}
-             td #{myOrderDetails.orderQuantity}
+             td #{item.id}
+             td #{item.orderDate}
+             td #{item.orderStatus}
+             td #{item.productName}
+             td #{item.orderQuantity}

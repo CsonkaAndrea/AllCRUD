@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const productsAllRouter = require('./routes/productsAll');
+const myOrdersRouter = require('./routes/myOrders');
 const basketRouter = require('./routes/basket');
 const registerCustomerRouter = require('./routes/registerCustomer');
 const loginCustomerRouter = require('./routes/loginCustomer');
@@ -53,6 +54,7 @@ app.use(async (req, res, next) => {
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);
+app.use('/myorders', myOrdersRouter);
 app.use('/basket', basketRouter);
 app.use('/register', registerCustomerRouter);
 app.use('/login', loginCustomerRouter);
