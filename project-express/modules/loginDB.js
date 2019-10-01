@@ -38,6 +38,14 @@ module.exports = class loginDB {
         return result;
     };
 
+    async checkLogin(req) {
+        if (!req.cookies.uuid) {
+            return false;
+        }
+        result = await db.read('customers', 'token', req.cookies.uuid);
+        return result;
+    }
+
 }
 
 

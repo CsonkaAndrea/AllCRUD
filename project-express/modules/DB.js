@@ -216,17 +216,14 @@ module.exports = class DB {
 
     //nincs megcsinálva
 
-    async checkLogin(req) {
-        if (!req.cookies.uuid) {
-            return false;
-        }
-
+    async read(table, column, value) {
         let sql = `
-            SELECT * FROM users WHERE token = '${req.cookies.uuid}'
-        `;
+    SELECT *
+    FROM ${table}
+    WHERE ${clumn} = ${value}
+    `;
         let result = await this.conn.query(sql);
         return result[0];
-    }
-
+    };
 
 };
