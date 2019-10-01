@@ -23,6 +23,7 @@
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "malihu-custom-scrollbar-plugin": "^3.1.5",
+    "js-sha1": "^0.6.0",
     "mariadb": "^2.1.1",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",

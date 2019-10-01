@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService) { }
 
+  allCustomer: any
   customersNumber: number = 0
   ordersNumber: number = 0
   productNumber: number = 0
