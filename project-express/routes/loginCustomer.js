@@ -12,10 +12,18 @@ router.get('/', function (req, res, next) {
     res.render('loginCustomer', { title: 'Login' });
 });
 
+
+//// WTF is going on in my code????????
+
+router.get('/logout', (req, res, next) => {
+    res.clearCookie('custvalidator');
+    res.clearCookie('adminvalidator');
+    res.redirect('/products');
+});
+
 router.post('/', async (req, res, next) => {
     let userId = await loginDB.loginUser(req.body);
     res.redirect('/product');
-
 });
 
 
