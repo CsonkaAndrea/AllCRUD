@@ -14,7 +14,6 @@ export class DashboardComponent implements OnInit {
   constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService) { }
 
   allCustomer: any
-  allCustomer$: Observable<any> = this.customers.getAll()
   customersNumber: number = 0
   ordersNumber: number = 0
   productNumber: number = 0
@@ -36,7 +35,6 @@ export class DashboardComponent implements OnInit {
         }
       }
     )
-    console.log('All Customer', this.allCustomer)
 
     this.product.getAll().subscribe(
       productsArray => {
