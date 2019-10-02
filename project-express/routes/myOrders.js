@@ -17,8 +17,16 @@ router.get('/', async (req, res, next) => {
 
 });
 
-// router.post('/', async (req, res, next) => {
-//     let newOrder = await orderDB.createSqlData;
-// })
+/* router.post('/', async (req, res, next) => {
+    let customerID = 1;
+    let newOrder = await db.createSqlData(customerID);
+    console.log(newOrder);
+
+    res.render('myOrders', {
+        title: 'My orders',
+        newOrder: newOrder,
+    });
+
+ }); */
 
 module.exports = router;

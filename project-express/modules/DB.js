@@ -182,10 +182,38 @@ module.exports = class DB {
         ON orders.id = orderdetails.orderID)
         INNER JOIN products
         ON orderdetails.productID = products.id
+        wHERE orders.customerId=${customerID}
         `;
         const result = await this.conn.query(sql);
         console.log(`result: ${result}`);
         return result;
+    }
+
+    async submittedBasketData(customerID) {
+        // első sql a select a basket táblákból, kezelni kell valahogy, ha több termék van a basketben
+        let sql = `
+        SELECT *
+        FROM basketdetails
+        INNER JOIN baskets
+        ON baskets.id=basketdetails.basketID
+        WHERE baskets.customerId=${customerID}; 
+        ` ;
+        const submittedBasket = await this.conn.query(sql);
+        console.log(`result: ${submittedBasket}`);
+        
+        let orderSql = `
+        INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
+        VALUES (${submittedBasket.customerId}, 1, 7600, 1);
+        `;
+        let result = await this.conn.query(orderSql);
+        
+       /*         BEGIN;
+        INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
+        VALUES (1, 1, 7600, 1);
+        INSERT INTO orderdetails (orderID, customerID, productID, netPrice, orderQuantity)
+        VALUES (LAST_INSERT_ID(), 1, 1, 7600, 1);
+        COMMIT; */
+
     }
 
     async readLogin(table, object) {
