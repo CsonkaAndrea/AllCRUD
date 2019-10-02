@@ -11,11 +11,10 @@ const basketRouter = require('./routes/basket');
 const registerCustomerRouter = require('./routes/registerCustomer');
 const loginCustomerRouter = require('./routes/loginCustomer');
 const theTeamRouter = require('./routes/theTeam');
-const LoginDB = require('./modules/loginDB');
 const loginAdminRouter = require('./routes/loginAdmin');
 const myOrdersRouter = require('./routes/myOrders');
-
-const loginDB = new LoginDB();
+const checkLoginMW = require('./middleware/checkLogin');
+const basketCounterMW = require('./middleware/basketCounter');
 
 var app = express();
 
@@ -41,15 +40,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
-app.use(async (req, res, next) => {
-  const user = await loginDB.checkLogin(req);
-  console.log(`appban user:: ${user}`);
-  if (user) {
-    req.user = user;
-  }
-  next();
-});
-
+app.use('/', checkLoginMW);
+app.use('/', basketCounterMW);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);

@@ -5,19 +5,15 @@ const basketLogic = new BasketLogic();
 
 // Display /basket
 router.get('/', async (req, res, next) => {
+    console.log(req.user);
     let loggedInUserBasket = await basketLogic.getBasketId(req);
     let basketID = loggedInUserBasket.id;
     let basket = await basketLogic.getData(basketID);
-    console.log(basket);
-    //  Sum basket value
-    let sumOfBasketPrice = 0;
-    for (let i = 0; i < basket.length; i++) {
-        sumOfBasketPrice += parseInt(basket[i].price);
-    };
 
     if (basket.length == 0) {
         res.render('basket', {
             basket: undefined,
+            user: req.user || {}
         });
     } else {
         //  Sum basket value
@@ -28,7 +24,8 @@ router.get('/', async (req, res, next) => {
 
         res.render('basket', {
             basket: basket,
-            sumOfBasketPrice: sumOfBasketPrice
+            sumOfBasketPrice: sumOfBasketPrice,
+            user: req.user || {}
         });
     };
 });

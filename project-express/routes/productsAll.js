@@ -6,10 +6,10 @@ const productDB = new ProductDB();
 
 router.get('/', async (req, res, next) => {
     const productAll = await productDB.getAllProducts();
-    console.log(productAll[0]);
     res.render('productsAll', {
         title: 'Products',
-        products: productAll
+        products: productAll,
+        user: req.user || {}
     });
 });
 
@@ -23,7 +23,8 @@ router.get('/:address', async (req, res, next) => {
     } else {
         res.render('product', {
             title: `Product ${req.params.address}`,
-            product: product
+            product: product,
+            user: req.user || {}
         });
     };
 })

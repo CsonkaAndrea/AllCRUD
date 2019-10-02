@@ -24,7 +24,7 @@ html
         ul.navbar-nav
           a(href='/basket')
             img#shoppingCart(src='/img/shopping-cart.png')
-            <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+            <span class='badge badge-warning very-nice-basket-icon' id='lblCartCount'> #{user.prodsInBasket} </span>
           a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
           a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
 
