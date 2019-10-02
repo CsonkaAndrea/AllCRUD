@@ -30,8 +30,8 @@ html
               span.ml-2.mr-2#userName #{user.username}
               a.glow-on-hover(type='sumbit' href='/') LOGOUT
             else
-              a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
-              a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
+              a.glow-on-hover(type='sumbit' href='/login') LOGIN
+              a.glow-on-hover(type='sumbit' href='/register') REGISTER
 
     .container
       block content
@@ -52,9 +52,9 @@ html
                 h5.font-weight-bold.text-uppercase.mt-3.mb-4 Costumer account
                 ul.list-unstyled
                   li
-                    a(href='/loginCustomer') Sign in
+                    a(href='/login') Sign in
                   li
-                    a(href='/registerCustomer') Registration
+                    a(href='/register') Registration
                   li
                     a(href='#!') My profile
                   li
