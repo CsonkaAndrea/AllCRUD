@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', async (req, res, next) => {
-    const userId = await loginDB.loginUser(req.body);
+    const userId = await loginDB.loginAdmin(req.body);
     if (userId > 0) {
         const token = await loginDB.createToken(userId);
         res.cookie('customerCookie', token, { maxAge: 31556952000 });
