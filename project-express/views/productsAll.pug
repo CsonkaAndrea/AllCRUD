@@ -1,9 +1,10 @@
 extends layout
 
 block content
-  select.custom-select
-    option(value='1' selected) A -> Z - Artist
-    option(value='2') Z -> A - Artist
+  select.custom-select.order-select
+    - var desc = url.indexOf('dir=desc') > -1
+    option(value='1' selected=!desc) A -> Z - Artist
+    option(value='2' selected=desc) Z -> A - Artist
           
   .container
       .row
@@ -20,20 +21,3 @@ block content
                 // a.btn.btn-primary(href='#' class='mr-2') Add to cart
                 - var urlToProd = product.seoFriendlyProductName
                 a.btn.btn-warning(href='products/'+urlToProd) More info
-
-  div
-  ul.pagination.pagination-lg
-    li.page-item.disabled
-      a.page-link(href='#') &laquo;
-    li.page-item.active
-      a.page-link(href='#') 1
-    li.page-item
-      a.page-link(href='#') 2
-    li.page-item
-      a.page-link(href='#') 3
-    li.page-item
-      a.page-link(href='#') 4
-    li.page-item
-      a.page-link(href='#') 5
-    li.page-item
-      a.page-link(href='#') &raquo;

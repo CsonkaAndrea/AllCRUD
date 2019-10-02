@@ -1,11 +1,13 @@
 extends layout
 
 block content
+  h1.display-3 Basket
+  br
   .container-fluid
     .row
       .col
-        h1 This is your BASKET (BasketID: #{basket[0].basketID}).
-        table.table
+        h1#basketH1 This is your BASKET (BasketID: #{basket[0].basketID}).
+        table.table#basketTable
           thead
             tr
               th Name
@@ -23,8 +25,8 @@ block content
                 td #{item.price}                
                 td #{item.basketQuantity}                
                 td 
-                  button(onclick='removeItem(' + item.prodID + ')' id="button"+item.prodID) Remove Item
+                  button.btn-danger(onclick='removeItem(' + item.prodID + ')' id="button"+item.prodID) Remove Item
     .row              
       .col
-        h1 Your basket value: #{sumOfBasketPrice} 
+        h1#basketH1 Your basket value: #{sumOfBasketPrice} 
       

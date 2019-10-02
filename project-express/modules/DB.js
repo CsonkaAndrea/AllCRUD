@@ -228,5 +228,23 @@ module.exports = class DB {
         return result[0];
     }
 
+    async showAsc(table, object) {
+        const sql = `
+        SELECT *
+        FROM ${table}
+        ORDER BY ${object} ASC;
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    }
 
+    async showDesc(table, object) {
+        const sql = `
+        SELECT *
+        FROM ${table}
+        ORDER BY ${object} DESC;
+        `;
+        const result = await this.conn.query(sql);
+        return result;
+    }
 };

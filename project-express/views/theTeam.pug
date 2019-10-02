@@ -1,16 +1,29 @@
 extends layout
 
 block content
+  h1.display-3 The Team
   .container#theTeam
     .row
       .col
-        | 1 of 3
+        h4#teamName Andi
+        br
+        img.responsive(src='/img/andi-vhs.jpg' alt='andi')
       .col
-        | 2 of 3
+        h4#teamName Evelin
+        br
+        img.responsive(src='/img/evelin-vhs.jpg' alt='evelin')
       .col
-        | 3 of 3
-    .row
-      .col
-        | 1 of 2
-      .col
-        | 2 of 2
+        h4#teamName Kriszta
+        br
+        img.responsive(src='/img/kriszta-vhs.jpg' alt='kriszta')
+    br
+    br
+    .row.justify-content-md-center
+      .col-4
+        h4#teamName Gergely
+        br
+        img.responsive(src='/img/gergo-vhs.jpg' alt='gergo')
+      .col-4
+        h4#teamName Gyuri
+        br
+        img.responsive(src='/img/gyuri-vhs.jpg' alt='gyuri')

@@ -1,8 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-image: url(/img/recordplayer-neon.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  background-size: cover;
 }
 
 @font-face {
@@ -170,6 +176,9 @@ button:focus {
 .display-3 {
   font-family: linkFont;
   font-size: 50pt;
+  color: whitesmoke;
+  text-shadow: 3px 3px 3px #000;
+  text-align: center;
 }
 
 .lead {
@@ -423,4 +432,38 @@ a:hover {
   padding: 5 10px;
   vertical-align: top;
   margin-left: -10px;
+}
+
+#basketTable {
+  font-family: cardTitleFont;
+  color: whitesmoke;
+  text-shadow: 3px 3px 3px #000;
+  background-color: rgba(255, 0, 0, 0.4)
+}
+
+#basketH1 {
+  font-family: cardTitleFont;
+  color: whitesmoke;
+  text-shadow: 3px 3px 3px #000;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+#teamName {
+  font-family: linkFont;
+  color: whitesmoke;
+  text-shadow: 3px 3px 3px #000;
+  text-align: center;
+}
+
+#teamName:hover {
+  text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
+}
+
+.responsive:hover {
+  box-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px;
 }

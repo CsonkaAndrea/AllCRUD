@@ -22,11 +22,16 @@ html
           li.nav-item
             a.nav-link.active(href='/theTeam') The Team
         ul.navbar-nav
-          a(href='/basket')
-            img#shoppingCart(src='/img/shopping-cart.png')
-            <span class='badge badge-warning' id='lblCartCount'> 0 </span>
-          a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
-          a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
+          if user
+            if user.id
+              a(href='/basket')
+                img#shoppingCart(src='/img/shopping-cart.png')
+                <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+              p Hülye Gyerek
+              a.glow-on-hover(type='sumbit' href='/') LOGOUT
+            else
+              a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
+              a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
 
     .container
       block content
@@ -72,4 +77,6 @@ html
   script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
   script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
   script(src='/javascript/basketHandler.js')
+  script(src='/javascript/sorter.js')
+  
   
