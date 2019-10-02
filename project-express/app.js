@@ -14,6 +14,8 @@ const theTeamRouter = require('./routes/theTeam');
 const LoginDB = require('./modules/loginDB');
 const loginAdminRouter = require('./routes/loginAdmin');
 const myOrdersRouter = require('./routes/myOrders');
+const adminRouter = require('./routes/admin');
+const checkLoginMW = require('./middleware/checkLogin');
 
 const loginDB = new LoginDB();
 
@@ -41,15 +43,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
-app.use(async (req, res, next) => {
-  const user = await loginDB.checkLogin(req);
-  console.log(`appban user:: ${user}`);
-  if (user) {
-    req.user = user;
-  }
-  next();
-});
 
+app.use('/', checkLoginMW);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);
@@ -59,6 +54,7 @@ app.use('/login', loginCustomerRouter);
 app.use('/theTeam', theTeamRouter);
 app.use('/loginAdmin', loginAdminRouter);
 app.use('/myorders', myOrdersRouter);
+app.use('/admin', adminRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
