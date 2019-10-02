@@ -13,7 +13,7 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
     console.log(req.body);
     let register = await registerDB.registerUsers(req.body);
-    res.redirect('loginCustomer');
+    res.redirect('login');
 });
 
 
