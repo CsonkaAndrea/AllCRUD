@@ -5,7 +5,9 @@ function onAddToBasketHandler() {
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
-            // Itt lehetne egy függvényt írni, ami betriggereli a kosarat...
+            let counter = document.querySelector('.very-nice-basket-icon');
+            let counterNumber = parseInt(counter.textContent);
+            counter.textContent = counterNumber + 1;
         };
     };
     xhr.open('POST', url);
@@ -25,7 +27,11 @@ function onRemoveItemFromBasketHandler(productID) {
             document.querySelector(`#button${productID}`).parentElement.parentElement.remove();
             // Modify the id="sumOfBasket" html element
             let response = JSON.parse(xhr.responseText);
-            document.querySelector('#sumOfBasket').textContent = response.sum;
+            document.querySelector('#sumOfBasket').textContent = response.sum + ' HUF';
+            // Modify basket icon
+            let counter = document.querySelector('.very-nice-basket-icon');
+            let counterNumber = parseInt(counter.textContent);
+            counter.textContent = counterNumber - 1;
         }
     };
 

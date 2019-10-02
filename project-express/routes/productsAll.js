@@ -9,15 +9,13 @@ router.get('/', async (req, res, next) => {
     if (req.query.dir) {
         if (req.query.dir === 'asc') {
             productAll = await productDB.showAscProduct();
-        }
-        else {
+        } else {
             productAll = await productDB.showDescProduct();
         }
-    }
-    else {
+    } else {
         productAll = await productDB.showAscProduct();
-    }
-    
+    };
+
     console.log(productAll[0]);
     res.render('productsAll', {
         title: 'Products',

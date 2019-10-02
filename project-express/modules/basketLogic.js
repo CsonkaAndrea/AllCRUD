@@ -46,5 +46,15 @@ module.exports = class basketLogic {
     async getBasketId(req) {
         const basket = await db.read('baskets', 'customerID', req.user.id);
         return basket;
-    }
+    };
+
+    async countBasketItems(basketID) {
+        let sql = `
+            SELECT count(productID) AS 'sumOfProds'          
+            FROM (baskets INNER JOIN basketdetails ON baskets.id = basketdetails.basketID)                 
+            WHERE basketdetails.basketID = ${basketID}`;
+        let result = await db.getDataFromSql(sql);
+        return result;
+    };
+
 }

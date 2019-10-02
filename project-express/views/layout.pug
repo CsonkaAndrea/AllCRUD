@@ -26,13 +26,13 @@ html
             if user.id
               a(href='/basket')
                 img#shoppingCart(src='/img/shopping-cart.png')
-                <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+                <span class='badge badge-warning very-nice-basket-icon' id='lblCartCount'> #{user.prodsInBasket} </span>
               span.ml-2.mr-2#userName #{user.username}
               a.glow-on-hover(type='sumbit' href='/') LOGOUT
             else
               a.glow-on-hover(type='sumbit' href='/login') LOGIN
               a.glow-on-hover(type='sumbit' href='/register') REGISTER
-
+          
     .container
       block content
 
