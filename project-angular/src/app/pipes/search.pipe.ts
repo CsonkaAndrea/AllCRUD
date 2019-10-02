@@ -6,12 +6,14 @@ import { Product } from 'src/app/models/product/product';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(products: Product[], phrase: string = ''): any {
+  transform(products: Product[], phrase: string = '', active: boolean = false): any {
     return products.filter(item => {
-      const jsonString = JSON.stringify(item)
-        .replace(/"[^"]*"\:/g, '')
-        .replace(/[",\{\}]/g, '');
-      return jsonString.toLowerCase().indexOf(phrase.toLowerCase()) > -1;
+      console.log('hh', active, item.productStatus);
+      return active ? item.productStatus : true;
+      // const jsonString = JSON.stringify(item)
+      //   .replace(/"[^"]*"\:/g, '')
+      //   .replace(/[",\{\}]/g, '');
+      // return jsonString.toLowerCase().indexOf(phrase.toLowerCase()) > -1;
     });
   }
 
