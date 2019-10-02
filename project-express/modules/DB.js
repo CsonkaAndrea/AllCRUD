@@ -191,7 +191,6 @@ module.exports = class DB {
         return result;
     };
 
-
     async setToken(table, object) {
         let sql = `
             UPDATE ${table}
