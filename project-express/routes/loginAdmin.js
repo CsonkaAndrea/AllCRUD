@@ -16,7 +16,6 @@ router.post('/', async (req, res, next) => {
         res.cookie('adminCookie', token, { maxAge: 31556952000 });
         res.redirect('/api/admin/dashboard');
     } else {
-        const message = 'You did not sign correctly, please try again!';
         res.render('login', { notRegistered: message });
     }
 });
