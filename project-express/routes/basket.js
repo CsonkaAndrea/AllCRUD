@@ -18,6 +18,7 @@ router.get('/', async (req, res, next) => {
     if (basket.length == 0) {
         res.render('basket', {
             basket: undefined,
+            user: req.user || {},
         });
     } else {
         //  Sum basket value
@@ -28,7 +29,8 @@ router.get('/', async (req, res, next) => {
 
         res.render('basket', {
             basket: basket,
-            sumOfBasketPrice: sumOfBasketPrice
+            sumOfBasketPrice: sumOfBasketPrice,
+            user: req.user || {},
         });
     };
 });

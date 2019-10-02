@@ -22,7 +22,8 @@ router.get('/', async (req, res, next) => {
     res.render('productsAll', {
         title: 'Products',
         products: productAll,
-        url: req.url
+        url: req.url,
+        user: req.user || {},
     });
 });
 
@@ -36,7 +37,8 @@ router.get('/:address', async (req, res, next) => {
     } else {
         res.render('product', {
             title: `Product ${req.params.address}`,
-            product: product
+            product: product,
+            user: req.user || {},
         });
     };
 })

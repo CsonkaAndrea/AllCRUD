@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+
 @font-face {
   font-family: brandFont;
   src: url(/fonts/venus-rising.ttf);
