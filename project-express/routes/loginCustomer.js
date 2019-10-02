@@ -9,7 +9,7 @@ const registerDB = new RegisterDB();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('loginCustomer', { title: 'Login' });
+    res.render('login', { title: 'Login' });
 });
 
 router.get('/logout', (req, res, next) => {
