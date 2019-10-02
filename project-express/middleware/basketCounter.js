@@ -4,6 +4,10 @@ const BasketLogic = require('./../modules/basketLogic');
 const basketLogic = new BasketLogic();
 
 
+/* router.use((req, res, next) => {
+
+}) */
+
 /* 
   // Get logged in user's basker ID
   let loggedInUserBasket = await basketLogic.getBasketId(req);
