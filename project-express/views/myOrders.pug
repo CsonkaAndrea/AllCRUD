@@ -6,16 +6,16 @@ block content
       table.table.table-striped
         thead
           tr
-            th ID
             th Order date
             th Order status
             th Product name
             th Ordered quantity
+            th Net price
         tbody
           each item in orders
            tr
-             td #{item.id}
              td #{item.orderDate}
              td #{item.orderStatus}
              td #{item.productName}
              td #{item.orderQuantity}
+             td #{item.netPrice}

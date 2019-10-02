@@ -2,10 +2,12 @@ var express = require('express');
 var router = express.Router();
 const OrderDB = require('../modules/orderDB');
 const orderDB = new OrderDB;
+const DB = require('../modules/DB');
+const db = new DB();
 
 router.get('/', async (req, res, next) => {
     let customerID = 1;
-    let orders = await orderDB.getSqlData(customerID);
+    let orders = await db.getSqlData(customerID);
     console.log(orders);
 
     res.render('myOrders', {
@@ -15,8 +17,8 @@ router.get('/', async (req, res, next) => {
 
 });
 
-router.post('/', (req, res, next) => {
-    console.log(req.body);
-})
+// router.post('/', async (req, res, next) => {
+//     let newOrder = await orderDB.createSqlData;
+// })
 
 module.exports = router;

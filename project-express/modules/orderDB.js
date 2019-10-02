@@ -2,44 +2,33 @@ const DB = require('./DB');
 const db = new DB();
 
 module.exports = class orderDB {
-    async getSqlData(customerID){
-        let sql = `
-        SELECT orders.id as orderID,
-        orders.orderDate,
-        orders.orderStatus,
-        products.productName,
-        orderdetails.orderQuantity
-        FROM ((orders INNER JOIN orderdetails ON orders.id = orderdetails.orderID )
-         INNER JOIN products ON orderdetails.productID = products.id)
-         INNER JOIN customers ON orders.customerID = customers.id
-         WHERE orders.customerID = ${customerID}
-         ORDER BY orders.orderDate DESC
-        `;
-        let result = await db.getDataFromSql(sql);
-        return result;  
-    };
 
     async getAllOrders(tableName) {
         let result = await db.readAll(tableName);
         return result;
     };
 
-    async createSqlData(orders, orderdetails) {
+    async createSqlData() {
         // első sql a select a basket táblákból, kezelni kell valahogy, ha több termék van a basketben
-
-        let sql = `
-        BEGIN;
+        let basketSql = `
+        SELECT *
+        FROM basketdetails
+        INNER JOIN baskets
+        ON baskets.id=basketdetails.basketID
+        WHERE baskets.customerId=${user.id}; 
+        ` ;
+        // let sql = `
+        // INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
+        // VALUES (${}, 1, 7600, 1);
+        // `;
+        let result = await db.create(order, 'orders');
+        console.log(basketSql);
+       /*         BEGIN;
         INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
         VALUES (1, 1, 7600, 1);
         INSERT INTO orderdetails (orderID, customerID, productID, netPrice, orderQuantity)
         VALUES (LAST_INSERT_ID(), 1, 1, 7600, 1);
-        COMMIT;
-        `;
-        let res = [];
-        let result = await db.create(order, 'orders');
-        /* let result2 = await db.create(orderDetail, 'orderdetails');
-        return 
-        */
+        COMMIT; */
 
     }
 

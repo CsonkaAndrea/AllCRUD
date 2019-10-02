@@ -164,10 +164,29 @@ module.exports = class DB {
         return result;
     };
 
-    async getDataFromSql(sql) {
+    // async getDataFromSql(sql) {
+    //     const result = await this.conn.query(sql);
+    //     return result;
+    // };
+
+    async getSqlData(customerID){
+        console.log(`customerid: ${customerID}`);
+        let sql = `
+        SELECT orders.id as orderID,
+        orders.orderDate,
+        orders.orderStatus,
+        products.productName,
+        orderdetails.orderQuantity,
+        orderdetails.netPrice
+        FROM (orders INNER JOIN orderdetails 
+        ON orders.id = orderdetails.orderID)
+        INNER JOIN products
+        ON orderdetails.productID = products.id
+        `;
         const result = await this.conn.query(sql);
+        console.log(`result: ${result}`);
         return result;
-    };
+    }
 
     async readLogin(table, object) {
         let sql = `
