@@ -3,6 +3,7 @@ import { CustomersService } from 'src/app/services/customers.service';
 import { OrdersService } from 'src/app/services/orders.service';
 import { ProductService } from 'src/app/services/product.service';
 import { Observable } from 'rxjs';
+import { AdminsService } from 'src/app/services/admins.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,46 +12,37 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService) { }
+  constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService, private admin: AdminsService) { }
 
-  allCustomer: any
-  customersNumber: number = 0
-  ordersNumber: number = 0
-  productNumber: number = 0
-
-  allOrders: any
-  allOrders$: Observable<any> = this.orders.getAll() // Ez ide nem kell
-  ordersNumber: number = 0
-
-  allProduct: any
-  allProducts$: Observable<any> = this.product.getAll() // Ez ide nem kell
-  productNumber: number = 0
-
+  allCustomer: number = 0
+  customers$: Observable<any> = this.customers.getAll()
+  orders$: Observable<any> = this.orders.getAll()
+  products$: Observable<any> = this.product.getAll()
+  admins$: Observable<any> = this.product.getAll()
+  countCustomers: number = 0
+  countAdmins: number = 0
+  allOrders: number = 0
 
   ngOnInit() {
-    this.customers.getAll().subscribe(
-      customersArray => {
-        for (let i = 0; i < customersArray.length; i++) {
-          this.customersNumber++
-        };
-      }
-    );
+    this.countUsers()
+    this.countOrders()
+  }
+  countUsers() {
+    for (let custNumber in this.customers$) {
+      this.countCustomers++
+    }
 
-    this.orders.getAll().subscribe(
-      ordersArray => {
-        for (let i = 0; i < ordersArray.length; i++) {
-          this.ordersNumber++
-        }
-      }
-    )
+    for (let adminNumber in this.admins$) {
+      this.countAdmins++
+    }
 
-    this.product.getAll().subscribe(
-      productsArray => {
-        for (let i = 0; i < productsArray.length; i++) {
-          this.productNumber++
-        }
-      }
-    )
+    this.allCustomer = this.countCustomers + this.countAdmins
+    return this.allCustomer
   }
 
+  countOrders() {
+    for (let orderNumber in this.orders$) {
+      this.allOrders++
+    }
+  }
 }

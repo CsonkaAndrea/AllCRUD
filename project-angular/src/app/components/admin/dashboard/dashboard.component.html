@@ -18,7 +18,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Orders</h5>
                     <p class="card-text">Active: </p>
-                    <p class="card-text">Total: {{ordersNumber}}</p>
+                    <p class="card-text">Total: {{allOrders}}</p>
                     <a href="#"
                        class="btn btn-primary btn-block">View orders</a>
                 </div>
@@ -29,9 +29,9 @@
                  style="width: 100%;">
                 <div class="card-body">
                     <h5 class="card-title">Users</h5>
-                    <p class="card-text">Admins: </p>
-                    <p class="card-text">Customers: {{customersNumber}}</p>
-                    <p class="card-text">Total amount of users: </p>
+                    <p class="card-text">Admins: {{countAdmins}} </p>
+                    <p class="card-text">Customers: {{countCustomers}}</p>
+                    <p class="card-text">Total amount of users: {{allCustomer}} </p>
                     <a href="#"
                        class="btn btn-primary btn-block">View customers</a>
                 </div>
