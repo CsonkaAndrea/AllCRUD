@@ -1,14 +1,16 @@
 extends layout
 
 block content
+  h1.display-3 Basket
+  br
   if !basket
     h1 Jelenleg üres a kosarad.
   else
     .container-fluid
       .row
         .col
-          h1 This is your BASKET (BasketID: #{basket[0].basketID}).
-          table.table
+          h1#basketH1 This is your BASKET (BasketID: #{basket[0].basketID}).
+          table.table#basketTable
             thead
               tr
                 th Name
@@ -26,10 +28,10 @@ block content
                   td #{item.price}                
                   td #{item.basketQuantity}                
                   td 
-                    button(onclick='onRemoveItemFromBasketHandler(' + item.prodID + ')' id="button"+item.prodID) Remove Item
+                    button.btn-danger(onclick='onRemoveItemFromBasketHandler(' + item.prodID + ')' id="button"+item.prodID) Remove Item
       .row              
         .col
-          h1 Your basket value:  
+          h1#basketH1 Your basket value:  
           h2(id='sumOfBasket') #{sumOfBasketPrice}
       .row              
         .col
