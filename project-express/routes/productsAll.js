@@ -5,11 +5,25 @@ const productDB = new ProductDB();
 
 
 router.get('/', async (req, res, next) => {
-    const productAll = await productDB.getAllProducts();
+    let productAll = [];
+    if (req.query.dir) {
+        if (req.query.dir === 'asc') {
+            productAll = await productDB.showAscProduct();
+        }
+        else {
+            productAll = await productDB.showDescProduct();
+        }
+    }
+    else {
+        productAll = await productDB.showAscProduct();
+    }
+    
     console.log(productAll[0]);
     res.render('productsAll', {
         title: 'Products',
-        products: productAll
+        products: productAll,
+        url: req.url,
+        user: req.user || {},
     });
 });
 
@@ -23,7 +37,8 @@ router.get('/:address', async (req, res, next) => {
     } else {
         res.render('product', {
             title: `Product ${req.params.address}`,
-            product: product
+            product: product,
+            user: req.user || {},
         });
     };
 })

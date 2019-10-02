@@ -1,14 +1,21 @@
 extends layout
 
 block content
+  h1.display-3 Basket
+  br
+  br
+  br
   if !basket
-    h1 Jelenleg üres a kosarad.
+    h1#emptyBasket Jelenleg üres a kosarad.
+    br
+    br
+    img.img-center(src='/img/consume.webp')
   else
     .container-fluid
       .row
         .col
-          h1 This is your BASKET (BasketID: #{basket[0].basketID}).
-          table.table
+          h1#basketH1 This is your BASKET (BasketID: #{basket[0].basketID}).
+          table.table#basketTable
             thead
               tr
                 th Name
@@ -26,14 +33,14 @@ block content
                   td #{item.price}                
                   td #{item.basketQuantity}                
                   td 
-                    button(onclick='onRemoveItemFromBasketHandler(' + item.prodID + ')' id="button"+item.prodID) Remove Item
+                    button.btn-danger(onclick='onRemoveItemFromBasketHandler(' + item.prodID + ')' id="button"+item.prodID) Remove Item
       .row              
         .col
-          h1 Your basket value:  
-          h2(id='sumOfBasket') #{sumOfBasketPrice}
+          h1#basketH1 Your basket value:  
+          h2(id='sumOfBasket') #{sumOfBasketPrice} HUF
       .row              
         .col
-          button(onclick='orderButtonHandler(' + basket[0].basketID + '); secondFunc();' class='btn btn-secondary product-in-basket-to-order-button') Order
+          button#orderButton(onclick='orderButtonHandler(' + basket[0].basketID + '); secondFunc();' class='btn btn-secondary product-in-basket-to-order-button') Order
   script(src='/javascript/orderButtonHandler.js')
           
       

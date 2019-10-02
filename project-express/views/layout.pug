@@ -22,11 +22,16 @@ html
           li.nav-item
             a.nav-link.active(href='/theTeam') The Team
         ul.navbar-nav
-          a(href='/basket')
-            img#shoppingCart(src='/img/shopping-cart.png')
-            <span class='badge badge-warning' id='lblCartCount'> 0 </span>
-          a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
-          a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
+          if user
+            if user.id
+              a(href='/basket')
+                img#shoppingCart(src='/img/shopping-cart.png')
+                <span class='badge badge-warning' id='lblCartCount'> 0 </span>
+              span.ml-2.mr-2#userName #{user.username}
+              a.glow-on-hover(type='sumbit' href='/') LOGOUT
+            else
+              a.glow-on-hover(type='sumbit' href='/loginCustomer') LOGIN
+              a.glow-on-hover(type='sumbit' href='/registerCustomer') REGISTER
 
     .container
       block content
@@ -53,7 +58,7 @@ html
                   li
                     a(href='#!') My profile
                   li
-                    a(href='#!') Cart
+                    a(href='/basket') Cart
               hr.clearfix.w-100.d-md-none
               .col-md-3.mx-auto 
                 h5.font-weight-bold.text-uppercase.mt-3.mb-4 Information
@@ -64,12 +69,13 @@ html
                     a(href='#!') Shipping information
                   li
                     a(href='#!') Contact us 
-          .footer-copyright.text-center.py-3
-            | © 2019 Copyright:&nbsp;
-            
-            a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ') AllCRUDteam
+            .footer-copyright.text-center.py-3
+              | © 2019 Copyright:&nbsp;
+              a(href='https://www.youtube.com/watch?v=dQw4w9WgXcQ') AllCRUDteam
   script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
   script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
   script(src='/javascript/basketHandler.js')
+  script(src='/javascript/sorter.js')
+  
   
