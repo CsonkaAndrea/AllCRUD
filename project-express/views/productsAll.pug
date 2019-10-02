@@ -4,7 +4,7 @@ block content
   select.custom-select
     option(value='1' selected) A -> Z - Artist
     option(value='2') Z -> A - Artist
-
+          
   .container
       .row
         each product in products
@@ -15,6 +15,7 @@ block content
               .card-body
                 h4.card-title #{product.productName}
                 p.card-text #{product.productCategory}
+                p.card-text #{product.price} HUF
               .card-footer
                 // a.btn.btn-primary(href='#' class='mr-2') Add to cart
                 - var urlToProd = product.seoFriendlyProductName
