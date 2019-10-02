@@ -8,10 +8,13 @@
     <div class="col-4">
       <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
     </div>
-    <div class="col-5">
+    <div class="col-2">
         <button class="btn btn-primary" routerLink="/admin/new-product">New product</button>
     </div>
   </div>
+  <div>
+    <input type="checkbox" name="active" id="active" [(ngModel)]="isActiveOnly">Active products only
+   </div>
 </div>
 <br>
 <table class="table table-striped table-secondary">
@@ -29,7 +32,7 @@
     </tr>
   </thead>
 <tbody>
-  <tr *ngFor="let product of products|search:filterPhrase:changeCounter">
+  <tr *ngFor="let product of products|search:filterPhrase:isActiveOnly:changeCounter">
     <td>{{ product.id }}</td>
     <td>{{ product.productName }}</td>
     <td>{{ product.seoFriendlyProductName }}</td>
@@ -40,6 +43,7 @@
     <td>{{ product.stock }}</td>
     <td>
       <button class="btn btn-primary" routerLink="/admin/products/{{ product.id }}">Details</button>
+      <button class="btn btn-danger" (click)="onDelete(product)">Delete</button>
     </td>
   </tr>
 </tbody>
