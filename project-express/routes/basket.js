@@ -5,8 +5,11 @@ const basketLogic = new BasketLogic();
 
 // Display /basket
 router.get('/', async (req, res, next) => {
-    let basketID = 1;
+    let loggedInUserBasket = await basketLogic.getBasketId(req);
+    console.log(`loggedinuserbasket: ${loggedInUserBasket.id}`);
+    let basketID = loggedInUserBasket.id;
     let basket = await basketLogic.getData(basketID);
+    console.log(basket);
     //  Sum basket value
     let sumOfBasketPrice = 0;
     for (let i = 0; i < basket.length; i++) {
