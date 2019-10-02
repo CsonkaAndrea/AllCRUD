@@ -13,15 +13,20 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', async (req, res, next) => {
-    const userId = await loginDB.loginAdmin(req.body);
+    const userId = await loginDB.loginUser('admins', req.body);
     if (userId > 0) {
-        const token = await loginDB.createToken(userId);
+        const token = await loginDB.createToken('admins', userId);
         res.cookie('adminCookie', token, { maxAge: 31556952000 });
         res.redirect('/api/dashboard');
     } else {
         const message = 'You did not sign correctly, please try again!';
         res.render('login', { notRegistered: message });
     }
+});
+
+router.get('/logout', (req, res, next) => {
+    res.clearCookie('adminCookie');
+    res.redirect('/');
 });
 
 

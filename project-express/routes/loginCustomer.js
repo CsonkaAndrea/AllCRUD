@@ -12,17 +12,14 @@ router.get('/', function (req, res, next) {
     res.render('loginCustomer', { title: 'Login' });
 });
 
-
-//// WTF is going on in my code????????
-
 router.get('/logout', (req, res, next) => {
     res.render('loginCustomer', { title: 'Login' });
 });
 
 router.post('/', async (req, res, next) => {
-    const userId = await loginDB.loginUser(req.body);
+    const userId = await loginDB.loginUser('customers', req.body);
     if (userId > 0) {
-        const token = await loginDB.createToken(userId);
+        const token = await loginDB.createToken('customers', userId);
         res.cookie('customerCookie', token, { maxAge: 31556952000 });
         res.redirect('/products');
     } else {
@@ -31,5 +28,9 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+router.get('/logout', (req, res, next) => {
+    res.clearCookie('adminCookie');
+    res.redirect('/products');
+});
 
 module.exports = router;

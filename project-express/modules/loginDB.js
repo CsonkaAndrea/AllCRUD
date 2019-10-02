@@ -11,8 +11,8 @@ module.exports = class loginDB {
         return result;
     };
 
-    async loginUser(object) {
-        let users = await db.readLogin('customers', object);
+    async loginUser(string, object) {
+        let users = await db.readLogin(string, object);
         let userId = -1;
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === object.email && users[i].password === sha1(object.password)) {
@@ -24,13 +24,13 @@ module.exports = class loginDB {
         return userId;
     };
 
-    async createToken(userId) {
+    async createToken(string, userId) {
         let token = '';
         for (let i = 0; i < 50; i++) {
             let index = Math.round(Math.random() * 50 + 65);
             token += String.fromCharCode(index);
         }
-        const tableId = await db.updateTable(userId, token, 'customers', 'token');
+        const tableId = await db.updateTable(userId, token, string, 'token');
         return token;
     };
 
