@@ -1,7 +1,7 @@
 const DB = require('./DB');
 const db = new DB();
 
-module.exports = class basketDB {
+module.exports = class basketLogic {
     async getData(basketID) {
         let sql = `
             SELECT 
@@ -37,7 +37,9 @@ module.exports = class basketDB {
     // Remove from basket
     async removeFromBasket(prodID) {
         console.log(prodID);
-        let result = await db.delete('basketdetails', { productID: prodID });
+        let result = await db.delete('basketdetails', {
+            productID: prodID
+        });
         return result;
     };
 

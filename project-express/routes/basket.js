@@ -16,10 +16,22 @@ router.get('/', async (req, res, next) => {
         sumOfBasketPrice += parseInt(basket[i].price);
     };
 
-    res.render('basket', {
-        basket: basket,
-        sumOfBasketPrice: sumOfBasketPrice
-    });
+    if (basket.length == 0) {
+        res.render('basket', {
+            basket: undefined,
+        });
+    } else {
+        //  Sum basket value
+        let sumOfBasketPrice = 0;
+        for (let i = 0; i < basket.length; i++) {
+            sumOfBasketPrice += parseInt(basket[i].price);
+        };
+
+        res.render('basket', {
+            basket: basket,
+            sumOfBasketPrice: sumOfBasketPrice
+        });
+    };
 });
 
 // Add data to basketdetails
@@ -51,13 +63,22 @@ router.post('/', async (req, res, next) => {
             return console.log('You already added this product.');
         };
     };
-    basketLogic.addData(basketDetail);
+    await basketLogic.addData(basketDetail);
     res.end();
 });
 
 router.delete('/', async (req, res, next) => {
     await basketLogic.removeFromBasket(parseInt(req.body.prodID));
-    res.end();
+    // Send the sum value of the basket (after delete)
+    let basketID = 1;
+    let basket = await basketLogic.getData(basketID);
+    let sumOfBasketPrice = 0;
+    for (let i = 0; i < basket.length; i++) {
+        sumOfBasketPrice += parseInt(basket[i].price);
+    };
+    res.json({
+        sum: sumOfBasketPrice
+    });
 });
 
 module.exports = router;
