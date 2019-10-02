@@ -13,11 +13,9 @@ const loginCustomerRouter = require('./routes/loginCustomer');
 const theTeamRouter = require('./routes/theTeam');
 const LoginDB = require('./modules/loginDB');
 const loginAdminRouter = require('./routes/loginAdmin');
-
+const myOrdersRouter = require('./routes/myOrders');
 
 const loginDB = new LoginDB();
-
-const myOrdersRouter = require('./routes/myOrders');
 
 var app = express();
 
@@ -51,7 +49,6 @@ app.use(async (req, res, next) => {
   }
   next();
 });
-
 
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
