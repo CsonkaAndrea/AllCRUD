@@ -11,45 +11,98 @@ import { AdminsService } from 'src/app/services/admins.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  // customers$: Observable<any> = this.customers.getAll();
+  // orders$: Observable<any> = this.orders.getAll();
+  // products$: Observable<any> = this.product.getAll();
+  // admins$: Observable<any> = this.admin.getAll();
 
-  constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService, private admin: AdminsService) { }
+  adminsArray: any;
+  customersArray: any;
+  ordersArray: any;
+  productsArray: any;
 
-  allCustomer: number = 0;
-  customers$: Observable<any> = this.customers.getAll();
-  orders$: Observable<any> = this.orders.getAll();
-  products$: Observable<any> = this.product.getAll();
-  admins$: Observable<any> = this.product.getAll();
-  countCustomers: number = 0;
   countAdmins: number = 0;
+  countCustomers: number = 0;
+  allAdmins: number = 0;
+  allCustomer: number = 0;
   allOrders: number = 0;
   allProducts: number = 0;
 
+  constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService, private admin: AdminsService) {
+    // this.countUsers();
+
+    // this.countProducts();
+    // console.log('Products: ', this.products$);
+  }
+
   ngOnInit() {
-    this.countUsers()
-    this.countOrders()
-  }
-  countUsers() {
-    for (let custNumber in this.customers$) {
-      this.countCustomers++
-    }
+    // this.countUsers()
+    // this.countOrders()
+    this.product.getAll().subscribe(data => {
+      this.productsArray = data;
+      console.log('43 ', this.productsArray);
+      for (let i = 0; i < this.productsArray.length; i++) {
+        this.allProducts++
+      }
+      console.log('47', this.allProducts);
+    });
 
-    for (let adminNumber in this.admins$) {
-      this.countAdmins++
-    }
+    this.orders.getAll().subscribe(data => {
+      this.ordersArray = data;
+      console.log('52', this.ordersArray);
+      for (let i = 0; i < this.ordersArray.length; i++) {
+        this.allOrders++
+      };
+      console.log('56', this.allOrders);
+      // this.countOrders(this.allOrders);
+    });
 
-    this.allCustomer = this.countCustomers + this.countAdmins
-    return this.allCustomer
+    this.admin.getAll().subscribe(data => {
+      this.adminsArray = data;
+      console.log('62', this.adminsArray);
+      for (let i = 0; i < this.adminsArray.length; i++) {
+        this.allAdmins++
+      };
+      console.log('66', this.allAdmins);
+      // this.countOrders(this.allOrders);
+    });
+
+    this.orders.getAll().subscribe(data => {
+      this.ordersArray = data;
+      console.log('52', this.ordersArray);
+      for (let i = 0; i < this.ordersArray.length; i++) {
+        this.allOrders++
+      };
+      console.log('59', this.allOrders);
+      // this.countOrders(this.allOrders);
+    });
   }
 
-  countOrders() {
-    for (let orderNumber in this.orders$) {
-      this.allOrders++
-    }
-  }
+  // countProducts() {
+  //   for (let i = 0; i < this.productsArray.length; i++) {
+  //     this.allProducts++
+  //   }
+  //   console.log('73', this.allProducts);
+  // }
 
-  countProducts() {
-    for (let productNumber in this.products$) {
-      this.allProducts++
-    }
-  }
+  // countUsers() {
+  //   for (let custNumber in this.customers$) {
+  //     this.countCustomers++
+  //   }
+
+  //   for (let adminNumber in this.admins$) {
+  //     this.countAdmins++
+  //   }
+
+  //   this.allCustomer = this.countCustomers + this.countAdmins
+  //   return this.allCustomer
+  // }
+
+  // countOrders(numberVariable) {
+  //   for (let orderNumber in this.orders$) {
+  //     this.allOrders++
+  //   }
+  //   console.log('All Orders: ', numberVariable);
+  // }
+
 }
