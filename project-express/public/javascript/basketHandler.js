@@ -1,5 +1,5 @@
 // Sends a post request to http://localhost:3000/basket
-function postHandler() {
+function onAddToBasketHandler() {
     let url = 'http://localhost:3000/basket';
     let xhr = new XMLHttpRequest();
 
@@ -12,9 +12,8 @@ function postHandler() {
     xhr.send();
 };
 
-
 // Delete item from basket
-function removeItem(productID) {
+function onRemoveItemFromBasketHandler(productID) {
     let url = 'http://localhost:3000/basket';
     let xhr = new XMLHttpRequest();
     // Send delete request to server
@@ -24,7 +23,9 @@ function removeItem(productID) {
         if (this.status == 200) {
             // Delete product from UI
             document.querySelector(`#button${productID}`).parentElement.parentElement.remove();
-            // A sum összeg nem változik, csak frissítésre, ide kéne írni vmi megoldást...
+            // Modify the id="sumOfBasket" html element
+            let response = JSON.parse(xhr.responseText);
+            document.querySelector('#sumOfBasket').textContent = response.sum;
         }
     };
 

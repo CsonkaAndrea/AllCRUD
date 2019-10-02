@@ -6,7 +6,6 @@ const basketLogic = new BasketLogic();
 // Display /basket
 router.get('/', async (req, res, next) => {
     let loggedInUserBasket = await basketLogic.getBasketId(req);
-    console.log(`loggedinuserbasket: ${loggedInUserBasket.id}`);
     let basketID = loggedInUserBasket.id;
     let basket = await basketLogic.getData(basketID);
     console.log(basket);
@@ -16,14 +15,28 @@ router.get('/', async (req, res, next) => {
         sumOfBasketPrice += parseInt(basket[i].price);
     };
 
-    res.render('basket', {
-        basket: basket,
-        sumOfBasketPrice: sumOfBasketPrice
-    });
+    if (basket.length == 0) {
+        res.render('basket', {
+            basket: undefined,
+        });
+    } else {
+        //  Sum basket value
+        let sumOfBasketPrice = 0;
+        for (let i = 0; i < basket.length; i++) {
+            sumOfBasketPrice += parseInt(basket[i].price);
+        };
+
+        res.render('basket', {
+            basket: basket,
+            sumOfBasketPrice: sumOfBasketPrice
+        });
+    };
 });
 
 // Add data to basketdetails
 router.post('/', async (req, res, next) => {
+    let loggedInUserBasket = await basketLogic.getBasketId(req);
+    let basketID = loggedInUserBasket.id;
     // The customer wants to see this product in his/her basket
     const productToBasket = req.headers.referer.split('/')[4];
     // Get all products
@@ -39,7 +52,7 @@ router.post('/', async (req, res, next) => {
 
     // Ongoing! in this development phase user login dont works
     let basketDetail = {
-        basketID: 1,
+        basketID: basketID,
         productID: productID,
         basketQuantity: 1,
     };
@@ -51,13 +64,23 @@ router.post('/', async (req, res, next) => {
             return console.log('You already added this product.');
         };
     };
-    basketLogic.addData(basketDetail);
+    await basketLogic.addData(basketDetail);
     res.end();
 });
 
 router.delete('/', async (req, res, next) => {
     await basketLogic.removeFromBasket(parseInt(req.body.prodID));
-    res.end();
+    let loggedInUserBasket = await basketLogic.getBasketId(req);
+    let basketID = loggedInUserBasket.id;
+    // Send the sum value of the basket (after delete)
+    let basket = await basketLogic.getData(basketID);
+    let sumOfBasketPrice = 0;
+    for (let i = 0; i < basket.length; i++) {
+        sumOfBasketPrice += parseInt(basket[i].price);
+    };
+    res.json({
+        sum: sumOfBasketPrice
+    });
 });
 
 module.exports = router;
