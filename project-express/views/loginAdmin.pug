@@ -12,18 +12,12 @@ html
           h1#logRegLogo Music On Vinyl
 
           // register form
-          form#form-box(method='POST' action='./login')
+          form#form-box(method='POST' action='./loginAdmin')
             div.form-group
               h1.text-light #{title}
             div.form-group
               label(for='username') Username
               input#username.form-control(type='text' name='username')
-            div.form-group
-              label(for='name') First Name
-              input#customerFirstName.form-control(type='text' name='firstName')
-            div.form-group
-              label(for='name') Last Name
-              input#customerLastName.form-control(type='text' name='lastName')
             div.form-group
               label(for='pw') Password
               input#customerPassword.form-control(type='password' name='password')

@@ -58,8 +58,8 @@ app.use('/users', usersRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);
 app.use('/basket', basketRouter);
-app.use('/registerCustomer', registerCustomerRouter);
-app.use('/loginCustomer', loginCustomerRouter);
+app.use('/register', registerCustomerRouter);
+app.use('/login', loginCustomerRouter);
 app.use('/theTeam', theTeamRouter);
 app.use('/loginAdmin', loginAdminRouter);
 

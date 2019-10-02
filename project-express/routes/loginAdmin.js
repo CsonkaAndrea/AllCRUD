@@ -9,15 +9,15 @@ const registerDB = new RegisterDB();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('loginCustomer', { title: 'Login' });
+    res.render('loginAdmin', { title: 'Admin Login' });
 });
 
 router.post('/', async (req, res, next) => {
     const userId = await loginDB.loginAdmin(req.body);
     if (userId > 0) {
         const token = await loginDB.createToken(userId);
-        res.cookie('customerCookie', token, { maxAge: 31556952000 });
-        res.redirect('/products');
+        res.cookie('adminCookie', token, { maxAge: 31556952000 });
+        res.redirect('/api/dashboard');
     } else {
         const message = 'You did not sign correctly, please try again!';
         res.render('login', { notRegistered: message });
