@@ -16,9 +16,7 @@ router.get('/', function (req, res, next) {
 //// WTF is going on in my code????????
 
 router.get('/logout', (req, res, next) => {
-    res.clearCookie('custvalidator');
-    res.clearCookie('adminvalidator');
-    res.redirect('/products');
+    res.render('loginCustomer', { title: 'Login' });
 });
 
 router.post('/', async (req, res, next) => {

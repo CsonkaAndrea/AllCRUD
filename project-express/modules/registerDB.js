@@ -19,7 +19,7 @@ module.exports = class adminDB {
         const customerId = await db.create(object, 'customers');
         console.log(`custormerID: ${customerId}`);
 
-        const tableId = await db.createTable(customerId, 'baskets', 'id');
+        const tableId = await db.createTable(customerId, 'baskets', 'customerID');
         console.log(`tableId: ${tableId}`);
 
         return tableId;
