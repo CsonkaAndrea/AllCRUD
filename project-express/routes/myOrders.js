@@ -8,9 +8,11 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    console.log(req.body.basketID);
+    console.log(JSON.parse(req.body.basketID));
     res.end()
 });
+
+
 
 
 

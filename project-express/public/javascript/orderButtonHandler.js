@@ -17,3 +17,9 @@ function orderButtonHandler(basketID) {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send(`basketID=${basketID}`);
 };
+
+function secondFunc() {
+    let url = 'http://localhost:3000/myorders';
+    /* document.location.href = url; */
+
+};

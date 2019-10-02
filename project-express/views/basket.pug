@@ -33,7 +33,7 @@ block content
           h2(id='sumOfBasket') #{sumOfBasketPrice}
       .row              
         .col
-          a(onclick='orderButtonHandler(' + basket[0].basketID + ')' href='/myorders' class='btn btn-secondary product-in-basket-to-order-button') Order
+          button(onclick='orderButtonHandler(' + basket[0].basketID + '); secondFunc();' class='btn btn-secondary product-in-basket-to-order-button') Order
   script(src='/javascript/orderButtonHandler.js')
           
       
