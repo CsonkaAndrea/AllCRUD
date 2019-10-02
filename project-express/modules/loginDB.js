@@ -5,12 +5,6 @@ const db = new DB();
 
 module.exports = class loginDB {
 
-    async getLoginDataAdmin() {
-        const result = await db.login('admin', object);
-        console.log(result);
-        return result;
-    };
-
     async loginUser(string, object) {
         let users = await db.readLogin(string, object);
         let userId = -1;
@@ -34,12 +28,12 @@ module.exports = class loginDB {
         return token;
     };
 
-    async checkLogin(req) {
-        if (!req.cookies.customerCookie) {
+    async checkLogin(object) {
+        if (!object) {
             return false;
         }
 
-        const loggedInUser = await db.read('customers', 'token', req.cookies.customerCookie);
+        const loggedInUser = await db.read('customers', 'token', object);
         console.log(`checkloginban loggedinuser: ${loggedInUser.id}`);
         return loggedInUser;
 

@@ -2,9 +2,6 @@ var express = require('express');
 var router = express.Router();
 const LoginDB = require('../modules/loginDB');
 const loginDB = new LoginDB();
-const RegisterDB = require('../modules/registerDB');
-const registerDB = new RegisterDB();
-
 
 
 /* GET home page. */
@@ -23,13 +20,12 @@ router.post('/', async (req, res, next) => {
         res.cookie('customerCookie', token, { maxAge: 31556952000 });
         res.redirect('/products');
     } else {
-        const message = 'You did not sign correctly, please try again!';
         res.render('login', { notRegistered: message });
     }
 });
 
 router.get('/logout', (req, res, next) => {
-    res.clearCookie('adminCookie');
+    res.clearCookie('customerCookie');
     res.redirect('/products');
 });
 
