@@ -14,14 +14,15 @@ export class DashboardComponent implements OnInit {
 
   constructor(private customers: CustomersService, private orders: OrdersService, private product: ProductService, private admin: AdminsService) { }
 
-  allCustomer: number = 0
-  customers$: Observable<any> = this.customers.getAll()
-  orders$: Observable<any> = this.orders.getAll()
-  products$: Observable<any> = this.product.getAll()
-  admins$: Observable<any> = this.product.getAll()
-  countCustomers: number = 0
-  countAdmins: number = 0
-  allOrders: number = 0
+  allCustomer: number = 0;
+  customers$: Observable<any> = this.customers.getAll();
+  orders$: Observable<any> = this.orders.getAll();
+  products$: Observable<any> = this.product.getAll();
+  admins$: Observable<any> = this.product.getAll();
+  countCustomers: number = 0;
+  countAdmins: number = 0;
+  allOrders: number = 0;
+  allProducts: number = 0;
 
   ngOnInit() {
     this.countUsers()
@@ -43,6 +44,12 @@ export class DashboardComponent implements OnInit {
   countOrders() {
     for (let orderNumber in this.orders$) {
       this.allOrders++
+    }
+  }
+
+  countProducts() {
+    for (let productNumber in this.products$) {
+      this.allProducts++
     }
   }
 }

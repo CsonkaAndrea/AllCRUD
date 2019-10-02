@@ -6,9 +6,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Products</h5>
                     <p class="card-text">Active: </p>
-                    <p class="card-text">Total: {{productNumber}}</p>
-                    <a href="#"
-                       class="btn btn-primary btn-block">View products</a>
+                    <p class="card-text">Total: {{allProducts}}</p>
+                    <a routerLink="/admin/products"
+                       class="btn btn-primary btn-block">Products</a>
                 </div>
             </div>
         </div>
@@ -19,8 +19,8 @@
                     <h5 class="card-title">Orders</h5>
                     <p class="card-text">Active: </p>
                     <p class="card-text">Total: {{allOrders}}</p>
-                    <a href="#"
-                       class="btn btn-primary btn-block">View orders</a>
+                    <a routerLink="/admin/orders"
+                       class="btn btn-primary btn-block">Orders</a>
                 </div>
             </div>
         </div>
@@ -32,8 +32,12 @@
                     <p class="card-text">Admins: {{countAdmins}} </p>
                     <p class="card-text">Customers: {{countCustomers}}</p>
                     <p class="card-text">Total amount of users: {{allCustomer}} </p>
-                    <a href="#"
-                       class="btn btn-primary btn-block">View customers</a>
+                    <div class="btn-group">
+                        <a routerLink="/admin/admins"
+                           class="btn btn-primary">Admins</a>
+                        <a routerLink="/admin/users"
+                           class="btn btn-primary">Customers</a>
+                    </div>
                 </div>
             </div>
         </div>
