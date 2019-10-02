@@ -14,7 +14,7 @@ block content
     .container-fluid
       .row
         .col
-          h1#basketH1 This is your BASKET (BasketID: #{basket[0].basketID}).
+          h1#basketH1 Items to buy:
           table.table#basketTable
             thead
               tr
@@ -36,7 +36,7 @@ block content
                     button.btn-danger(onclick='onRemoveItemFromBasketHandler(' + item.prodID + ')' id="button"+item.prodID) Remove Item
       .row              
         .col
-          h1#basketH1 Your basket value:  
+          h1#basketH1 Total value:  
           h2(id='sumOfBasket') #{sumOfBasketPrice} HUF
       .row              
         .col
