@@ -190,7 +190,7 @@ module.exports = class DB {
     }
 
     async submittedBasketData(customerID) {
-        // első sql a select a basket táblákból, kezelni kell valahogy, ha több termék van a basketben
+        // UNDER CONSTRUCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         let sql = `
         SELECT *
         FROM basketdetails
