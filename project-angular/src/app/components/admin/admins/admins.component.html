@@ -10,7 +10,6 @@
             <th>First Name</th>
             <th>Last Name</th>
             <th>Username</th>
-            <th>Password</th>
             <th>Edit/Delete</th>
           </tr>
         </thead>
@@ -20,7 +19,6 @@
             <td>{{ admin.firstName }}</td>
             <td>{{ admin.lastName }}</td>
             <td>{{ admin.username }}</td>
-            <td>{{ admin.password }}</td>
             <td>
               <div class="btn-group">
                 <button routerLink="/admin/admins/{{admin.id}}">Edit</button>
@@ -29,7 +27,7 @@
             </td>
           </tr>
           <tr>
-            <td colspan="4">&nbsp;</td>
+            <td colspan="3">&nbsp;</td>
             <td>Add new admin here:</td>
             <td>
               <button routerLink="/admin/new-admin">Add New</button>
