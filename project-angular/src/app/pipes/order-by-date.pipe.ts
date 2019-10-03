@@ -15,10 +15,4 @@ export class OrderByDatePipe implements PipeTransform {
     };
     return value;
   }
-}
-
-//Ezzel át lehetne alakítani, hogy emberi dáum jelenjen meg...
-/*   value.forEach(data => {
-    console.log(new Date(data[key]).getFullYear());
-  }
-  ) */
+};
