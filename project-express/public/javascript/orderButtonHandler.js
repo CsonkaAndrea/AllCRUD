@@ -18,8 +18,8 @@ function orderButtonHandler(basketID) {
     xhr.send(`basketID=${basketID}`);
 };
 
-function secondFunc() {
+function redirectToMyOrders() {
     let url = 'http://localhost:3000/myorders';
-    /* document.location.href = url; */
+    document.location.href = url; 
 
 };

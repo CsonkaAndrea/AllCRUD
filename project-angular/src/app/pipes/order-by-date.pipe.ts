@@ -8,15 +8,11 @@ export class OrderByDatePipe implements PipeTransform {
   transform(value: [], key: string): any {
     if (value) {
       value.sort((a: any, b: any) => {
-        return ((new Date(a[key]) - new Date(b[key])) * (-1))
+        let aDate = new Date(a[key]).getTime();
+        let bDate = new Date(b[key]).getTime();
+        return ((aDate - bDate) * (-1));
       });
     };
     return value;
   }
-}
-
-//Ezzel át lehetne alakítani, hogy emberi dáum jelenjen meg...
-/*   value.forEach(data => {
-    console.log(new Date(data[key]).getFullYear());
-  }
-  ) */
+};

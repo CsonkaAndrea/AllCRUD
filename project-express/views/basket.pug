@@ -1,14 +1,9 @@
 extends layout
 
 block content
-  h1.display-3 Basket
-  br
-  br
-  br
+  h1.display-3.mb-5 Basket
   if !basket
-    h1#emptyBasket Jelenleg üres a kosarad.
-    br
-    br
+    h1.mb-5#emptyBasket Your basket is empty. Why?
     img.img-center(src='/img/consume.webp')
   else
     .container-fluid
@@ -40,7 +35,7 @@ block content
           h2(id='sumOfBasket') #{sumOfBasketPrice} HUF
       .row              
         .col
-          button#orderButton(onclick='orderButtonHandler(' + basket[0].basketID + '); secondFunc();' class='btn btn-secondary product-in-basket-to-order-button') Order
+          button#orderButton(onclick='orderButtonHandler(' + basket[0].basketID + '); redirectToMyOrders();' class='btn btn-secondary product-in-basket-to-order-button') Order
   script(src='/javascript/orderButtonHandler.js')
           
       

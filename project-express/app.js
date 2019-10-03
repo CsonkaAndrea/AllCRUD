@@ -7,13 +7,15 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 const apiRouter = require('./routes/api');
 const productsAllRouter = require('./routes/productsAll');
+const myOrdersRouter = require('./routes/myOrders');
 const basketRouter = require('./routes/basket');
 const registerCustomerRouter = require('./routes/registerCustomer');
 const loginCustomerRouter = require('./routes/loginCustomer');
 const theTeamRouter = require('./routes/theTeam');
 const loginAdminRouter = require('./routes/loginAdmin');
-const myOrdersRouter = require('./routes/myOrders');
 const adminRouter = require('./routes/admin');
+const pricingRouter = require('./routes/pricing');
+const shippingRouter = require('./routes/shipping');
 const checkLoginMW = require('./middleware/checkLogin');
 const basketCounterMW = require('./middleware/basketCounter');
 
@@ -46,6 +48,7 @@ app.use('/', basketCounterMW);
 app.use('/', indexRouter);
 app.use('/api', apiRouter);
 app.use('/products', productsAllRouter);
+app.use('/myorders', myOrdersRouter);
 app.use('/basket', basketRouter);
 app.use('/register', registerCustomerRouter);
 app.use('/login', loginCustomerRouter);
@@ -53,6 +56,8 @@ app.use('/theTeam', theTeamRouter);
 app.use('/loginAdmin', loginAdminRouter);
 app.use('/myorders', myOrdersRouter);
 app.use('/admin', adminRouter);
+app.use('/pricing', pricingRouter);
+app.use('/shipping', shippingRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

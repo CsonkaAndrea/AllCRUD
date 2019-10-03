@@ -11,12 +11,24 @@ import { Router } from '@angular/router';
 export class NewProductComponent implements OnInit {
 
   newProduct: Product = new Product();
-  title: 'New Product';
 
   constructor(
     private productService: ProductService,
     private router: Router,
   ) { }
+
+  // form: boolean[] = [
+  //   /\w{3,}/.test(this.newProduct.productName),
+  //   /\w{3,}/.test(this.newProduct.seoFriendlyProductName),
+  //   /\w{3,}/.test(this.newProduct.productCategory),
+  //   /\w{3,}/.test(this.newProduct.pictureURL),
+  //   /\w{3,}/.test(this.newProduct.publisher),
+  //   this.newProduct.price < 2000000 && this.newProduct.price > 1,
+  //   this.newProduct.stock < 2000 && this.newProduct.stock > 1,
+  //   /\w{3,}@\w{3,}.\w{2,3}/.test(email),
+  // ];
+
+
 
   ngOnInit() {
   }
@@ -27,13 +39,12 @@ export class NewProductComponent implements OnInit {
     this.productService.createNew(this.newProduct).subscribe(
       response => {
         console.log('sikeres');
+        this.router.navigateByUrl('/admin/products');
       },
       err => {
-        console.error(err),
-          this.router.navigateByUrl('/admin/products');
+        console.error(err);
       }
     );
-   
   }
 
   onCancel() {

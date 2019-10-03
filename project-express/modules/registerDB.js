@@ -11,11 +11,9 @@ module.exports = class registerDB {
         return result;
     };
 
-
     async registerUsers(object) {
         object.password = sha1(object.password);
         console.log(`pw: ${object.password}`);
-
         const customerId = await db.create(object, 'customers');
         console.log(`custormerID: ${customerId}`);
 
@@ -24,4 +22,5 @@ module.exports = class registerDB {
 
         return tableId;
     };
+
 }

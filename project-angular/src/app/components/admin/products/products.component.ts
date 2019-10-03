@@ -11,8 +11,10 @@ import { Router } from '@angular/router';
 export class ProductsComponent implements OnInit {
 
   products: Product[];
+  product: Product;
   updatedProduct: Product = new Product();
   filterPhrase = '';
+  isActiveOnly: boolean = false;
 
   constructor(
     private productService: ProductService,
@@ -26,7 +28,14 @@ export class ProductsComponent implements OnInit {
   }
 
 onDelete(product: Product) {
-  this.products  = this.products.filter(c => c.id !== product.id);
-}
+  if (confirm(`Are you sure you want to delete ${product.productName}?`)) {
+  product.productStatus = 0;
+  this.productService.update(product).subscribe(
+    product => {
+      console.log('sikeres');
+   });
+  }
+  err => console.error(err);
+ }
 
 }
