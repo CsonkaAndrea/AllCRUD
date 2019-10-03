@@ -1,1 +1,121 @@
-<p>dashboard works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-3 mx-auto">
+            <div class="card"
+                 style="width: 100%;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h5 class="card-title">Products</h5>
+                        </div>
+                        <div class="col-4 title-icon">
+                            <span>&#x2630;</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Total: {{allProducts}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-10">
+                            <a routerLink="/admin/products">View products</a>
+                        </div>
+                        <div class="col-2">
+                            <a routerLink="/admin/products"
+                               class="arrowIcon">&#x203A;</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 mx-auto">
+            <div class="card"
+                 style="width: 100%;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h5 class="card-title">Orders</h5>
+                        </div>
+                        <div class="col-4 title-icon">
+                            <span>&#x2611;</span>
+                        </div>
+                    </div>
+
+                    <p class="card-text">Total: {{allOrders}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-10">
+                            <a routerLink="/admin/orders">View orders</a>
+                        </div>
+                        <div class="col-2">
+                            <a routerLink="/admin/orders"
+                               class="arrowIcon">&#x203A;</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 mx-auto">
+            <div class="card"
+                 style="width: 100%;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-8">
+                            <h5 class="card-title">Users</h5>
+                        </div>
+                        <div class="col-4 title-icon">
+                            <span>&#x40;</span>
+                        </div>
+                    </div>
+                    <p class="card-text">Admins: {{allAdmins}} </p>
+                    <p class="card-text">Customers: {{allCustomer}}</p>
+                    <p class="card-text">Total amount of users: {{allUsers}}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-10">
+                            <a routerLink="/admin/admins">View admins</a>
+                        </div>
+                        <div class="col-2">
+                            <a routerLink="/admin/admins"
+                               class="arrowIcon">&#x203A;</a></div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-10">
+                            <a routerLink="/admin/users">View customers</a>
+                        </div>
+                        <div class="col-2">
+                            <a routerLink="/admin/users"
+                               class="arrowIcon">&#x203A;</a></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <h1>Customers</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Password</th>
+            <th scope="col">Username</th>
+            <th scope="col">Token</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor='let customer of allCustomer$ | async'>
+            <th>{{customer.id}}</th>
+            <td>{{customer.firstName}}</td>
+            <td>{{customer.lastName}}</td>
+            <td>{{customer.password}}</td>
+            <td>{{customer.username}}</td>
+            <td>{{customer.token}}</td>
+        </tr>
+    </tbody>
+</table> -->

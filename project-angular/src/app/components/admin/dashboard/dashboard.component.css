@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 10%;
+}
+.card {
+    margin: 20px;
+    padding: 1px;
+}
+.arrowIcon {
+    font-size: 110%;
+}
+.title-icon {
+    font-size: 150%;
+    opacity: 0.5;
+}

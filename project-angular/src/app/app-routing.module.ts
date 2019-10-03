@@ -11,11 +11,12 @@ import { UpdateOrdersComponent } from './components/admin/orders/update-orders/u
 import { AdminsComponent } from './components/admin/admins/admins.component';
 import { UpdateAdminComponent } from './components/admin/admins/update-admin/update-admin.component';
 import { CreateAdminComponent } from './components/admin/admins/create-admin/create-admin.component';
+import { DashboardComponent } from './components/admin/dashboard/dashboard.component';
 
 
 
 const routes: Routes = [
-  { path: '', component: IndexComponent },
+  { path: '', component: DashboardComponent },
   { path: 'admin/products', component: ProductsComponent },
   { path: 'admin/products/:id', component: ProductDetailComponent },
   { path: 'admin/new-product', component: NewProductComponent },
