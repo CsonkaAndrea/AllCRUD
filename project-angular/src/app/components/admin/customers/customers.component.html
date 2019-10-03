@@ -1,36 +1,33 @@
 <h1 class="text-center">Customer details</h1>
 <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <table class="table table-striped table-secondary">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Username</th>
-              <th>Password</th>
-              <th>Edit/Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let customer of customers">
-              <td>{{ customer.id }}</td>
-              <td>{{ customer.firstName }}</td>
-              <td>{{ customer.lastName }}</td>
-              <td>{{ customer.username }}</td>
-              <td>{{ customer.password }}</td>
-              <td>
-                <div class="btn-group">
-                  <button
-                          routerLink="/admin/users/{{customer.id}}">Edit</button>
-                  <button (click)="onDeleteCustomer(customer)">Delete</button>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-striped table-secondary">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+            <th>Edit/Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.username }}</td>
+            <td>
+              <div class="btn-group">
+                <button routerLink="/admin/users/{{customer.id}}">Edit</button>
+                <button (click)="onDeleteCustomer(customer)">Delete</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+</div>
