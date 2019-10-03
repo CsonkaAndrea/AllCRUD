@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
       this.orders.getAll(),
       this.product.getAll()
     ).forEach(data => {
+      console.log(data);
       this.allAdmins = data[0].length;
       this.allCustomer = data[1].length;
       this.allOrders = data[2].length;
