@@ -1,5 +1,11 @@
-extends layout
-
-block content
-  h1 #{massage}
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet' href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/error.css')
+    link(href='/img/favicon.ico' rel='icon' type='image/x-icon')
+  body
+  block content
+    a.btn.btn-primary.btn-lg#errorButton(href='/' role='button') Go back
   

@@ -15,7 +15,7 @@ block content
         p Publisher: #{product.publisher}
         p Price: #{product.price} HUF
         p Quantity:
-        input.form-control#quantity(type='number' name='quantity' value='1' data-type='number' step='1' min='1')
+        input.form-control#quantity(type='number' name='quantity' value='1' data-type='number' step='1' min='1' disabled)
         br
         br
         button#basketButton(onclick='onAddToBasketHandler()')  Add to cart

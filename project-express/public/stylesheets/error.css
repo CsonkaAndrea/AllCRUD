@@ -1,0 +1,69 @@
+body {
+    background-image: url(/img/404-error.jpg) !important;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+#errorButton {
+    position: absolute;
+    left: 50%;
+    width: 200px;
+    height: 50px;
+    margin-left: -110px;
+    bottom: 10px;
+    text-align: center;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+#errorButton:before {
+    content: '';
+    background: linear-gradient(60deg, #00ffd5, #002bff, #7a00ff, #002bff, #00ffd5);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+#errorButton:active {
+    color: #000
+}
+
+#errorButton:active:after {
+    background: transparent;
+}
+
+#errorButton:hover:before {
+    opacity: 1;
+}
+
+#errorButton:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+#errorButton:focus {
+    outline: none;
+  }
