@@ -9,6 +9,7 @@ router.get('/', function (req, res, next) {
     res.render('loginCustomer', { title: 'Login' });
 });
 
+
 router.post('/', async (req, res, next) => {
     const userId = await loginDB.loginUser('customers', req.body);
     if (userId > 0) {
