@@ -12,11 +12,6 @@ import { AdminsService } from 'src/app/services/admins.service';
 })
 export class DashboardComponent implements OnInit {
 
-  adminsArray: any;
-  customersArray: any;
-  ordersArray: any;
-  productsArray: any;
-
   countAdmins: number = 0;
   countCustomers: number = 0;
   allAdmins: number = 0;
