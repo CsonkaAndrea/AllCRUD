@@ -2,8 +2,10 @@ const DB = require('./DB');
 const db = new DB();
 
 module.exports = class orderDB {
-    get tableName() {
-        return 'orders';
+
+    async getAllOrders(tableName) {
+        let result = await db.readAll(tableName);
+        return result;
     };
 
     async getAllOrders() {

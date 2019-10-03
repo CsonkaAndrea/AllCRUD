@@ -6,14 +6,17 @@ import { Product } from 'src/app/models/product/product';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(products: Product[], phrase: string = ''): any {
-    return products.filter(item => {
+  transform(products: Product[], phrase: string = '', activeOnly: boolean = false): any {
+    let result = products.filter(item => {
       const jsonString = JSON.stringify(item)
         .replace(/"[^"]*"\:/g, '')
         .replace(/[",\{\}]/g, '');
       return jsonString.toLowerCase().indexOf(phrase.toLowerCase()) > -1;
     });
+    if (activeOnly) {
+      result = result.filter(el => el.productStatus === 1);
+    }
+    return result;
   }
-
 
 }
