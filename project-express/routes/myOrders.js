@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
     res.render('myOrders', {
         title: 'My orders',
         orders: orders,
+        user: req.user || {}
     });
 
 });

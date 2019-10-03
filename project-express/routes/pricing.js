@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     res.render('pricing', {
-        title: 'Pricing'
+        title: 'Pricing',
+        user: req.user || {}
     })
 });
 

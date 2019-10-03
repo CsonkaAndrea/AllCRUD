@@ -1,14 +1,9 @@
 extends layout
 
 block content
-  h1.display-3 Basket
-  br
-  br
-  br
+  h1.display-3.mb-5 Basket
   if !basket
-    h1#emptyBasket Your basket is empty. Why?
-    br
-    br
+    h1.mb-5#emptyBasket Your basket is empty. Why?
     img.img-center(src='/img/consume.webp')
   else
     .container-fluid
