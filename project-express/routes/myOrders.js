@@ -5,8 +5,8 @@ const orderDB = new OrderDB;
 const DB = require('../modules/DB');
 const db = new DB();
 
-const BetagDB = require('./../modules/webshop-mariadb');
-const betagdb = new BetagDB();
+// const BetagDB = require('./../modules/webshop-mariadb');
+// const betagdb = new BetagDB();
 
 router.get('/', async (req, res, next) => {
     let customerID = 1;
@@ -20,21 +20,21 @@ router.get('/', async (req, res, next) => {
 
 });
 
-router.post('/', async (req, res, next) => {
-    let userID = 1;
-    /*
-        IDE ÍRD MEG, AMI LEKÉRDEZI A USER ID-t
-    */
-    let data = betagdb.readRecord('basketdetails', {
-        from: 'INNER JOIN baskets ON baskets.id = basketdetails.basketID',
-        'baskets.customerId': userID,
-    });
-    data = data.filter(record => record.hasOwnProperty('id'));
+// router.post('/', async (req, res, next) => {
+//     let userID = 1;
+//     /*
+//         IDE ÍRD MEG, AMI LEKÉRDEZI A USER ID-t
+//     */
+//     let data = betagdb.readRecord('basketdetails', {
+//         from: 'INNER JOIN baskets ON baskets.id = basketdetails.basketID',
+//         'baskets.customerId': userID,
+//     });
+//     data = data.filter(record => record.hasOwnProperty('id'));
     
-    await betagdb.createRecord('basketdetails', {
-        basketID: 6,
-        productID: 2,
-    })
+//     await betagdb.createRecord('basketdetails', {
+//         basketID: 6,
+//         productID: 2,
+//     })
 
 
     // let productsAndBasketdetails = betagdb.readRecord('basketdetails', {
@@ -51,6 +51,6 @@ router.post('/', async (req, res, next) => {
     //     title: 'My orders',
     //     newOrder: newOrder,
     // });
- });
+//  });
 
 module.exports = router;
