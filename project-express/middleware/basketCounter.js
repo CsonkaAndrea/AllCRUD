@@ -1,7 +1,9 @@
-var express = require('express');
-var router = express();
+const express = require('express');
+const router = express();
 const BasketLogic = require('./../modules/basketLogic');
+
 const basketLogic = new BasketLogic();
+
 
 router.use(async (req, res, next) => {
   if (req.user) {

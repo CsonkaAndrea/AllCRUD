@@ -4,7 +4,6 @@ const DB = require('./DB');
 const db = new DB();
 
 module.exports = class loginDB {
-
     async loginUser(string, object) {
         let users = await db.readLogin(string, object);
         let userId = -1;
@@ -14,7 +13,6 @@ module.exports = class loginDB {
                 break;
             }
         }
-        console.log(`ez elvileg biztos, hogy az id: ${userId}`);
         return userId;
     };
 
@@ -33,11 +31,8 @@ module.exports = class loginDB {
             return false;
         }
         const loggedInUser = await db.read('customers', 'token', object);
-        console.log(`checkloginban loggedinuser: ${loggedInUser.id}`);
         return loggedInUser;
-
-    }
-
+    };
 }
 
 

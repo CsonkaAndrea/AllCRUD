@@ -1,13 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const RegisterDB = require('../modules/registerDB');
+
 const registerDB = new RegisterDB();
 
 
 router.get('/', (req, res, next) => {
     res.render('admin');
 });
-
 
 router.post('/admin/login', async (req, res, next) => {
     let result = await registerDB.registerAdmins(req.body);

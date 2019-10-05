@@ -5,7 +5,6 @@ const basketLogic = new BasketLogic();
 
 // Display /basket
 router.get('/', async (req, res, next) => {
-    console.log(req.user);
     let loggedInUserBasket = await basketLogic.getBasketId(req);
     let basketID = loggedInUserBasket.id;
     let basket = await basketLogic.getData(basketID);

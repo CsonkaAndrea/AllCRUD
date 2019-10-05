@@ -1,14 +1,13 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const LoginDB = require('../modules/loginDB');
-const loginDB = new LoginDB();
 
+const loginDB = new LoginDB();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
     res.render('loginCustomer', { title: 'Login' });
 });
-
 
 router.post('/', async (req, res, next) => {
     const userId = await loginDB.loginUser('customers', req.body);

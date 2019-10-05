@@ -1,6 +1,7 @@
-const DB = require('./DB');
-const db = new DB();
 const sh1 = require('js-sha1');
+const DB = require('./DB');
+
+const db = new DB();
 
 module.exports = class adminsDB {
     get tableName() {
@@ -32,7 +33,6 @@ module.exports = class adminsDB {
     async deleteAdmin(object) {
         const result = await db.delete(this.tableName, object);
         const result = await db.readOne(this.tableName, id);
-        console.log(result);
         return result;
     };
 }

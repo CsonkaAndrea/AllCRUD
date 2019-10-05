@@ -1,4 +1,5 @@
 const DB = require('./DB');
+
 const db = new DB();
 
 module.exports = class basketLogic {
@@ -36,7 +37,6 @@ module.exports = class basketLogic {
 
     // Remove from basket
     async removeFromBasket(prodID) {
-        console.log(prodID);
         let result = await db.delete('basketdetails', {
             productID: prodID
         });
@@ -56,5 +56,4 @@ module.exports = class basketLogic {
         let result = await db.getDataFromSql(sql);
         return result;
     };
-
 }

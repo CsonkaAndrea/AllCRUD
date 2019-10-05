@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const ProductDB = require('../modules/productDB');
-const productDB = new ProductDB();
 const UsersDB = require('../modules/usersDB');
-const usersDB = new UsersDB();
 const OrdersDB = require('../modules/orderDB');
-const ordersDB = new OrdersDB();
 const AdminsDB = require('../modules/adminsDB');
+
+const productDB = new ProductDB();
+const usersDB = new UsersDB();
+const ordersDB = new OrdersDB();
 const adminsDB = new AdminsDB();
 
 // Check API

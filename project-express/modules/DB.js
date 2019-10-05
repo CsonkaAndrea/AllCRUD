@@ -2,18 +2,37 @@ const mariadb = require('mariadb');
 const pool = mariadb.createPool({
     user: 'root',
     password: 'root',
-    database: 'webshop' // Ez az adatbázisunk neve
+    database: 'webshop' // database name
 });
 
 module.exports = class DB {
     constructor() {
         pool.getConnection().then(conn => this.conn = conn);
     };
+
+    /**
+        * readAll and read method, get data from database
+        * @param {string} table table name
+        * @param {string} column column name
+        * @param {string|number} value column value
+        */
+
+    async read(table, column, value) {
+        let sql = `
+    SELECT *
+    FROM ${table}
+    WHERE ${column} = '${value}'
+    `;
+        let result = await this.conn.query(sql);
+        return result[0];
+    };
+
     /**
      * readAll and read method, get data from database
      * @param {string} table table name
      * @param {number} id 
      */
+
     async readAll(table) {
         const sql = `
              SELECT * 
@@ -72,10 +91,8 @@ module.exports = class DB {
             (${rowValues})
             `;
         const result = await this.conn.query(sql);
-        console.log(`insertid: ${result.insertId}`);
         return result.insertId;
     };
-
 
     /**
      * update method for database
@@ -106,7 +123,6 @@ module.exports = class DB {
         return result;
     };
 
-
     /**
      * Create method for database
      * @param {string}  table table name
@@ -115,7 +131,6 @@ module.exports = class DB {
 
     async delete(table, object) {
         let sql = '';
-        console.log(sql);
         if (object.id) {
             sql = `
                 DELETE FROM ${table}
@@ -127,7 +142,6 @@ module.exports = class DB {
                 WHERE productID = ${object.productID}
                 `;
         };
-        console.log(sql);
         const result = await this.conn.query(sql);
         return result;
     };
@@ -180,9 +194,7 @@ module.exports = class DB {
         return result;
     };
 
-
     async createTable(value, table, columnName) {
-        console.log(`dbs  value: ${value}`);
         let sql = `
               INSERT INTO ${table}
               (${columnName})
@@ -203,7 +215,6 @@ module.exports = class DB {
         return result;
     };
 
-
     async setToken(table, object) {
         let sql = `
             UPDATE ${table}
@@ -214,18 +225,6 @@ module.exports = class DB {
         return true;
     };
 
-    //nincs megcsinálva
-
-    async read(table, column, value) {
-        let sql = `
-    SELECT *
-    FROM ${table}
-    WHERE ${column} = '${value}'
-    `;
-        let result = await this.conn.query(sql);
-        return result[0];
-    }
-
     async showAsc(table, object) {
         const sql = `
         SELECT *
@@ -234,7 +233,7 @@ module.exports = class DB {
         `;
         const result = await this.conn.query(sql);
         return result;
-    }
+    };
 
     async showDesc(table, object) {
         const sql = `
@@ -244,5 +243,5 @@ module.exports = class DB {
         `;
         const result = await this.conn.query(sql);
         return result;
-    }
+    };
 };

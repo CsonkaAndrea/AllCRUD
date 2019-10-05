@@ -1,6 +1,7 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const ProductDB = require('../modules/productDB');
+
 const productDB = new ProductDB();
 
 
@@ -15,8 +16,6 @@ router.get('/', async (req, res, next) => {
     } else {
         productAll = await productDB.showAscProduct();
     };
-
-    console.log(productAll[0]);
     res.render('productsAll', {
         title: 'Products',
         products: productAll,
