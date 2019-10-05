@@ -1,40 +1,40 @@
-const DB = require('../modules/DB');
+const Modules = require('../modules/modules');
 
-const db = new DB();
+const modules = new Modules();
 
 module.exports = class productDB {
     async getAllProducts() {
-        const result = await db.readAll('products');
+        const result = await modules.readAll('products');
         return result;
     };
 
     async getOneProduct(id) {
-        const result = await db.readOne('products', id);
+        const result = await modules.readOne('products', id);
         return result;
     };
 
     async getOneProductSeo(seoFriendlyName) {
-        const result = await db.readOneSeo('products', seoFriendlyName);
+        const result = await modules.readOneSeo('products', seoFriendlyName);
         return result;
     };
 
     async createProduct(object) {
-        const result = await db.create(object, 'products');
+        const result = await modules.create(object, 'products');
         return result;
     };
 
     async updateProduct(object) {
-        const result = await db.update(object, 'products');
+        const result = await modules.update(object, 'products');
         return result;
     };
 
     async deleteProduct(object) {
-        const result = await db.delete('products', object);
+        const result = await modules.delete('products', object);
         return result;
     };
 
     async createRestful() {
-        const getAllProductNames = await db.readRestful('products', 'productName');
+        const getAllProductNames = await modules.readRestful('products', 'productName');
         const result = getAllProductNames.map(p => p.productName = (p.productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g, '-').replace(/---|--/g, '-')));
         return result;
     };
@@ -49,12 +49,12 @@ module.exports = class productDB {
     };
 
     async showAscProduct() {
-        const result = await db.showAsc('products', 'productName');
+        const result = await modules.showAsc('products', 'productName');
         return result;
     };
 
     async showDescProduct() {
-        const result = await db.showDesc('products', 'productName');
+        const result = await modules.showDesc('products', 'productName');
         return result;
     };
 }

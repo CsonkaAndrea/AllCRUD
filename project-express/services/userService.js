@@ -1,30 +1,30 @@
-const DB = require('../modules/DB');
+const Modules = require('../modules/modules');
 
-const db = new DB();
+const modules = new Modules();
 
 module.exports = class usersDB {
     async getAllUsers() {
-        const result = await db.readAll('customers');
+        const result = await modules.readAll('customers');
         return result;
     };
 
     async getOneUser(id) {
-        const result = await db.readOne('customers', id);
+        const result = await modules.readOne('customers', id);
         return result;
     };
 
     async deleteUser(id) {
-        const result = await db.delete('customers', id);
+        const result = await modules.delete('customers', id);
         return result;
     };
 
     async updateUser(object) {
-        const result = await db.update(object, 'customers');
+        const result = await modules.update(object, 'customers');
         return result;
     };
 
     async createUser(object) {
-        const result = await db.create(object, 'customers');
+        const result = await modules.create(object, 'customers');
         return result;
     };
 }

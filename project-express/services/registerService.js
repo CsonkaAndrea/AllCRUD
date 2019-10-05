@@ -1,19 +1,19 @@
 const sha1 = require('js-sha1');
-const DB = require('../modules/DB');
+const Modules = require('../modules/Modules');
 
-const db = new DB();
+const modules = new Modules();
 
 module.exports = class registerDB {
     async registerAdmins(object) {
         object.password = sha1(object.password);
-        const result = await db.create(object, 'admins');
+        const result = await modules.create(object, 'admins');
         return result;
     };
 
     async registerUsers(object) {
         object.password = sha1(object.password);
-        const customerId = await db.create(object, 'customers');
-        const tableId = await db.createTable(customerId, 'baskets', 'customerID');
+        const customerId = await modules.create(object, 'customers');
+        const tableId = await modules.createTable(customerId, 'baskets', 'customerID');
         return tableId;
     };
 }
