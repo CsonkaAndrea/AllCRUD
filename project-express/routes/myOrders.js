@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const OrderDB = require('../modules/orderDB');
+const OrderService = require('../services/orderService');
 const DB = require('../modules/DB');
 
+const orderService = new OrderService();
 const db = new DB();
-const orderDB = new OrderDB;
 
 
 router.get('/', async (req, res, next) => {

@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const RegisterDB = require('../modules/registerDB');
+const RegisterService = require('../services/registerService');
 
-const registerDB = new RegisterDB();
+const registerService = new RegisterService();
 
 
 /* GET home page. */
@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-    let register = await registerDB.registerUsers(req.body);
+    let register = await registerService.registerUsers(req.body);
     res.redirect('login');
 });
 

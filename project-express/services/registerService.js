@@ -1,5 +1,5 @@
 const sha1 = require('js-sha1');
-const DB = require('./DB');
+const DB = require('../modules/DB');
 
 const db = new DB();
 

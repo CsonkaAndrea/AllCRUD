@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const LoginDB = require('../modules/loginDB');
+const LoginService = require('../services/loginService');
 
-const loginDB = new LoginDB();
+const loginService = new LoginService();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -10,9 +10,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', async (req, res, next) => {
-    const userId = await loginDB.loginUser('customers', req.body);
+    const userId = await loginService.loginUser('customers', req.body);
     if (userId > 0) {
-        const token = await loginDB.createToken('customers', userId);
+        const token = await loginService.createToken('customers', userId);
         res.cookie('customerCookie', token, { maxAge: 31556952000 });
         res.redirect('/products');
     } else {

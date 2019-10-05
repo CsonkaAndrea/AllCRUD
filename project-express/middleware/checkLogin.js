@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express();
-const LoginDB = require('./../modules/loginDB');
+const LoginDB = require('./../services/loginService');
 
 const loginDB = new LoginDB();
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express();
-const BasketLogic = require('./../modules/basketLogic');
+const BasketLogic = require('./../services/basketService');
 
 const basketLogic = new BasketLogic();
 

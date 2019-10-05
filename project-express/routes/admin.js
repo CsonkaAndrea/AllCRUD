@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const LoginDB = require('../modules/loginDB');
+const LoginService = require('../services/loginService');
 
-const loginDB = new LoginDB();
+const loginService = new LoginService();
 
 
 router.get('/', async (req, res, next) => {
-    const loggedInAdmin = await loginDB.checkLogin(req.cookies.adminvalidator);
+    const loggedInAdmin = await loginService.checkLogin(req.cookies.adminvalidator);
     if (loggedInAdmin) {
         res.render('admin');
     }
@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/*', async (req, res, next) => {
-    const loggedInAdmin = await loginDB.checkLogin(req.cookies.adminvalidator);
+    const loggedInAdmin = await loginService.checkLogin(req.cookies.adminvalidator);
     if (loggedInAdmin) {
         res.redirect('/admin');
     }

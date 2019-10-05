@@ -1,5 +1,4 @@
-const DB = require('./DB');
-
+const DB = require('../modules/DB');
 const db = new DB();
 
 module.exports = class orderDB {

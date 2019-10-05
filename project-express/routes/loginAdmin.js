@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const LoginDB = require('../modules/loginDB');
+const LoginService = require('../services/loginService');
 
-const loginDB = new LoginDB();
+const loginService = new LoginService();
 
 
 /* GET home page. */
@@ -11,9 +11,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', async (req, res, next) => {
-    const userId = await loginDB.loginUser('admins', req.body);
+    const userId = await loginService.loginUser('admins', req.body);
     if (userId > 0) {
-        const token = await loginDB.createToken('admins', userId);
+        const token = await loginService.createToken('admins', userId);
         res.cookie('adminCookie', token, { maxAge: 31556952000 });
         res.redirect('/api/admin/dashboard');
     } else {

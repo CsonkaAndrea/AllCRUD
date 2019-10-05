@@ -1,20 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const ProductDB = require('../modules/productDB');
+const ProductService = require('../services/productService');
 
-const productDB = new ProductDB();
+const productService = new ProductService();
 
 
 router.get('/', async (req, res, next) => {
     let productAll = [];
     if (req.query.dir) {
         if (req.query.dir === 'asc') {
-            productAll = await productDB.showAscProduct();
+            productAll = await productService.showAscProduct();
         } else {
-            productAll = await productDB.showDescProduct();
+            productAll = await productService.showDescProduct();
         }
     } else {
-        productAll = await productDB.showAscProduct();
+        productAll = await productService.showAscProduct();
     };
     res.render('productsAll', {
         title: 'Products',
@@ -25,7 +25,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:address', async (req, res, next) => {
-    const product = await productDB.getOneProductSeo(req.params.address);
+    const product = await productService.getOneProductSeo(req.params.address);
 
     if (product === undefined) {
         res.render('error', {

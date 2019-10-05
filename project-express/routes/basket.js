@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const BasketLogic = require('./../modules/basketLogic');
-const basketLogic = new BasketLogic();
+const BasketService = require('../services/basketService');
+const basketService = new BasketService();
 
 // Display /basket
 router.get('/', async (req, res, next) => {
-    let loggedInUserBasket = await basketLogic.getBasketId(req);
+    let loggedInUserBasket = await basketService.getBasketId(req);
     let basketID = loggedInUserBasket.id;
-    let basket = await basketLogic.getData(basketID);
+    let basket = await basketService.getData(basketID);
 
     if (basket.length == 0) {
         res.render('basket', {
@@ -31,12 +31,12 @@ router.get('/', async (req, res, next) => {
 
 // Add data to basketdetails
 router.post('/', async (req, res, next) => {
-    let loggedInUserBasket = await basketLogic.getBasketId(req);
+    let loggedInUserBasket = await basketService.getBasketId(req);
     let basketID = loggedInUserBasket.id;
     // The customer wants to see this product in his/her basket
     const productToBasket = req.headers.referer.split('/')[4];
     // Get all products
-    const products = await basketLogic.getTable('products');
+    const products = await basketService.getTable('products');
     // Find product ID
     let productID = 0;
     for (let i = 0; i < products.length; i++) {
@@ -54,7 +54,7 @@ router.post('/', async (req, res, next) => {
     };
 
     // Add product to basket ( if product is already added show error massage)
-    const basketDetails = await basketLogic.getTable('basketdetails');
+    const basketDetails = await basketService.getTable('basketdetails');
     for (let i = 0; i < basketDetails.length; i++) {
         if (basketDetails[i].productID === productID) {
             return console.log('You already added this product.');
@@ -66,10 +66,10 @@ router.post('/', async (req, res, next) => {
 
 router.delete('/', async (req, res, next) => {
     await basketLogic.removeFromBasket(parseInt(req.body.prodID));
-    let loggedInUserBasket = await basketLogic.getBasketId(req);
+    let loggedInUserBasket = await basketService.getBasketId(req);
     let basketID = loggedInUserBasket.id;
     // Send the sum value of the basket (after delete)
-    let basket = await basketLogic.getData(basketID);
+    let basket = await basketService.getData(basketID);
     let sumOfBasketPrice = 0;
     for (let i = 0; i < basket.length; i++) {
         sumOfBasketPrice += parseInt(basket[i].price);
