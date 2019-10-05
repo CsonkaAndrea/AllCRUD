@@ -1,40 +1,40 @@
-const Modules = require('../modules/modules');
+const Models = require('../models/models');
 
-const modules = new Modules();
+const models = new Models();
 
 module.exports = class productDB {
     async getAllProducts() {
-        const result = await modules.readAll('products');
+        const result = await models.readAll('products');
         return result;
     };
 
     async getOneProduct(id) {
-        const result = await modules.readOne('products', id);
+        const result = await models.readOne('products', id);
         return result;
     };
 
     async getOneProductSeo(seoFriendlyName) {
-        const result = await modules.readOneSeo('products', seoFriendlyName);
+        const result = await models.readOneSeo('products', seoFriendlyName);
         return result;
     };
 
     async createProduct(object) {
-        const result = await modules.create(object, 'products');
+        const result = await models.create(object, 'products');
         return result;
     };
 
     async updateProduct(object) {
-        const result = await modules.update(object, 'products');
+        const result = await models.update(object, 'products');
         return result;
     };
 
     async deleteProduct(object) {
-        const result = await modules.delete('products', object);
+        const result = await models.delete('products', object);
         return result;
     };
 
     async createRestful() {
-        const getAllProductNames = await modules.readRestful('products', 'productName');
+        const getAllProductNames = await models.readRestful('products', 'productName');
         const result = getAllProductNames.map(p => p.productName = (p.productName.toLowerCase().replace(/ | - |[/]|[.]|[,]/g, '-').replace(/---|--/g, '-')));
         return result;
     };
@@ -49,12 +49,12 @@ module.exports = class productDB {
     };
 
     async showAscProduct() {
-        const result = await modules.showAsc('products', 'productName');
+        const result = await models.showAsc('products', 'productName');
         return result;
     };
 
     async showDescProduct() {
-        const result = await modules.showDesc('products', 'productName');
+        const result = await models.showDesc('products', 'productName');
         return result;
     };
 }

@@ -1,11 +1,11 @@
 const sha1 = require('js-sha1');
-const Modules = require('../modules/modules');
+const Models = require('../models/models');
 
-const modules = new Modules();
+const models = new Models();
 
 module.exports = class loginDB {
     async loginUser(string, object) {
-        let users = await modules.readLogin(string, object);
+        let users = await models.readLogin(string, object);
         let userId = -1;
         for (let i = 0; i < users.length; i++) {
             if (users[i].email === object.email && users[i].password === sha1(object.password)) {
@@ -22,7 +22,7 @@ module.exports = class loginDB {
             const index = Math.round(Math.random() * 50 + 65);
             token += String.fromCharCode(index);
         }
-        const tableId = await modules.updateTable(userId, token, string, 'token');
+        const tableId = await models.updateTable(userId, token, string, 'token');
         return token;
     };
 
@@ -30,7 +30,7 @@ module.exports = class loginDB {
         if (!object) {
             return false;
         }
-        const loggedInUser = await modules.read('customers', 'token', object);
+        const loggedInUser = await models.read('customers', 'token', object);
         return loggedInUser;
     };
 }

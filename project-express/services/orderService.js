@@ -1,5 +1,5 @@
-const Modules = require('../modules/modules');
-const modules = new Modules();
+const Models = require('../models/models');
+const models = new Models();
 
 module.exports = class orderDB {
     get tableName() {
@@ -7,32 +7,32 @@ module.exports = class orderDB {
     };
 
     async getAllOrders(tableName) {
-        let result = await modules.readAll(this.tableName);
+        let result = await models.readAll(this.tableName);
         return result;
     };
 
     async getAllOrders() {
-        const result = await modules.readAll(this.tableName);
+        const result = await models.readAll(this.tableName);
         return result;
     };
 
     async getOneOrder(id) {
-        const result = await modules.readOne(this.tableName, id);
+        const result = await models.readOne(this.tableName, id);
         return result;
     };
 
     async createOrder(object) {
-        const result = await modules.create(this.tableName, object);
+        const result = await models.create(this.tableName, object);
         return result;
     };
 
     async updateOrder(object) {
-        const result = await modules.update(object, this.tableName);
+        const result = await models.update(object, this.tableName);
         return result;
     };
 
     async deleteOrder(object) {
-        const result = await modules.delete(this.tableName, object);
+        const result = await models.delete(this.tableName, object);
         return result;
     };
 }
