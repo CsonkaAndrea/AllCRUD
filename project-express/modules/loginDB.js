@@ -21,7 +21,7 @@ module.exports = class loginDB {
     async createToken(string, userId) {
         let token = '';
         for (let i = 0; i < 50; i++) {
-            let index = Math.round(Math.random() * 50 + 65);
+            const index = Math.round(Math.random() * 50 + 65);
             token += String.fromCharCode(index);
         }
         const tableId = await db.updateTable(userId, token, string, 'token');
@@ -32,7 +32,6 @@ module.exports = class loginDB {
         if (!object) {
             return false;
         }
-
         const loggedInUser = await db.read('customers', 'token', object);
         console.log(`checkloginban loggedinuser: ${loggedInUser.id}`);
         return loggedInUser;
@@ -40,5 +39,6 @@ module.exports = class loginDB {
     }
 
 }
+
 
 
