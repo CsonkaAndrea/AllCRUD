@@ -3,7 +3,7 @@ const Models = require('../models/models');
 
 const models = new Models();
 
-module.exports = class loginDB {
+module.exports = class loginService {
     async loginUser(string, object, whereColumn, andColumn) {
     object.password = sha1(object.password);
     const users = await models.readByTwoParams(string, object, whereColumn, andColumn);
