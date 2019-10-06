@@ -4,9 +4,9 @@ const Models = require('../models/models');
 const models = new Models();
 
 module.exports = class loginService {
-    async loginUser(string, object, whereColumn, andColumn) {
+    async loginUser(string, object) {
     object.password = sha1(object.password);
-    const users = await models.readByTwoParams(string, object, whereColumn, andColumn);
+    const users = await models.readByTwoParams(string, object);
     return users[0].id || -1;
     };
 
