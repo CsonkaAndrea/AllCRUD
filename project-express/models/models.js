@@ -26,7 +26,26 @@ module.exports = class DB {
         let result = await this.conn.query(sql);
         return result[0];
     };
-
+    
+    /**
+        * readByTwoParams
+        * @param {string} table table name
+        * @param {object} object 
+        * @param {string} whereColumn
+        * @param {string} andColumn
+        */
+    
+    async readByTwoParams(table, object, whereColumn, andColumn) {
+        let sql = `
+            SELECT * 
+            FROM ${table} 
+            WHERE ${whereColumn} = '${object.username}' 
+                AND ${andColumn} = '${object.password}'
+        `;
+        let result = await this.conn.query(sql);
+        return result;
+    };
+    
     /**
      * readAll and read method, get data from database
      * @param {string} table table name
@@ -180,17 +199,6 @@ module.exports = class DB {
 
     async getDataFromSql(sql) {
         const result = await this.conn.query(sql);
-        return result;
-    };
-
-    async readLogin(table, object) {
-        let sql = `
-            SELECT * 
-            FROM ${table} 
-            WHERE username = '${object.username}' 
-                AND password = SHA1('${object.password}')
-        `;
-        let result = await this.conn.query(sql);
         return result;
     };
 
