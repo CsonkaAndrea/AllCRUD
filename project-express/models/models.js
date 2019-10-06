@@ -30,17 +30,15 @@ module.exports = class DB {
     /**
         * readByTwoParams
         * @param {string} table table name
-        * @param {object} object 
-        * @param {string} whereColumn
-        * @param {string} andColumn
+        * @param {object} object
         */
     
-    async readByTwoParams(table, object, whereColumn, andColumn) {
+    async readByTwoParams(table, object) {
         let sql = `
             SELECT * 
             FROM ${table} 
-            WHERE ${whereColumn} = '${object.username}' 
-                AND ${andColumn} = '${object.password}'
+            WHERE username = '${object.username}' 
+                AND password = '${object.password}'
         `;
         let result = await this.conn.query(sql);
         return result;
