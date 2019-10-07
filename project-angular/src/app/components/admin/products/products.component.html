@@ -1,16 +1,18 @@
 <h1 class="text-center">Available Products</h1>
 <br>
 <div class="container">
-  <div class="row">
-    <div class="col-4">
-      <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
+  <div id="searchActive">
+    <div class="row">
+      <div class="col-4">
+        <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="filterPhrase">
+      </div>
+      <div class="col-2">
+          <button class="btn btn-primary" routerLink="/admin/new-product">New product</button>
+      </div>
+      <div class="col-6 text-white" id="checkBox">
+        <input type="checkbox" name="active" id="active" [(ngModel)]="isActiveOnly">Active products only
+      </div>
     </div>
-    <div class="col-2">
-        <button class="btn btn-primary" routerLink="/admin/new-product">New product</button>
-    </div>
-    <div class="col-6 text-white">
-      <input type="checkbox" name="active" id="active" [(ngModel)]="isActiveOnly">Active products only
-     </div>
   </div>
 </div>
 <br>
@@ -39,8 +41,10 @@
     <td>{{ product.price }}</td>
     <td>{{ product.stock }}</td>
     <td>
-      <button class="btn btn-primary" routerLink="/admin/products/{{ product.id }}">Details</button>
-      <button class="btn btn-danger" (click)="onDelete(product)">Delete</button>
+      <div class="btn-group" role="group">
+        <button class="btn btn-primary" routerLink="/admin/products/{{ product.id }}">Details</button>
+        <button class="btn btn-danger" (click)="onDelete(product)">Delete</button>
+      </div>
     </td>
   </tr>
 </tbody>

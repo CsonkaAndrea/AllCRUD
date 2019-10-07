@@ -1,0 +1,15 @@
+h2 {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+    padding-top: 20px;
+    text-align: center;
+}
+
+form {
+    padding-top: 20px;
+}
+
+label {
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}

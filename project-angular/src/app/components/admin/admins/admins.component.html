@@ -21,8 +21,8 @@
             <td>{{ admin.username }}</td>
             <td>
               <div class="btn-group">
-                <button routerLink="/admin/admins/{{admin.id}}">Edit</button>
-                <button (click)="onDeleteAdmin(admin)">Delete</button>
+                <button class="btn btn-warning" routerLink="/admin/admins/{{admin.id}}">Edit</button>
+                <button class="btn btn-danger" (click)="onDeleteAdmin(admin)">Delete</button>
               </div>
             </td>
           </tr>
@@ -30,7 +30,7 @@
             <td colspan="3">&nbsp;</td>
             <td>Add new admin here:</td>
             <td>
-              <button routerLink="/admin/new-admin">Add New</button>
+              <button class="btn btn-dark" routerLink="/admin/new-admin">Add New</button>
             </td>
           </tr>
         </tbody>
