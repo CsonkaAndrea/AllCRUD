@@ -26,24 +26,7 @@ module.exports = class DB {
         let result = await this.conn.query(sql);
         return result[0];
     };
-    
-    /**
-        * readByTwoParams
-        * @param {string} table table name
-        * @param {object} object
-        */
-    
-    async readByTwoParams(table, object) {
-        let sql = `
-            SELECT * 
-            FROM ${table} 
-            WHERE username = '${object.username}' 
-                AND password = '${object.password}'
-        `;
-        let result = await this.conn.query(sql);
-        return result;
-    };
-    
+
     /**
      * readAll and read method, get data from database
      * @param {string} table table name
@@ -78,6 +61,23 @@ module.exports = class DB {
              `;
         const result = await this.conn.query(sql);
         return result[0];
+    };
+
+    /**
+           * readByTwoParams
+           * @param {string} table table name
+           * @param {object} object
+           */
+
+    async readByTwoParams(table, object) {
+        let sql = `
+            SELECT * 
+            FROM ${table} 
+            WHERE username = '${object.username}' 
+                AND password = '${object.password}'
+        `;
+        let result = await this.conn.query(sql);
+        return result;
     };
 
     /**
