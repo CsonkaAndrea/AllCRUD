@@ -164,10 +164,10 @@ module.exports = class DB {
         return result;
     };
 
-    // async getDataFromSql(sql) {
-    //     const result = await this.conn.query(sql);
-    //     return result;
-    // };
+    async getDataFromSql(sql) {
+        const result = await this.conn.query(sql);
+        return result;
+    };
 
     async getSqlData(customerID){
         console.log(`customerid: ${customerID}`);
@@ -192,20 +192,31 @@ module.exports = class DB {
     async submittedBasketData(customerID) {
         // UNDER CONSTRUCTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         let sql = `
-        SELECT *
-        FROM basketdetails
-        INNER JOIN baskets
-        ON baskets.id=basketdetails.basketID
-        WHERE baskets.customerId=${customerID}; 
-        ` ;
-        const submittedBasket = await this.conn.query(sql);
-        console.log(`result: ${submittedBasket}`);
-        
-        let orderSql = `
-        INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
-        VALUES (${submittedBasket.customerId}, 1, 7600, 1);
+        BEGIN;
+        DECLARE _customerID TYPE OF customers.id; 
+       DECLARE _orderID TYPE OF orders.id; 
+       DECLARE _basketID TYPE OF baskets.id; 
+       INSERT INTO orders (customerID, deliveryId) VALUES(1, 1) 
+       SET  _orderID = SELECT LAST_INSERT_ID(); 
+       INSERT INTO orderDetails SELECT  NULL, _orderID, _customerID, basketDetails.productID, products.price, basketDetails.basketQuantity FROM basketDetails, products WHERE basketDetails.productID =  products.id AND basketDetails.basketID = (SELECT id FROM baskests WHERE customerId=_customerID LIMIT 1); 
+       UPDATE orders SET value = (SELECT SUM(netPrice*orderQuantity) FROM orderDetails WHERE order_ID=_orderID) WHERE id=_orderID; 
+       COMMIT;
         `;
-        let result = await this.conn.query(orderSql);
+        // let sql = `
+        // SELECT *
+        // FROM basketdetails
+        // INNER JOIN baskets
+        // ON baskets.id=basketdetails.basketID
+        // WHERE baskets.customerId=${customerID}; 
+        // ` ;
+        // const submittedBasket = await this.conn.query(sql);
+        // console.log(`result: ${submittedBasket}`);
+        
+        // let orderSql = `
+        // INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
+        // VALUES (${submittedBasket.customerId}, 1, 7600, 1);
+        // `;
+        // let result = await this.conn.query(orderSql);
         
        /*         BEGIN;
         INSERT INTO orders (customerId, orderStatus, orderValue, deliveryId)
