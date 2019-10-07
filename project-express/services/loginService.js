@@ -3,17 +3,11 @@ const Models = require('../models/models');
 
 const models = new Models();
 
-module.exports = class loginDB {
+module.exports = class loginService {
     async loginUser(string, object) {
-        let users = await models.readLogin(string, object);
-        let userId = -1;
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email === object.email && users[i].password === sha1(object.password)) {
-                userId = users[i].id;
-                break;
-            }
-        }
-        return userId;
+    object.password = sha1(object.password);
+    const users = await models.readByTwoParams(string, object);
+    return users[0].id || -1;
     };
 
     async createToken(string, userId) {
