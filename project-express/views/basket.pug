@@ -35,7 +35,7 @@ block content
           h2(id='sumOfBasket') #{sumOfBasketPrice} HUF
       .row              
         .col
-          button#orderButton(onclick='orderButtonHandler(' + basket[0].basketID + '); redirectToMyOrders();' class='btn btn-secondary product-in-basket-to-order-button') Order
+          a#orderButton(href='/basket/order') Order
   script(src='/javascript/orderButtonHandler.js')
           
       
