@@ -39,7 +39,7 @@ export class NewProductComponent implements OnInit {
     this.productService.createNew(this.newProduct).subscribe(
       response => {
         console.log('sikeres');
-        this.router.navigateByUrl('/admin/products');
+        this.router.navigateByUrl('/products');
       },
       err => {
         console.error(err);
@@ -48,7 +48,7 @@ export class NewProductComponent implements OnInit {
   }
 
   onCancel() {
-    this.router.navigateByUrl('/admin/products');
+    this.router.navigateByUrl('/products');
   }
 
 }

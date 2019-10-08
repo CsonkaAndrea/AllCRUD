@@ -23,7 +23,7 @@ export class ProductDetailComponent implements OnInit {
 
     this.productsService.getAll().subscribe(products => {
       this.oneProduct = products.filter(c => c.id === this.selectedProductId)[0];
-      });
+    });
 
   }
 
@@ -32,11 +32,11 @@ export class ProductDetailComponent implements OnInit {
 
   onUpdate($event: Event) {
     $event.preventDefault();
-    this.productsService.update(this.oneProduct).forEach(() => this.router.navigateByUrl('/admin/products'));
+    this.productsService.update(this.oneProduct).forEach(() => this.router.navigateByUrl('/products'));
   }
 
   onCancel() {
-    this.router.navigateByUrl('/admin/products');
+    this.router.navigateByUrl('/products');
   }
 
 }

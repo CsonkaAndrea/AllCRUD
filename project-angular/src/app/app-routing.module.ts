@@ -17,16 +17,16 @@ import { DashboardComponent } from './components/admin/dashboard/dashboard.compo
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'admin/products', component: ProductsComponent },
-  { path: 'admin/products/:id', component: ProductDetailComponent },
-  { path: 'admin/new-product', component: NewProductComponent },
-  { path: 'admin/orders', component: OrdersComponent },
-  { path: 'admin/orders/:id', component: UpdateOrdersComponent },
-  { path: 'admin/users', component: CustomersComponent },
-  { path: 'admin/users/:id', component: UpdateCustomerComponent },
-  { path: 'admin/admins', component: AdminsComponent },
-  { path: 'admin/admins/:id', component: UpdateAdminComponent },
-  { path: 'admin/new-admin', component: CreateAdminComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'new-product', component: NewProductComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'orders/:id', component: UpdateOrdersComponent },
+  { path: 'users', component: CustomersComponent },
+  { path: 'users/:id', component: UpdateCustomerComponent },
+  { path: 'admins', component: AdminsComponent },
+  { path: 'admins/:id', component: UpdateAdminComponent },
+  { path: 'new-admin', component: CreateAdminComponent },
   { path: '**', component: IndexComponent }
 ];
 

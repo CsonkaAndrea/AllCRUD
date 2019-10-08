@@ -18,28 +18,28 @@ export class UpdateOrdersComponent implements OnInit {
   constructor(
     private ordersService: OrdersService,
     private router: Router
-    ) {
+  ) {
 
-      this.selectedOrderID = parseInt(this.router.url.split('/')[3]);
-      this.ordersService.getAll().subscribe(orders => {
-        this.oneOrder = orders.filter(c => c.id === this.selectedOrderID)[0];
-      });
+    this.selectedOrderID = parseInt(this.router.url.split('/')[3]);
+    this.ordersService.getAll().subscribe(orders => {
+      this.oneOrder = orders.filter(c => c.id === this.selectedOrderID)[0];
+    });
   }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
-onUpdate($event: Event) {
-  $event.preventDefault();
-  // this.oneOrder.orderStatus = parseInt(this.oneOrder.orderStatus);
-  delete this.oneOrder.orderDate;
-  this.ordersService.update(this.oneOrder).forEach(() => this.router.navigateByUrl('/admin/orders'));
-}
+  onUpdate($event: Event) {
+    $event.preventDefault();
+    // this.oneOrder.orderStatus = parseInt(this.oneOrder.orderStatus);
+    delete this.oneOrder.orderDate;
+    this.ordersService.update(this.oneOrder).forEach(() => this.router.navigateByUrl('/orders'));
+  }
 
-onCancel() {
-  this.router.navigateByUrl('/admin/orders');
-}
+  onCancel() {
+    this.router.navigateByUrl('/orders');
+  }
 
-// még meg kell írni hozzá az onModify()-t!!!!!
-// oneOrderDetail táblát létrehozni és bekötni!!!
+  // még meg kell írni hozzá az onModify()-t!!!!!
+  // oneOrderDetail táblát létrehozni és bekötni!!!
 
 }
