@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <h1 class="text-center">{{ title }}</h1>
+  <h1 class="text-center">Add new product</h1>
   <div class="row">
     <div class="col-12">
       <form (submit)="onSubmit($event)">
@@ -18,7 +18,7 @@
           <input type="number" required id="price" name="price" [(ngModel)]="newProduct.price" class="form-control" #price="ngModel">
           <label for="stock">Stock</label>
           <input type="number" required id="stock" name="stock" [(ngModel)]="newProduct.stock" class="form-control" #stock="ngModel">
-          <div class="col-12 d-flex justify-content-around">
+          <div class="col-12 d-flex justify-content-around mt-4">
             <button type="submit" class="btn btn-primary" ng-click="submitted=true">Ok</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
           </div>

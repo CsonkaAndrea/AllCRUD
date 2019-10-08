@@ -18,7 +18,7 @@
           <input type="text" required id="price" name="price" [(ngModel)]="oneProduct.price" class="form-control" #price="ngModel">
           <label for="stock">Stock</label>
           <input type="text" required id="stock" name="stock" [(ngModel)]="oneProduct.stock" class="form-control" #stock="ngModel">
-          <div class="col-12 d-flex justify-content-around">
+          <div class="col-12 d-flex justify-content-around mt-4">
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="btn btn-warning" (click)="onCancel()">Cancel</button>
           </div>

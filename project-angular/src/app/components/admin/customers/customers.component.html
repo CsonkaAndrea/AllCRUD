@@ -21,8 +21,8 @@
             <td>{{ customer.username }}</td>
             <td>
               <div class="btn-group">
-                <button routerLink="/admin/users/{{customer.id}}">Edit</button>
-                <button (click)="onDeleteCustomer(customer)">Delete</button>
+                <button class="btn btn-warning" routerLink="/admin/users/{{customer.id}}">Edit</button>
+                <button class="btn btn-danger" (click)="onDeleteCustomer(customer)">Delete</button>
               </div>
             </td>
           </tr>

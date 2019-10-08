@@ -182,7 +182,7 @@ a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 
-#content {
+/* #content {
   width: 100%;
   padding: 20px;
   min-height: 100vh;
@@ -190,14 +190,20 @@ a.article:hover {
   position: absolute;
   top: 0;
   right: 0;
+} */
+
+
+#searchActive {
+  margin-left: -150px;
 }
 
-.form-control {
-    margin-left: 150px;
+#checkBox {
+  text-align: right;
+  color: #fff;
+  text-shadow: 2px 2px 2px #000;
 }
 
 h1 {
-    color: #fff;
-    text-shadow: 2px 2px 2px #000;
+  color: #fff;
+  text-shadow: 2px 2px 2px #000;
 }
-
