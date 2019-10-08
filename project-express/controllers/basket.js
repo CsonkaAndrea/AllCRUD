@@ -3,6 +3,14 @@ const router = express.Router();
 const BasketService = require('../services/basketService');
 const basketService = new BasketService();
 
+router.get('/order', (req, res, next) => {
+    req.user.prodsInBasket = 0;
+    res.render('index', {
+        title: 'Index',
+        user: req.user || {}
+    })
+});
+
 // Display /basket
 router.get('/', async (req, res, next) => {
     let loggedInUserBasket = await basketService.getBasketId(req);
@@ -77,6 +85,7 @@ router.delete('/', async (req, res, next) => {
     res.json({
         sum: sumOfBasketPrice
     });
+
 });
 
 module.exports = router;
