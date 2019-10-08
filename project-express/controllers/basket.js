@@ -60,12 +60,12 @@ router.post('/', async (req, res, next) => {
             return console.log('You already added this product.');
         };
     };
-    await basketLogic.addData(basketDetail);
+    await basketService.addData(basketDetail);
     res.end();
 });
 
 router.delete('/', async (req, res, next) => {
-    await basketLogic.removeFromBasket(parseInt(req.body.prodID));
+    await basketService.removeFromBasket(parseInt(req.body.prodID));
     let loggedInUserBasket = await basketService.getBasketId(req);
     let basketID = loggedInUserBasket.id;
     // Send the sum value of the basket (after delete)
