@@ -11,11 +11,11 @@ export class ProductService {
   constructor(private httpClient: HttpClient) { }
 
   // list: BehaviorSubject<any> = new BehaviorSubject([]);
-  url: string = 'http://localhost:3000/api/products';
+  url: string = 'http://localhost:3005/api/products';
 
   getAll(): Observable<any> {
     return this.httpClient.get(this.url);
-   }
+  }
 
   getOne(id: number): Observable<any> {
     return this.httpClient.get(`${this.url}/${id}`);

@@ -1,6 +1,6 @@
-// Sends a post request to http://localhost:3000/basket
+// Sends a post request to http://localhost:3005/basket
 function onAddToBasketHandler() {
-    let url = 'http://localhost:3000/basket';
+    let url = 'http://localhost:3005/basket';
     let xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
@@ -16,7 +16,7 @@ function onAddToBasketHandler() {
 
 // Delete item from basket
 function onRemoveItemFromBasketHandler(productID) {
-    let url = 'http://localhost:3000/basket';
+    let url = 'http://localhost:3005/basket';
     let xhr = new XMLHttpRequest();
     // Send delete request to server
     xhr.open('DELETE', url);

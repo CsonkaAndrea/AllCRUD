@@ -10,7 +10,7 @@ export class OrdersService {
 
   constructor(private httpClient: HttpClient) { }
 
-  url: string = 'http://localhost:3000/api/orders';
+  url: string = 'http://localhost:3005/api/orders';
 
   getAll(): Observable<any> {
     return this.httpClient.get(this.url)

@@ -201,7 +201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"wrapper\">\r\n  <!-- Sidebar  -->\r\n  <nav id=\"sidebar\">\r\n    <div id=\"dismiss\">\r\n      <i class=\"fas fa-arrow-left\"></i>\r\n    </div>\r\n\r\n    <div class=\"sidebar-header\">\r\n      <h3>MoV Admin</h3>\r\n    </div>\r\n\r\n    <ul class=\"list-unstyled components\">\r\n      <p>Welcome to the admin site!</p>\r\n      <li>\r\n        <a href=\"http://localhost:3000/admin\">Dashboard</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3000/admin/products\">Products</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3000/admin/orders\">Orders</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3000/admin/users\">Customers</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3000/admin/admins\">Admins</a>\r\n      </li>\r\n    </ul>\r\n  </nav>\r\n\r\n  <!-- Page Content  -->\r\n  <div id=\"content\">\r\n\r\n\r\n    <div class=\"container-fluid\">\r\n      <button type=\"button\"\r\n              id=\"sidebarCollapse\"\r\n              class=\"btn btn-secondary mt-3\">\r\n        <i class=\"fas fa-align-left\"></i>\r\n        <span>&nbsp;Admin menu</span>\r\n      </button>\r\n      <button class=\"btn btn-dark d-inline-block d-lg-none ml-auto\"\r\n              type=\"button\"\r\n              data-toggle=\"collapse\"\r\n              data-target=\"#navbarSupportedContent\"\r\n              aria-controls=\"navbarSupportedContent\"\r\n              aria-expanded=\"false\"\r\n              aria-label=\"Toggle navigation\">\r\n        <i class=\"fas fa-align-justify\"></i>\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"overlay\"></div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"wrapper\">\r\n  <!-- Sidebar  -->\r\n  <nav id=\"sidebar\">\r\n    <div id=\"dismiss\">\r\n      <i class=\"fas fa-arrow-left\"></i>\r\n    </div>\r\n\r\n    <div class=\"sidebar-header\">\r\n      <h3>MoV Admin</h3>\r\n    </div>\r\n\r\n    <ul class=\"list-unstyled components\">\r\n      <p>Welcome to the admin site!</p>\r\n      <li>\r\n        <a href=\"http://localhost:3005/admin\">Dashboard</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3005/admin/products\">Products</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3005/admin/orders\">Orders</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3005/admin/users\">Customers</a>\r\n      </li>\r\n      <li>\r\n        <a href=\"http://localhost:3005/admin/admins\">Admins</a>\r\n      </li>\r\n    </ul>\r\n  </nav>\r\n\r\n  <!-- Page Content  -->\r\n  <div id=\"content\">\r\n\r\n\r\n    <div class=\"container-fluid\">\r\n      <button type=\"button\" id=\"sidebarCollapse\" class=\"btn btn-secondary mt-3\">\r\n        <i class=\"fas fa-align-left\"></i>\r\n        <span>&nbsp;Admin menu</span>\r\n      </button>\r\n      <button class=\"btn btn-dark d-inline-block d-lg-none ml-auto\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\"\r\n        aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\r\n        <i class=\"fas fa-align-justify\"></i>\r\n      </button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<div class=\"overlay\"></div>");
 
 /***/ }),
 
@@ -1713,7 +1713,7 @@ __webpack_require__.r(__webpack_exports__);
 let AdminsService = class AdminsService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.url = 'http://localhost:3000/api/admins';
+        this.url = 'http://localhost:3005/api/admins';
     }
     getAll() {
         return this.httpClient.get(this.url);
@@ -1768,7 +1768,7 @@ __webpack_require__.r(__webpack_exports__);
 let CustomersService = class CustomersService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.url = 'http://localhost:3000/api/users';
+        this.url = 'http://localhost:3005/api/users';
     }
     getAll() {
         return this.httpClient.get(this.url);
@@ -1819,7 +1819,7 @@ __webpack_require__.r(__webpack_exports__);
 let OrdersService = class OrdersService {
     constructor(httpClient) {
         this.httpClient = httpClient;
-        this.url = 'http://localhost:3000/api/orders';
+        this.url = 'http://localhost:3005/api/orders';
     }
     getAll() {
         return this.httpClient.get(this.url);
@@ -1871,7 +1871,7 @@ let ProductService = class ProductService {
     constructor(httpClient) {
         this.httpClient = httpClient;
         // list: BehaviorSubject<any> = new BehaviorSubject([]);
-        this.url = 'http://localhost:3000/api/products';
+        this.url = 'http://localhost:3005/api/products';
     }
     getAll() {
         return this.httpClient.get(this.url);
@@ -1964,7 +1964,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_2__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\zaro-projekt\AllCRUD\project-angular\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! D:\Projekt\Új mappa\AllCRUD\project-angular\src\main.ts */"./src/main.ts");
 
 
 /***/ })

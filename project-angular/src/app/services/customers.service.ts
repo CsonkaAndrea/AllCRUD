@@ -10,7 +10,7 @@ export class CustomersService {
 
   constructor(private httpClient: HttpClient) { }
 
-  url: string = 'http://localhost:3000/api/users';
+  url: string = 'http://localhost:3005/api/users';
 
   getAll(): Observable<any> {
     return this.httpClient.get(this.url)

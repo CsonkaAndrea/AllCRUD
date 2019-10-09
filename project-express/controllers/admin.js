@@ -5,7 +5,7 @@ const LoginService = require('../services/loginService');
 const loginService = new LoginService();
 
 router.get('/*', (req, res, next) => {
-    res.render('admin', {});
+    res.render('admin');
 });
 
 

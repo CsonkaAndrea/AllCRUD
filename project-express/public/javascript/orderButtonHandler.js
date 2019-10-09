@@ -9,9 +9,9 @@ function tableChangeHandler() {
     };
 };
 
-// Order the basket, sends a post request to http://localhost:3000/myorders
+// Order the basket, sends a post request to http://localhost:3005/myorders
 function orderButtonHandler(basketID) {
-    let url = 'http://localhost:3000/myorders';
+    let url = 'http://localhost:3005/myorders';
     let xhr = new XMLHttpRequest();
     xhr.open('POST', url);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -19,7 +19,7 @@ function orderButtonHandler(basketID) {
 };
 
 function redirectToMyOrders() {
-    let url = 'http://localhost:3000/myorders';
-    document.location.href = url; 
+    let url = 'http://localhost:3005/myorders';
+    document.location.href = url;
 
 };

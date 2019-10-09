@@ -21,7 +21,7 @@
  * npm i --save bootstrap
  * layout.pug --> link(rel='stylesheet' href='/css/bootstrap.min.css')
  * app.js --> app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
- * http://localhost:3000 meg kell jelennie egy "Bootstrap works! :)" feliratú gombnak
+ * http://localhost:3005 meg kell jelennie egy "Bootstrap works! :)" feliratú gombnak
 
 ## api.js
  * routes/api/api.js
